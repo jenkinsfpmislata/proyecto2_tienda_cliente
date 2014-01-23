@@ -21,118 +21,120 @@
         <script type="text/javascript" language="javascript" src="js/jquery.skitter.min.js"></script>
 
         <script type="text/javascript" language="javascript">
-		
-		$(document).ready(function() {
-		
-		   
-            
-            $.ajax({
-                dataType: 'json',
-                url: 'phps/admin/productoAdmin.php',
-			
-                success: function(data) {
-				   datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Description</td><td>Image</td><td>Searched<td>Sold</td><td>Fav.</td><td>manufacturer</td><td>price</td><td>Edit</td></tr>';
-                   $.each(data, function(index) {
-				  datos += '<tr>';
-					datos += '<td>'+ data[index].idProducto + '<td>'+ data[index].Nombre +'<td>'+data[index].Descripcion+'<td>'+ data[index].Imagen +'<td>'+data[index].vecesBuscado+'<td>'+data[index].vecesVendido+'<td>'+data[index].vecesFavorito+'<td>'+data[index].marca+'<td>'+data[index].precio+'<td><div class="btn btn-default btn-sm" onclick="prepareUpdate('+data[index].idProducto+')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteProducto('+ data[index].idProducto +')"><span class="glyphicon glyphicon-remove"></span></a></td>';
-                    datos += '</tr>';
-				   });
-                    $('#tabla').html(datos);
-                }
+
+            $(document).ready(function() {
+
+
+
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/productoAdmin.php',
+                    success: function(data) {
+                        datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Description</td><td>Image</td><td>Searched<td>Sold</td><td>Fav.</td><td>manufacturer</td><td>price</td><td>Edit</td></tr>';
+                        $.each(data, function(index) {
+                            datos += '<tr>';
+                            datos += '<td>' + data[index].idProducto + '<td>' + data[index].Nombre + '<td>' + data[index].Descripcion + '<td>' + data[index].Imagen + '<td>' + data[index].vecesBuscado + '<td>' + data[index].vecesVendido + '<td>' + data[index].vecesFavorito + '<td>' + data[index].marca + '<td>' + data[index].precio + '<td><div class="btn btn-default btn-sm" onclick="prepareUpdate(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteProducto(' + data[index].idProducto + ')"><span class="glyphicon glyphicon-remove"></span></a></td>';
+                            datos += '</tr>';
+                        });
+                        $('#tabla').html(datos);
+                    }
+                });
+
             });
-			
-        });
-		
-		
-		
-		
-		function refrescar(){
-		
-		$.ajax({
-                dataType: 'json',
-                url: 'phps/admin/productoAdmin.php',
-			
-                success: function(data) {
-				   datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Description</td><td>Image</td><td>Searched<td>Sold</td><td>Fav.</td><td>manufacturer</td><td>price</td></tr>';
-                   $.each(data, function(index) {
-				  datos += '<tr>';
-					datos += '<td>'+ data[index].idProducto + '<td>'+ data[index].Nombre +'<td>'+data[index].Descripcion+'<td>'+ data[index].Imagen +'<td>'+data[index].vecesBuscado+'<td>'+data[index].vecesVendido+'<td>'+data[index].vecesFavorito+'<td>'+data[index].marca+'<td>'+data[index].precio+'<td><div class="btn btn-default btn-sm" onclick="prepareUpdate('+data[index].idProducto+')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteProducto('+ data[index].idProducto +')"><span class="glyphicon glyphicon-remove"></span></a></td>';
-                    datos += '</tr>';
-				   });
-                    $('#tabla').html(datos);
-                }
-            });
-			
-        };
-		
-		
-		function deleteProducto(id){
-				$.ajax({
-					type:'GET',
-					url: 'phps/admin/deleteIdProducto.php?id='+id,
-					success: function() {
-				   alert("Registro "+id+" Borrado");
-				   refrescar();
-                }
-					
-					
-				});
-		};
-		
-		function insertar(){
-			 insertar=$('#insertarProducto').serialize();
-			 
-		$.ajax({
-				dataType: 'json',
-                url: 'phps/admin/insertProducto.php',
-				type: 'POST',
-				data:insertar,
-                success: function(data) {
-                  alert("Producto Insertado");
-				  refrescar();
-				  
+
+
+
+
+            function refrescar() {
+
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/productoAdmin.php',
+                    success: function(data) {
+                        datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Description</td><td>Image</td><td>Searched<td>Sold</td><td>Fav.</td><td>manufacturer</td><td>price</td></tr>';
+                        $.each(data, function(index) {
+                            datos += '<tr>';
+                            datos += '<td>' + data[index].idProducto + '<td>' + data[index].Nombre + '<td>' + data[index].Descripcion + '<td>' + data[index].Imagen + '<td>' + data[index].vecesBuscado + '<td>' + data[index].vecesVendido + '<td>' + data[index].vecesFavorito + '<td>' + data[index].marca + '<td>' + data[index].precio + '<td><div class="btn btn-default btn-sm" onclick="prepareUpdate(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteProducto(' + data[index].idProducto + ')"><span class="glyphicon glyphicon-remove"></span></a></td>';
+                            datos += '</tr>';
+                        });
+                        $('#tabla').html(datos);
+                    }
+                });
+
             }
-        });
+            ;
 
 
-};
-function prepareUpdate(id){
-
-		$.ajax({
-					dataType: 'json',
-					url: 'phps/admin/selectClient.php?id='+id,
-					type:'GET',
-					
-					success: function(data) {
-				
-					index=0;
-					datos='<form id="updatar" class="form-horizontal"  ><input id="oculto" class="form-control" name="id" value="'+ data[index].idCliente + '"></input>Name<input class="form-control" name="nombre" value="'+ data[index].nombreCliente + '"  ></input>Nick<input class="form-control" name="nick" value="'+ data[index].nick + '"></input>E-mail<input class="form-control" name="email" value="'+ data[index].email + '"></input>Password<input class="form-control"  type="password" name="pass" value="'+ data[index].contrasenya + '"></input>Client kind<select class="form-control"><option>Admin</option><option>User</option></select></div><a class="btn btn-success" href="javascript:update()">Update</a>   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button></form>'
-				   $('#updateDiv').html(datos);
-				   	
-                }
-					
-					
-				});
+            function deleteProducto(id) {
+                $.ajax({
+                    type: 'GET',
+                    url: 'phps/admin/deleteIdProducto.php?id=' + id,
+                    success: function() {
+                        alert("Registro " + id + " Borrado");
+                        refrescar();
+                    }
 
 
-};
+                });
+            }
+            ;
 
-function update(){
-		
-		 updatar=$('#updatar').serialize();
+            function insertar() {
+                insertar = $('#insertarProducto').serialize();
 
-$.ajax({
-					url: 'phps/admin/updateClient.php',
-					type: 'POST',
-					data:updatar,
-					success: function() {
-					 alert("Registro "+id+" updated");
-				   refrescar();
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/insertProducto.php',
+                    type: 'POST',
+                    data: insertar,
+                    success: function(data) {
+                        alert("Producto Insertado");
+                        refrescar();
 
-						}
-				});
-				
-};
+                    }
+                });
+
+
+            }
+            ;
+            function prepareUpdate(id) {
+
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/selectClient.php?id=' + id,
+                    type: 'GET',
+                    success: function(data) {
+
+                        index = 0;
+                        datos = '<form id="updatar" class="form-horizontal"  ><input id="oculto" class="form-control" name="id" value="' + data[index].idCliente + '"></input>Name<input class="form-control" name="nombre" value="' + data[index].nombreCliente + '"  ></input>Nick<input class="form-control" name="nick" value="' + data[index].nick + '"></input>E-mail<input class="form-control" name="email" value="' + data[index].email + '"></input>Password<input class="form-control"  type="password" name="pass" value="' + data[index].contrasenya + '"></input>Client kind<select class="form-control"><option>Admin</option><option>User</option></select></div><a class="btn btn-success" href="javascript:update()">Update</a>   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button></form>'
+                        $('#updateDiv').html(datos);
+
+                    }
+
+
+                });
+
+
+            }
+            ;
+
+            function update() {
+
+                updatar = $('#updatar').serialize();
+
+                $.ajax({
+                    url: 'phps/admin/updateClient.php',
+                    type: 'POST',
+                    data: updatar,
+                    success: function() {
+                        alert("Registro " + id + " updated");
+                        refrescar();
+
+                    }
+                });
+
+            }
+            ;
 
 
         </script>
@@ -186,10 +188,10 @@ $.ajax({
                     <div id="contieneTabla">
                         <table class="table" id="tabla">
                             <thead>
-                               
+
                             </thead>
                             <tbody>
-                                
+
                             </tbody>
                         </table>
                     </div>
@@ -198,55 +200,55 @@ $.ajax({
         </div>
 
 
-		
-		
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div id="modalDesc" class="modal-dialog">
-    <div class="modal-content">
-     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-       <div class="modal-body">
-	  <div id="descrip">
-	  <div class="form-group"  >
-						<form id="insertarProducto" class="form-horizontal" >
-						idProducto<input class="form-control" name="idProducto"></input>
-						Nombre<input class="form-control" name="Nombre"></input>
-						Descripcion<input class="form-control" name="Descripcion"></input>
-						Imagen<input class="form-control"  type="password" name="Imagen"></input>
-						vecesBuscado<input class="form-control" name="vecesBuscado"></input>
-						vecesVendido<input class="form-control" name="vecesVendido"></input>
-						vecesFavorito<input class="form-control" name="vecesFavorito"></input>
-						marca<input class="form-control" name="marca"></input>
-						precio<input class="form-control" name="precio"></input>
-								</div>
-						<a class="btn btn-success" href="javascript:insertar()"  >Insert</a>
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						</form>
-						</div>
-
- </div>
-      
-    </div>
-  </div>
-</div>
 
 
-<div class="modal fade" id="myModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div id="modalDesc" class="modal-dialog">
-    <div class="modal-content">
-     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-       <div class="modal-body">
-	  <div id="updateDiv">
-	  <!--TODA LA DESCRIPCION DEL PRODUCTO-->
-						</div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div id="modalDesc" class="modal-dialog">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="modal-body">
+                        <div id="descrip">
+                            <div class="form-group"  >
+                                <form id="insertarProducto" class="form-horizontal" >
+                                    
+                                    Nombre<input class="form-control" name="Nombre"></input>
+                                    Descripcion<input class="form-control" name="Descripcion"></input>
+                                    Imagen<input class="form-control"  name="Imagen"></input>
+                                    
+                                    
+                                    
+                                    marca<input class="form-control" name="marca"></input>
+                                    precio<input class="form-control" name="precio"></input>
+                            </div>
+                            <a class="btn btn-success" href="javascript:insertar()"  >Insert</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </form>
+                        </div>
 
- </div>
-     
-     
-        
-      
-    </div>
-  </div>
-</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="myModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div id="modalDesc" class="modal-dialog">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="modal-body">
+                        <div id="updateDiv">
+                            <!--TODA LA DESCRIPCION DEL PRODUCTO-->
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
 
 
 
