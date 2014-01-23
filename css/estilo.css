@@ -1,0 +1,288 @@
+@charset "utf-8";
+/* CSS Document */
+#perfil:hover{
+background-color:#009933;
+}
+
+#inicio:hover{
+background-color:#009933;
+}
+#inicio:active{
+background-color:#FFCC00;
+}
+
+#perfil:hover  #inicioSesion{
+display:block;
+}
+#mensajes:hover{
+background-color:#009933;
+}
+#mensajes:active{
+background-color:#FFCC00;
+}
+#carrito:hover{
+background-color:#009933;
+}
+#carrito:active{
+background-color:#FFCC00;
+}
+
+#inicioSesion{
+background-color:#FFFFFF;
+border: 4px solid;
+border-color:#6C0;
+padding:12px;
+margin-top:28px;
+width:250px;
+height:200px;
+border-radius:8px;
+
+
+display:none;
+}
+#inicioSesion button{
+margin-top:15px;
+margin-left:15px;
+
+}
+#inicioSesion  #loginInput{
+margin-top:15px;
+
+}
+ #inicioSesion a strong{
+margin-top:50px;
+}
+#inicioSesion p{
+margin-bottom:-4px;
+font-size:16px;
+}
+#inicioSesion strong{
+font-size:15px;
+
+}
+
+/*-----------------------barra-------------------*/
+#topbar{
+margin-top:-50px;
+margin-bottom:20px;
+
+	width:100%;
+	height:30px;
+	background:#6C0;
+	position:fixed;
+	z-index:50;
+	}
+
+#logotopbar{
+	background-image:url(../imagenes/imagenesStatic/logo-small.png);
+	background-size:200px 42px;
+	width:200px;
+	height:38px;
+	border-right:solid 1px #FFF;
+	float:left;
+	margin-top:-8px;
+	}
+
+
+
+#menutopbar{
+	float:left;
+	border-right:solid 1px #FFF;
+	}
+	#menutopbar2{
+	
+	margin-left:350px;
+	
+	float:left;
+	border-left:solid 1px #FFF;
+	}
+	
+#menutopbar ul{
+	margin:0;
+	padding:0;
+	
+	}
+
+#menutopbar ul li{
+	width:45px;
+	height:30px;
+	float:left;
+	text-decoration:none;
+	list-style:none;
+	}
+	
+	
+#menutopbar2 ul li{
+	margin-left:-40px;
+	margin-top:1px;
+	width:45px;
+	height:28px;
+	float:left;
+	text-decoration:none;
+	list-style:none;
+	}
+
+#inicio{
+background-image:url(../imagenes/imagenesStatic/home.png);
+background-size:28px 28px;
+background-repeat:no-repeat;
+background-position:center;
+}
+#perfil{
+background-image:url(../imagenes/imagenesStatic/user.png);
+background-size:28px 28px;
+background-repeat:no-repeat;
+background-position:center;
+}
+#mensajes{
+background-image:url(../imagenes/imagenesStatic/email.png);
+background-size:28px 28px;
+background-repeat:no-repeat;
+background-position:center;
+}
+#carrito{
+background-image:url(../imagenes/imagenesStatic/carro.png);
+background-size:28px 28px;
+background-repeat:no-repeat;
+background-position:center;
+}
+#menutopbar2 #salir{
+background-image:url(../imagenes/imagenesStatic/salir.png);
+background-size:28px 28px;
+background-repeat:no-repeat;
+background-position:center;
+}
+
+.cantidadProducto{
+	color:#FFF;
+	font-weight:bold;
+	background:#F00;
+	border-radius:11px;
+	font-size:10px;
+	padding:3px 6px;
+	position:relative;
+	top:25px;
+	left:32px;
+	}
+	
+	
+	/*-------------------------CARRO BAR----------------------------------*/
+	
+	#carroRightbar{
+	z-index:200000;
+	position:fixed;
+	left:99%;
+	width:30px;
+	height:260px;
+	border-left:20px solid;
+	border-top:2px solid;
+	border-bottom:2px solid;
+	background-color:#FFFFFF;
+	border-radius:20px;
+	border-color:#6B0;
+	transition:height 0.6s,width 0.6s, margin-left 0.7s;
+	-webkit-transform: 1s;
+	
+	}
+	#carroRightbar:hover{
+	width:270px;
+	height:500px;
+	margin-left:-250px;
+	}
+	
+	
+	#carroRightbar .carrito{
+	z-index:20;
+	margin-top:102px;
+	margin-left:-40px;
+	height:40px;
+	width:40px;
+	}
+	
+	#carroRightbar .carrito:active{
+	background-color:#009900;
+	margin-top:102px;
+	margin-left:-40px;
+	height:40px;
+	width:40px;
+	}
+	
+	#carroRightbar .carrito img{
+	margin-bottom:50px;
+	height:30px;
+	width:30px;}
+	
+	/*-------------------------LISTA CARRO BAR----------------------------------*/
+	
+	 #listaCarro{
+	margin-top:-110px;
+	 overflow:auto;
+	height:200px;
+	 transition:height 0.6s,margin-left 0.6s,transform 2s;
+	}
+					#carroRightbar:hover #listaCarro{
+						height:465px;
+	
+							}
+	
+	 #listaCarro .producto{
+	 
+	 margin-right:70%;
+	 float:left;
+	padding-bottom:50px;
+	height:170px;
+	margin-left:30px;
+	width:150px;
+	}
+			#listaCarro .producto #precioLista{
+			font-size:20px;
+			width:30px;
+			height:30px;
+			padding-bottom:50px;
+				margin-bottom:-26px;
+				color:#6C0;
+				}
+				
+				#listaCarro .producto img{
+				width:110px;
+				height:90px;
+				}
+				
+				
+				#cantidad{
+					color:#FFF;
+					font-weight:bold;
+					background:#F00;
+					border-radius:11px;
+					font-size:10px;
+					padding:3px 3px 3px 11px;
+					position:relative;
+					top:-75px;
+					left:35px;
+					}
+	
+	#cerrar{
+	
+	width:23px;
+	height:40px;
+	margin-left:137px;
+	margin-top:-25px;
+	
+	}
+				
+				
+				/*-------------------------PRECIO TOTAL CARRO BAR----------------------------------*/
+				
+				#carroRightbar #precioTotal{
+				height:30px;
+				position:absolute;
+				width:300px;
+				font-size:25px;
+				background-color:#FFCC00;
+				top:0px;
+				padding-bottom:-50px;
+				}
+	
+	 
+	
+	

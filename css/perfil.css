@@ -1,0 +1,74 @@
+#perfilNavegador{
+font-size:18px;
+padding-top:20px;
+padding-bottom:20px;
+margin-left:600px;
+margin-bottom:-15px;}
+
+#perfilNavegador a{
+color:black;
+
+padding-left:15px;
+padding-right:15px;
+border-right:2px solid;
+border-left:2px solid;}
+#perfilNavegador a.activoP{
+color:white;
+background-color:#6C0;
+border-radius:20px;
+padding-bottom:25px;
+padding-top:10px;
+}
+
+#perfilContenido{
+
+background-color:white;
+margin-left:23%;
+border:2px solid;
+border-radius:12px;
+padding:20px;
+padding-bottom:20px;
+border-color:#6C0;
+}
+
+
+/*---------------------------perfilNormal-------------------------*/
+
+#perfilContenido #imagenPerfil{
+float:left;
+width:150px;
+height:180px;
+border:2px solid;
+border-radius:3px;
+border-color:#FFCC00;
+}
+
+#perfilContenido p{
+margin-left:65px;
+float:left;
+width:50%;
+}
+
+p.perfilConstante{
+ font-weight:bold;
+ 
+}
+#descripcion{
+margin-top:30px;
+margin-bottom:-40px;
+ 
+}
+
+#perfilContenido input{
+
+width:80%;
+height:90px;
+}
+.perfilIcon{
+margin-left:20px;}
+
+
+
+
+
+/*---------------------------perfilPago-------------------------*/
