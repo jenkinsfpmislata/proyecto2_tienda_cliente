@@ -136,7 +136,7 @@ $.ajax({
 };
 function buscar(){
 busc=$('#searchForm').serialize();
-alert(busc);
+
  
  $.ajax({
 					dataType: 'json',
