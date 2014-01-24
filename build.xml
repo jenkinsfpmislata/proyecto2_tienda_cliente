@@ -15,7 +15,7 @@
         <property file="/home/jenkins/environment/proyecto2/proyecto2_Shop_Client_properties.txt"></property>
         <scp todir="${user}:${password}@${host}:${path}" trust="yes" >
             <fileset dir=".">
-                <include name="**/*.java"/>
+                <include name="**/*"/>
             </fileset>
         </scp>
     </target>

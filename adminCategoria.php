@@ -26,13 +26,13 @@
             
             $.ajax({
                 dataType: 'json',
-                url: 'phps/admin/clienteAdmin.php',
+                url: 'phps/admin/categoriaAdmin.php',
 			
                 success: function(data) {
-				   datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Nick</td><td>@</td><td>Imagen<td>Password</td><td>Role</td><td>Edit</td></tr>';
+				   datos = '<tr id="primerTr"><td>#</td><td>Categorie</td>';
                    $.each(data, function(index) {
 				  datos += '<tr>';
-					datos += '<td>'+ data[index].idCliente + '<td>'+ data[index].nombreCliente +'<td>'+data[index].nick+'<td>'+ data[index].email +'<td>'+data[index].imagen+'<td>'+data[index].contrasenya+'<td>'+data[index].rol+'<td><a class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" href="javascript:prepareUpdate('+ data[index].idCliente +')"><span class="glyphicon glyphicon-edit"></span></a><a class="btn btn-default btn-sm" href="javascript:deleteCliente('+ data[index].idCliente +')"><span class="glyphicon glyphicon-remove"></span></a></td>';
+					datos += '<td>'+ data[index].idProducto + '<td>'+ data[index].Categoria +'<td><a class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" href="javascript:prepareUpdate('+ data[index].idCliente +')"><span class="glyphicon glyphicon-edit"></span></a><a class="btn btn-default btn-sm" href="javascript:deleteCliente('+ data[index].idProducto +')"><span class="glyphicon glyphicon-remove"></span></a></td>';
                     datos += '</tr>';
 				   });
                     $('#tabla').html(datos);
@@ -48,13 +48,13 @@
 		
 		$.ajax({
                 dataType: 'json',
-                url: 'phps/admin/clienteAdmin.php',
+                url: 'phps/admin/categoriaAdmin.php',
 			
                 success: function(data) {
-				   datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Nick</td><td>@</td><td>Imagen<td>Password</td><td>Role</td><td>Edit</td></tr>';
+				   datos = '<tr id="primerTr"><td>#</td><td>Categorie</td><td>Nick</td><td>@</td><td>Imagen<td>Password</td><td>Role</td><td>Edit</td></tr>';
                    $.each(data, function(index) {
 				  datos += '<tr>';
-					datos += '<td>'+ data[index].idCliente + '<td>'+ data[index].nombreCliente +'<td>'+data[index].nick+'<td>'+ data[index].email +'<td>'+data[index].imagen+'<td>'+data[index].contrasenya+'<td>'+data[index].rol+'<td><a class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" href="javascript:prepareUpdate('+ data[index].idCliente +')"><span class="glyphicon glyphicon-edit"></span></a><a class="btn btn-default btn-sm" href="javascript:deleteCliente('+ data[index].idCliente +')"><span class="glyphicon glyphicon-remove"></span></a></td>';
+					datos += '<td>'+ data[index].idCategoria + '<td>'+ data[index].Categoria +'<td><a class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" href="javascript:prepareUpdate('+ data[index].idCliente +')"><span class="glyphicon glyphicon-edit"></span></a><a class="btn btn-default btn-sm" href="javascript:deleteCliente('+ data[index].idProducto +')"><span class="glyphicon glyphicon-remove"></span></a></td>';
                     datos += '</tr>';
 				   });
                     $('#tabla').html(datos);
@@ -64,12 +64,12 @@
         };
 		
 		
-		function deleteCliente(id){
+		function deleteCategoria(categoria){
 				$.ajax({
 					type:'GET',
-					url: 'phps/admin/deleteIdCliente.php?id='+id,
+					url: 'phps/admin/deleteCategoria.php?categoria='+categoria,
 					success: function() {
-				   alert("Registro "+id+" Borrado");
+				   alert("Registro "+categoria+" Borrado");
 				   refrescar();
                 }
 					
@@ -78,15 +78,15 @@
 		};
 		
 		function insertar(){
-			 insertar=$('#insertarCliente').serialize();
+			 insertar=$('#insertarCategoria').serialize();
 			 
 		$.ajax({
 				dataType: 'json',
-                url: 'phps/admin/insert.php',
+                url: 'phps/admin/insertCategoria.php',
 				type: 'POST',
 				data:insertar,
                 success: function(data) {
-                  alert("Cliente Insertado");
+                  alert("Inserted Categorie");
 				  refrescar();
 				  
             }
@@ -94,10 +94,10 @@
 
 
 };
-function prepareUpdate(id){
+function prepareUpdate(Categoria){
 		$.ajax({
-					type:'GET',
-					url: 'phps/admin/updateCliente.php?id='+id,
+					type:'POST',
+					url: 'phps/admin/updateCategoria.php?Categoria='+Categoria,
 					success: function() {
 				   
 				  
@@ -203,26 +203,15 @@ function prepareUpdate(id){
     <div class="modal-content">
      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
        <div class="modal-body">
-	  <div id="descrip">
-	  <div class="form-group" id="registro" >
-						<form id="updatar" class="form-horizontal" action="phps/insertCategories.php" method="post">
-						IdProduct<input class="form-control" name="nombre"></input>
-						Nick<input class="form-control" name="nick"></input>
-						E-mail<input class="form-control" name="email"></input>
-						Password<input class="form-control"  type="password" name="pass"></input>
-						Repeat Password<input class="form-control" type="password" name="repPass"></input>
-						Client kind<select class="form-control"><option>Admin</option><option>User</option></select>
-								</div>
-						<a class="btn btn-success" href="javascript:insertar()">login</a>
-						
-						</form>
+	  <div id="updateDiv">
+	  <!--TODA LA DESCRIPCION DEL PRODUCTO-->
 						</div>
 
  </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+     
+     
         
-      </div>
+      
     </div>
   </div>
 </div>
