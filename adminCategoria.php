@@ -94,21 +94,27 @@
 
 
 };
-function prepareUpdate(Categoria){
-		$.ajax({
-					type:'POST',
-					url: 'phps/admin/updateCategoria.php?Categoria='+Categoria,
-					success: function() {
-				   
-				  
-				     $('#updateDiv').html(datos);
-                }
-					
-					
-				});
+ function update() {
+
+                updatar = $('#updatar').serialize();
+
+                $.ajax({
+                    url: 'phps/admin/updateCategoria.php',
+                    type: 'POST',
+                    data: updatar,
+                    success: function() {
+                        alert("Registro " + Categoria + " updated");
+                        refrescar();
+
+                    }
+                });
+                    refrescar();
+            }
+            ;
 
 
-};
+
+
 
         </script>
     </head>
