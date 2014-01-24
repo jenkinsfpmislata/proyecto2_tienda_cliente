@@ -101,7 +101,7 @@
 
                 $.ajax({
                     dataType: 'json',
-                    url: 'phps/admin/selectProducto.php?id=' + id,
+                    url: 'phps/admin/selectProducto.php?idProducto=' + id,
                     type: 'GET',
                     success: function(data) {
 
@@ -210,13 +210,13 @@
                         <div id="descrip">
                             <div class="form-group"  >
                                 <form id="insertarProducto" class="form-horizontal" >
-                                    
+
                                     Nombre<input class="form-control" name="Nombre"></input>
                                     Descripcion<input class="form-control" name="Descripcion"></input>
                                     Imagen<input class="form-control"  name="Imagen"></input>
-                                    
-                                    
-                                    
+
+
+
                                     marca<input class="form-control" name="marca"></input>
                                     precio<input class="form-control" name="precio"></input>
                             </div>
