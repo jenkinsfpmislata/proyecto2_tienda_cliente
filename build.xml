@@ -12,8 +12,8 @@
 
 
     <target name="desplegarProduccion">
-        <property file="/home/jenkins/environment/proyecto2/proyecto2_Shop_Client_properties.txt"></property>
-        <scp todir="${user}:${password}@${host}:${path}" trust="yes" >
+        <property file="/home/jenkins/environments/proyecto2/proyecto2_Shop_Client_properties.txt"></property>
+        <scp todir="${user}:${password}@${host}:${path}" trust="true" >
             <fileset dir=".">
                 <include name="*"/>
             </fileset>
