@@ -21,143 +21,146 @@
         <script type="text/javascript" language="javascript" src="js/jquery.skitter.min.js"></script>
 
         <script type="text/javascript" language="javascript">
-		
-		$(document).ready(function() {
-		
-		   
-            
-            $.ajax({
-                dataType: 'json',
-                url: 'phps/admin/clienteAdmin.php',
-			
-                success: function(data) {
-				   datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Nick</td><td>@</td><td>Image<td>Password</td><td>Role</td><td>Edit</td></tr>';
-                   $.each(data, function(index) {
-				  datos += '<tr>';
-					datos += '<td>'+ data[index].idCliente + '<td>'+ data[index].nombreCliente +'<td>'+data[index].nick+'<td>'+ data[index].email +'<td>'+data[index].imagen+'<td>'+data[index].contrasenya+'<td>'+data[index].rol+'<td><div class="btn btn-default btn-sm" onclick="prepareUpdate('+data[index].idCliente+')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteCliente('+ data[index].idCliente +')"><span class="glyphicon glyphicon-remove"></span></a></td>';
-                    datos += '</tr>';
-				   });
-                    $('#tabla').html(datos);
-                }
+
+            $(document).ready(function() {
+
+
+
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/clienteAdmin.php',
+                    success: function(data) {
+                        datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Nick</td><td>@</td><td>Image<td>Password</td><td>Role</td><td>Edit</td></tr>';
+                        $.each(data, function(index) {
+                            datos += '<tr>';
+                            datos += '<td>' + data[index].idCliente + '<td>' + data[index].nombreCliente + '<td>' + data[index].nick + '<td>' + data[index].email + '<td>' + data[index].imagen + '<td>' + data[index].contrasenya + '<td>' + data[index].rol + '<td><div class="btn btn-default btn-sm" onclick="prepareUpdate(' + data[index].idCliente + ')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteCliente(' + data[index].idCliente + ')"><span class="glyphicon glyphicon-remove"></span></a></td>';
+                            datos += '</tr>';
+                        });
+                        $('#tabla').html(datos);
+                    }
+                });
+
             });
-			
-        });
-		
-		
-		
-		
-		function refrescar(){
-		
-		$.ajax({
-                dataType: 'json',
-                url: 'phps/admin/clienteAdmin.php',
-			
-                success: function(data) {
-				   datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Nick</td><td>@</td><td>Imagen<td>Password</td><td>Role</td><td>Edit</td></tr>';
-                   $.each(data, function(index) {
-				  datos += '<tr>';
-					datos += '<td>'+ data[index].idCliente + '<td>'+ data[index].nombreCliente +'<td>'+data[index].nick+'<td>'+ data[index].email +'<td>'+data[index].imagen+'<td>'+data[index].contrasenya+'<td>'+data[index].rol+'<td><div class="btn btn-default btn-sm" onclick="prepareUpdate('+data[index].idCliente+')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteCliente('+ data[index].idCliente +')"><span class="glyphicon glyphicon-remove"></span></a></td>';
-                    datos += '</tr>';
-				   });
-                    $('#tabla').html(datos);
-                }
-            });
-			
-        };
-		
-		
-		function deleteCliente(id){
-				$.ajax({
-					type:'GET',
-					url: 'phps/admin/deleteIdCliente.php?id='+id,
-					success: function() {
-				   alert("Registro "+id+" Borrado");
-				   refrescar();
-                }
-					
-					
-				});
-		};
-		
-		function insertar(){
-			 insertar=$('#insertarCliente').serialize();
-			 
-		$.ajax({
-				dataType: 'json',
-                url: 'phps/admin/insertCliente.php',
-				type: 'POST',
-				data:insertar,
-                success: function() {
-			
-                  alert("Cliente Insertado");
-				  refrescar();
-				  
+
+
+
+
+            function refrescar() {
+
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/clienteAdmin.php',
+                    success: function(data) {
+                        datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Nick</td><td>@</td><td>Imagen<td>Password</td><td>Role</td><td>Edit</td></tr>';
+                        $.each(data, function(index) {
+                            datos += '<tr>';
+                            datos += '<td>' + data[index].idCliente + '<td>' + data[index].nombreCliente + '<td>' + data[index].nick + '<td>' + data[index].email + '<td>' + data[index].imagen + '<td>' + data[index].contrasenya + '<td>' + data[index].rol + '<td><div class="btn btn-default btn-sm" onclick="prepareUpdate(' + data[index].idCliente + ')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteCliente(' + data[index].idCliente + ')"><span class="glyphicon glyphicon-remove"></span></a></td>';
+                            datos += '</tr>';
+                        });
+                        $('#tabla').html(datos);
+                    }
+                });
+
             }
-        });
+            ;
 
 
-};
-function prepareUpdate(id){
-
-		$.ajax({
-					dataType: 'json',
-					url: 'phps/admin/selectClient.php?id='+id,
-					type:'GET',
-					
-					success: function(data) {
-				
-					index=0;
-					datos='<form id="updatar" class="form-horizontal"  ><input id="oculto" class="form-control" name="id" value="'+ data[index].idCliente + '"></input>Name<input class="form-control" name="nombre" value="'+ data[index].nombreCliente + '"  ></input>Nick<input class="form-control" name="nick" value="'+ data[index].nick + '"></input>E-mail<input class="form-control" name="email" value="'+ data[index].email + '"></input>Password<input class="form-control"  type="password" name="pass" value="'+ data[index].contrasenya + '"></input>Client kind<select class="form-control"><option>Admin</option><option>User</option></select></div><a class="btn btn-success" href="javascript:update()">Update</a>   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button></form>'
-				   $('#updateDiv').html(datos);
-				   	
-                }
-					
-					
-				});
+            function deleteCliente(id) {
+                $.ajax({
+                    type: 'GET',
+                    url: 'phps/admin/deleteIdCliente.php?id=' + id,
+                    success: function() {
+                        alert("Registro " + id + " Borrado");
+                        refrescar();
+                    }
 
 
-};
+                });
+            }
+            ;
 
-function update(){
-		
-		 updatar=$('#updatar').serialize();
+            function insertar() {
+                insertar = $('#insertarCliente').serialize();
 
-$.ajax({
-					url: 'phps/admin/updateClient.php',
-					type: 'POST',
-					data:updatar,
-					success: function() {
-					 alert("Registro "+id+" updated");
-				   refrescar();
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/insertCliente.php',
+                    type: 'POST',
+                    data: insertar,
+                    success: function() {
 
-						}
-				});
-				
-};
-function buscar(){
-busc=$('#searchForm').serialize();
+                        alert("Cliente Insertado");
+                        refrescar();
 
- 
- $.ajax({
-					dataType: 'json',
-					url: 'phps/admin/buscarCliente.php',
-					type: 'POST',
-					data:busc,
-					success: function(data) {
-					datos = '<tr id="primerTr"> <td>#</td><td>Name</td><td>Nick</td><td>@</td><td>Image<td>Password</td><td>Role</td><td>Edit</td></tr>';
-					
-                   $.each(data, function(index) {
-				  
-				  datos += '<tr>';
-					datos += '<td>'+ data[index].idCliente + '<td>'+ data[index].nombreCliente +'<td>'+data[index].nick+'<td>'+ data[index].email +'<td>'+data[index].imagen+'<td>'+data[index].contrasenya+'<td>'+data[index].rol+'<td><div class="btn btn-default btn-sm" onclick="prepareUpdate('+data[index].idCliente+')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteCliente('+ data[index].idCliente +')"><span class="glyphicon glyphicon-remove"></span></a></td>';
-                    datos += '</tr>';
-				   });
-                    $('#tabla').html(datos);
-				   }	
-				});
-			
+                    }
+                });
 
-};
+
+            }
+            ;
+            function prepareUpdate(id) {
+
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/selectClient.php?id=' + id,
+                    type: 'GET',
+                    success: function(data) {
+
+                        index = 0;
+                        datos = '<form id="updatar" class="form-horizontal"  ><input id="oculto" class="form-control" name="id" value="' + data[index].idCliente + '"></input>Name<input class="form-control" name="nombre" value="' + data[index].nombreCliente + '"  ></input>Nick<input class="form-control" name="nick" value="' + data[index].nick + '"></input>E-mail<input class="form-control" name="email" value="' + data[index].email + '"></input>Password<input class="form-control"  type="password" name="pass" value="' + data[index].contrasenya + '"></input>Client kind<select class="form-control"><option>Admin</option><option>User</option></select></div><a class="btn btn-success" href="javascript:update()">Update</a>   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button></form>'
+                        $('#updateDiv').html(datos);
+
+                    }
+
+
+                });
+
+
+            }
+            ;
+
+            function update() {
+
+                updatar = $('#updatar').serialize();
+
+                $.ajax({
+                    url: 'phps/admin/updateClient.php',
+                    type: 'POST',
+                    data: updatar,
+                    success: function() {
+                        alert("Registro " + id + " updated");
+                        refrescar();
+
+                    }
+                });
+
+            }
+            ;
+            function buscar() {
+                busc = $('#searchForm').serialize();
+
+
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/buscarCliente.php',
+                    type: 'POST',
+                    data: busc,
+                    success: function(data) {
+                        datos = '<tr id="primerTr"> <td>#</td><td>Name</td><td>Nick</td><td>@</td><td>Image<td>Password</td><td>Role</td><td>Edit</td></tr>';
+
+                        $.each(data, function(index) {
+
+                            datos += '<tr>';
+                            datos += '<td>' + data[index].idCliente + '<td>' + data[index].nombreCliente + '<td>' + data[index].nick + '<td>' + data[index].email + '<td>' + data[index].imagen + '<td>' + data[index].contrasenya + '<td>' + data[index].rol + '<td><div class="btn btn-default btn-sm" onclick="prepareUpdate(' + data[index].idCliente + ')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteCliente(' + data[index].idCliente + ')"><span class="glyphicon glyphicon-remove"></span></a></td>';
+                            datos += '</tr>';
+                        });
+                        $('#tabla').html(datos);
+                    }
+                });
+
+
+            }
+            ;
 //alert("succes");
 
         </script>
@@ -216,7 +219,7 @@ busc=$('#searchForm').serialize();
                             <a class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" href="#"><span class="glyphicon glyphicon-plus"></span> Add</a> 
                         </div>
                     </div>
-					<div id="contieneTabla">
+                    <div id="contieneTabla">
                         <table class="table" id="tabla">
                             <thead>
 
@@ -231,52 +234,52 @@ busc=$('#searchForm').serialize();
         </div>
 
 
-		
-		
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div id="modalDesc" class="modal-dialog">
-    <div class="modal-content">
-     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-       <div class="modal-body">
-	  <div id="descrip">
-	  <div class="form-group"  >
-						<form id="insertarCliente" class="form-horizontal" >
-						Name<input class="form-control" name="nombre"></input>
-						Nick<input class="form-control" name="nick"></input>
-						E-mail<input class="form-control" name="email"></input>
-						Password<input class="form-control"  type="password" name="pass"></input>
-						Repeat Password<input class="form-control" type="password" name="repPass"></input>
-						Client kind<select class="form-control"><option>Admin</option><option>User</option></select>
-								</div>
-						<a class="btn btn-success" href="javascript:insertar()"  >Insert</a>
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						</form>
-						</div>
-
- </div>
-      
-    </div>
-  </div>
-</div>
 
 
-<div class="modal fade" id="myModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div id="modalDesc" class="modal-dialog">
-    <div class="modal-content">
-     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-       <div class="modal-body">
-	  <div id="updateDiv">
-	  <!--TODA LA DESCRIPCION DEL PRODUCTO-->
-						</div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div id="modalDesc" class="modal-dialog">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="modal-body">
+                        <div id="descrip">
+                            <div class="form-group"  >
+                                <form id="insertarCliente" class="form-horizontal" >
+                                    Name<input class="form-control" name="nombre"></input>
+                                    Nick<input class="form-control" name="nick"></input>
+                                    E-mail<input class="form-control" name="email"></input>
+                                    Password<input class="form-control"  type="password" name="pass"></input>
+                                    Repeat Password<input class="form-control" type="password" name="repPass"></input>
+                                    Client kind<select class="form-control"><option>Admin</option><option>User</option></select>
+                            </div>
+                            <a class="btn btn-success" href="javascript:insertar()"  >Insert</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </form>
+                        </div>
 
- </div>
-     
-     
-        
-      
-    </div>
-  </div>
-</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="myModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div id="modalDesc" class="modal-dialog">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="modal-body">
+                        <div id="updateDiv">
+                            <!--TODA LA DESCRIPCION DEL PRODUCTO-->
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
 
         <div id="pie">
             <div id="LegalStuff">

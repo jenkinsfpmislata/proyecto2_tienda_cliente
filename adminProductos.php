@@ -89,12 +89,12 @@
                     data: insertar,
                     success: function(data) {
                         alert("Producto Insertado");
-                        
+
 
                     }
                 });
                 refrescar();
-                   
+
             }
             ;
             function prepareUpdate(id) {
@@ -132,7 +132,31 @@
 
                     }
                 });
-                    refrescar();
+                refrescar();
+            }
+            ;
+            
+            function buscar() {
+                busc = $('#searchForm').serialize();
+
+
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/buscarProducto.php',
+                    type: 'POST',
+                    data: busc,
+                    success: function(data) {
+                        datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Description</td><td>Image</td><td>Searched<td>Sold</td><td>Fav.</td><td>Brand</td><td>Price</td><td>Edit</td></tr>';
+                        $.each(data, function(index) {
+                            datos += '<tr>';
+                            datos += '<td>' + data[index].idProducto + '<td>' + data[index].Nombre + '<td>' + data[index].Descripcion + '<td>' + data[index].Imagen + '<td>' + data[index].vecesBuscado + '<td>' + data[index].vecesVendido + '<td>' + data[index].vecesFavorito + '<td>' + data[index].marca + '<td>' + data[index].precio + '<td><div class="btn btn-default btn-sm" onclick="prepareUpdate(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteProducto(' + data[index].idProducto + ')"><span class="glyphicon glyphicon-remove"></span></a></td>';
+                            datos += '</tr>';
+                        });
+                        $('#tabla').html(datos);
+                    }
+                });
+
+
             }
             ;
 
@@ -174,13 +198,21 @@
                 </div>
                 <div id="colDerecha">
                     <h4>Administering products</h4>
+
                     <div id="addSearch">
                         <div id="search" class="input-group input-group-sm">
-                            <input type="text" class="form-control" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default""><span class="glyphicon glyphicon-search"></span></button>
+
+                            <form id="searchForm">
+                                <input type="text" class="form-control" name="Nombre" placeholder="Search...">
+                            </form>
+
+                            <span class="input-group-btn" >
+                                <a href="javascript:buscar()"><button action="buscar()" class="btn btn-default" ><span class="glyphicon glyphicon-search"></span></button></a>
                             </span>
+
                         </div>
+
+
                         <div id="add">
                             <a class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" href="#"><span class="glyphicon glyphicon-plus"></span> Add</a> 
                         </div>
