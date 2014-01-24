@@ -24,6 +24,22 @@
             $(document).ready(function() {
                 $(".box_skitter_large").css({width: 820, height: 298}).skitter({numbers: false});
             });
+            
+            $(document).ready(function() {
+            
+            $.ajax({
+                dataType: 'json',
+                url: 'phps/productos.php',
+                success: function(data) {
+				 var datos = '<table>';
+                   $.each(data, function(index) {
+					datos += '<div class="producto"  onclick=""><p id="precio">'+ data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/'+ data[index].Imagen +'.jpg"><div id="descripcion"><p>'+data[index].Nombre+'<br>'+ data[index].Descripcion +'</p></div><a  ><div class="carrito" onclick="descripcion('+data[index].idProducto+')" data-toggle="modal" data-target="#myModalDescripcion"><img src="imagenes/imagenesStatic/carro.png"></div></a></div>';
+                    datos += '</table>';
+				   });
+                    $('#listaProducto').html(datos);
+                }
+            });
+        });
 
         </script>
 
@@ -216,97 +232,6 @@
                         <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"></div>
                     </div>
 
-                    <div class="producto"  onclick="">
-                        <p id="precio">1499.99&euro;</p>
-                        <a href="#"><img src="imagenes/imagenesProductos/art9.jpg"></a>
-
-                        <div id="descripcion">
-                            <p>This is other example from webpage...</p>
-                        </div>
-                        <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"></div>
-                    </div>
-
-                    <div class="producto"  onclick="">
-                        <p id="precio">3221.99&euro;</p>
-                        <a href="#"><img src="imagenes/imagenesProductos/art8.jpg"></a>
-
-                        <div id="descripcion">
-                            <p>This is other example from webpage...</p>
-                        </div>
-                        <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"></div>
-                    </div>
-                    <div class="producto"  onclick="">
-                        <p id="precio">249.99&euro;</p>
-                        <a href="#"><img src="imagenes/imagenesProductos/art7.jpg"></a>
-
-                        <div id="descripcion">
-                            <p>This is other example from webpage...</p>
-
-                        </div><div class="carrito"><img src="imagenes/imagenesStatic/carro.png"></div>
-                    </div>
-                    <div class="producto"  onclick="">
-                        <p id="precio">1250&euro;</p>
-                        <a href="#"><img src="imagenes/imagenesProductos/art3.jpg"></a>
-
-                        <div id="descripcion">
-                            <p>This is other example from webpage...</p>
-
-                        </div><div class="carrito"><img src="imagenes/imagenesStatic/carro.png"></div>
-                    </div>
-                    <div class="producto"  onclick="">
-                        <p id="precio">499.95&euro;</p>
-                        <a href="#"><img src="imagenes/imagenesProductos/art1.jpg"></a>
-
-                        <div id="descripcion">
-                            <p>This is other example from webpage...</p>
-
-                        </div><div class="carrito"><img src="imagenes/imagenesStatic/carro.png"></div>
-                    </div>
-                    <div class="producto"  onclick="">
-                        <p id="precio">2499&euro;</p>
-                        <a href="#"><img src="imagenes/imagenesProductos/art2.jpg"></a>
-
-                        <div id="descripcion">
-                            <p>This is other example from webpage...</p>
-
-                        </div><div class="carrito"><img src="imagenes/imagenesStatic/carro.png"></div>
-                    </div>
-                    <div class="producto"  onclick=""> 
-                        <p id="precio">3499&euro;</p>
-                        <a href="#"><img src="imagenes/imagenesProductos/art4.jpg"></a>
-
-                        <div id="descripcion">
-                            <p>This is other example from webpage...</p>
-
-                        </div><div class="carrito"><img src="imagenes/imagenesStatic/carro.png"></div>
-                    </div>
-                    <div class="producto"  onclick="">
-                        <p id="precio">1250&euro;</p>
-                        <a href="#"><img src="imagenes/imagenesProductos/art3.jpg"></a>
-
-                        <div id="descripcion">
-                            <p>This is other example from webpage...</p>
-
-                        </div><div class="carrito"><img src="imagenes/imagenesStatic/carro.png"></div>
-                    </div>
-                    <div class="producto"  onclick="">
-                        <p id="precio">1250&euro;</p>
-                        <a href="#"><img src="imagenes/imagenesProductos/art3.jpg"></a>
-
-                        <div id="descripcion">
-                            <p>This is other example from webpage...</p>
-
-                        </div><div class="carrito"><img src="imagenes/imagenesStatic/carro.png"></div>
-                    </div>
-                    <div class="producto"  onclick="">
-                        <p id="precio">1250&euro;</p>
-                        <a href="#"><img src="imagenes/imagenesProductos/art3.jpg"></a>
-
-                        <div id="descripcion">
-                            <p>This is other example from webpage...</p>
-
-                        </div><div class="carrito"><img src="imagenes/imagenesStatic/carro.png"></div>
-                    </div>
                     <div class="producto"  onclick="">
                         <p id="precio">1250&euro;</p>
                         <a href="#"><img src="imagenes/imagenesProductos/art3.jpg"></a>
