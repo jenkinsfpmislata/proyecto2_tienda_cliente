@@ -182,14 +182,10 @@ function prepareUpdate(id){
        <div class="modal-body">
 	  <div id="descrip">
 	  <div class="form-group" id="updateDiv" >
-						<form id="insertarCliente" class="form-horizontal" action="phps/insert.php" method="post">
-						Name<input class="form-control" name="nombre"></input>
-						Nick<input class="form-control" name="nick"></input>
-						E-mail<input class="form-control" name="email"></input>
-						Password<input class="form-control"  type="password" name="pass"></input>
-						Repeat Password<input class="form-control" type="password" name="repPass"></input>
-						Client kind<select class="form-control"><option>Admin</option><option>User</option></select>
-								</div>
+						<form id="insertarCategoria" class="form-horizontal" action="phps/insertCategories.php" method="post">
+						IdProduct<input class="form-control" name="idProducto"></input>
+						Categorie<input class="form-control" name="categoria"></input>
+						
 						<a class="btn btn-success" href="javascript:insertar()"  >Insert</a>
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 						</form>
@@ -209,8 +205,8 @@ function prepareUpdate(id){
        <div class="modal-body">
 	  <div id="descrip">
 	  <div class="form-group" id="registro" >
-						<form id="updatar" class="form-horizontal" action="phps/insert.php" method="post">
-						Name<input class="form-control" name="nombre"></input>
+						<form id="updatar" class="form-horizontal" action="phps/insertCategories.php" method="post">
+						IdProduct<input class="form-control" name="nombre"></input>
 						Nick<input class="form-control" name="nick"></input>
 						E-mail<input class="form-control" name="email"></input>
 						Password<input class="form-control"  type="password" name="pass"></input>
