@@ -12,105 +12,32 @@
 height:490px;
 }
 
-#carritoBox{
-overflow:hidden;
-border-color:#AAA;
-margin-top:25px;
-margin-left:35px;
-float:left;
-width:700px;
-height:320px;
+#contenido #contenidoTop *{
+    border:dashed 1px tomato;
+}
+#contenido #contenidoTop #contieneCarrito{
+    width: 100%;
+    border:dashed 1px cyan;
 }
 
-.productocarrito div{
-float:left;
-border-right:2px 0px 2px 0px solid #6C0;
-padding:5px;
-font-weight:bold;
-color:#F00;
-background-color:#FFF;
-margin-left:0px;
+#contenido #contenidoTop #contieneCarrito #opcionesCarrito{
+    width: 90%;
+    margin: 0 auto;
 }
 
-.restCarrito p{
-float:left;
-border-right:2px solid #6C0;
-padding:5px;
-
+#contenido #contenidoTop #contieneCarrito #opcionesCarrito ul{
+    margin: 0;
+    padding: 0;
 }
 
-.restCarrito img{
-width:30px;
-height:30px;
-padding:5px
-}
-
-.restCarrito div{
-float:right;
-border-right:2px solid #6C0;
-padding:5px;
-
-}
-
-
-
-/*-----------*/
-
-.topCarrito{
-	border:2px solid #FFF;
-	background-color:#6C0;
-}
-
-.topCarrito td{
-	padding:10px;
-	float:clear;
-	background-color:#6C0;
-	font-weight:bold;
-	color:white;
-}
-
-.restCarrito {
-font-weight:bold;
-width:100%;
-}
-.restCarrito td{
-padding:5px;
-	border:2px solid #6B0;
-
-}
-
-
-#unidadesCarrito {
-color:red;
-font-size:16px;
-}
-
-#unidadesCarrito input{
-width:50px;
-}
-
-#totalPrecio {
-font-size:20px;
-}
-
-#pagar{
-width:700px;
-padding:20px;
-font-weight:bold;
-color:#FFFFFF;
-font-size:18px;
-background-color:#6C0;
-margin-left:38px;
-}
-#pagar:hover{
-background-color:#6B0;
-}
-#pagar:active{
-background-color:#FFCC00;
-}
-
-h6{
-margin-right:-19px;
-margin-left:5px;
-margin-top:0px;
+#contenido #contenidoTop #contieneCarrito #opcionesCarrito li{
+    list-style: none;
+    text-decoration: none;
+    
+    
+    border: solid 2px #6C0;
+    width: 200px;
+    height: 50px;
+    margin: 2px;
+    padding: 14px;
 }
