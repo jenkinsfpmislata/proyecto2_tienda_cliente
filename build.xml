@@ -6,16 +6,20 @@
 <!-- Commands such as Run, Debug, and Test only use this build script if -->
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
-<!-- in the project's Project Properties dialog box.-->
+<!-- in the project's Project Properties dialog box.
+*
+**/*
+**
+-->
 <project name="proyecto2_tienda" default="desplegarProduccion" basedir=".">
     <description>Builds, tests, and runs the project .</description>
 
 
     <target name="desplegarProduccion">
-        <property file="/home/jenkins/environment/proyecto2/proyecto2_Shop_Client_properties.txt"></property>
-        <scp todir="${user}:${password}@${host}:${path}" trust="yes" >
+        <property file="/home/jenkins/environments/proyecto2/proyecto2_Shop_Client_properties.txt"></property>
+        <scp todir="${user}:${password}@${host}:${path}" trust="true" >
             <fileset dir=".">
-                <include name="*"/>
+                <include name="**/*"/>
             </fileset>
         </scp>
     </target>
