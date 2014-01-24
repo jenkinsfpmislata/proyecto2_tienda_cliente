@@ -196,7 +196,7 @@ alert(busc);
                     </ul>
                 </div>
                 <div id="colDerecha">
-                    <h4>Administer clients</h4>
+                    <h4>Administering clients</h4>
 
                     <div id="addSearch">
                         <div id="search" class="input-group input-group-sm">

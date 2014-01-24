@@ -30,7 +30,7 @@
                     dataType: 'json',
                     url: 'phps/admin/productoAdmin.php',
                     success: function(data) {
-                        datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Description</td><td>Image</td><td>Searched<td>Sold</td><td>Fav.</td><td>manufacturer</td><td>price</td><td>Edit</td></tr>';
+                        datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Description</td><td>Image</td><td>Searched<td>Sold</td><td>Fav.</td><td>Brand</td><td>Price</td><td>Edit</td></tr>';
                         $.each(data, function(index) {
                             datos += '<tr>';
                             datos += '<td>' + data[index].idProducto + '<td>' + data[index].Nombre + '<td>' + data[index].Descripcion + '<td>' + data[index].Imagen + '<td>' + data[index].vecesBuscado + '<td>' + data[index].vecesVendido + '<td>' + data[index].vecesFavorito + '<td>' + data[index].marca + '<td>' + data[index].precio + '<td><div class="btn btn-default btn-sm" onclick="prepareUpdate(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteProducto(' + data[index].idProducto + ')"><span class="glyphicon glyphicon-remove"></span></a></td>';
@@ -101,12 +101,12 @@
 
                 $.ajax({
                     dataType: 'json',
-                    url: 'phps/admin/selectClient.php?id=' + id,
+                    url: 'phps/admin/selectProducto.php?id=' + id,
                     type: 'GET',
                     success: function(data) {
 
                         index = 0;
-                        datos = '<form id="updatar" class="form-horizontal"  ><input id="oculto" class="form-control" name="id" value="' + data[index].idCliente + '"></input>Name<input class="form-control" name="nombre" value="' + data[index].nombreCliente + '"  ></input>Nick<input class="form-control" name="nick" value="' + data[index].nick + '"></input>E-mail<input class="form-control" name="email" value="' + data[index].email + '"></input>Password<input class="form-control"  type="password" name="pass" value="' + data[index].contrasenya + '"></input>Client kind<select class="form-control"><option>Admin</option><option>User</option></select></div><a class="btn btn-success" href="javascript:update()">Update</a>   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button></form>'
+                        datos = '<form id="updatar" class="form-horizontal"  ><input id="oculto" class="form-control" name="idProducto" value="' + data[index].idProducto + '"></input>Name<input class="form-control" name="Nombre" value="' + data[index].Nombre + '"  ></input>Description<input class="form-control" name="Descripcion" value="' + data[index].Descripcion + '"></input>Image<input class="form-control" name="Imagen" value="' + data[index].Imagen + '"></input>Searched<input class="form-control"  name="vecesBuscado" value="' + data[index].vecesBuscado + '">Sold<input class="form-control" name="vecesVendido" value="' + data[index].vecesVendido + '"  ></input>Fav.<input class="form-control" name="vecesFavorito" value="' + data[index].vecesFavorito + '"  ></input>Brand<input class="form-control" name="marca" value="' + data[index].marca + '"  ></input>Price<input class="form-control" name="precio" value="' + data[index].precio + '"  ></input></input></div><a class="btn btn-success" href="javascript:update()">Update</a>   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button></form>'
                         $('#updateDiv').html(datos);
 
                     }
@@ -123,7 +123,7 @@
                 updatar = $('#updatar').serialize();
 
                 $.ajax({
-                    url: 'phps/admin/updateClient.php',
+                    url: 'phps/admin/updateProducto.php',
                     type: 'POST',
                     data: updatar,
                     success: function() {
@@ -168,12 +168,12 @@
                 <div id="colIzquierda">
                     <ul>
                         <a href="#" class="btn btn-success"><li>Clients</li></a>
-                        <a href="#" class="btn btn-success"><li>Articles</li></a>
+                        <a href="#" class="btn btn-success"><li>Products</li></a>
                         <a href="#" class="btn btn-success"><li>Categories</li></a>
                     </ul>
                 </div>
                 <div id="colDerecha">
-                    <h4>Administer products</h4>
+                    <h4>Administering products</h4>
                     <div id="addSearch">
                         <div id="search" class="input-group input-group-sm">
                             <input type="text" class="form-control" placeholder="Search...">
