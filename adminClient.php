@@ -76,6 +76,7 @@
 
 
                 });
+                
             }
             ;
 
@@ -94,6 +95,7 @@
 
                     }
                 });
+                
 
 
             }
@@ -129,10 +131,11 @@
                     data: updatar,
                     success: function() {
                         alert("Registro " + id + " updated");
-                        refrescar();
+                        
 
                     }
                 });
+                refrescar();
 
             }
             ;

@@ -76,9 +76,10 @@
 
 
                 });
+                
             }
             ;
-
+            
             function insertar() {
                 insertar = $('#insertarProducto').serialize();
 
@@ -89,7 +90,7 @@
                     data: insertar,
                     success: function(data) {
                         alert("Producto Insertado");
-
+                        
 
                     }
                 });
@@ -128,7 +129,7 @@
                     data: updatar,
                     success: function() {
                         alert("Registro " + id + " updated");
-                        refrescar();
+                        
 
                     }
                 });
