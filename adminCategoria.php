@@ -151,7 +151,7 @@ function prepareUpdate(Categoria){
                         <div id="search" class="input-group input-group-sm">
                             <input type="text" class="form-control" placeholder="Search...">
                             <span class="input-group-btn">
-                                <button class="btn btn-default""><span class="glyphicon glyphicon-search"></span></button>
+                                <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                             </span>
                         </div>
                         <div id="add">
