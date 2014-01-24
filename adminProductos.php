@@ -194,7 +194,7 @@
                     <ul>
                         <a href="adminClient.php" class="btn btn-success"><li>Clients</li></a>
                         <a href="adminProductos.php" class="btn btn-success"><li>Products</li></a>
-                        <a href="#" class="btn btn-success"><li>Categories</li></a>
+                        <a href="adminCategoria.php" class="btn btn-success"><li>Categories</li></a>
                     </ul>
                 </div>
                 <div id="colDerecha">
