@@ -89,12 +89,12 @@
                     data: insertar,
                     success: function(data) {
                         alert("Producto Insertado");
-                        refrescar();
+                        
 
                     }
                 });
-
-
+                refrescar();
+                   
             }
             ;
             function prepareUpdate(id) {
@@ -132,7 +132,7 @@
 
                     }
                 });
-
+                    refrescar();
             }
             ;
 
@@ -167,8 +167,8 @@
                 <div class="clear"></div>
                 <div id="colIzquierda">
                     <ul>
-                        <a href="#" class="btn btn-success"><li>Clients</li></a>
-                        <a href="#" class="btn btn-success"><li>Products</li></a>
+                        <a href="adminClient.php" class="btn btn-success"><li>Clients</li></a>
+                        <a href="adminProductos.php" class="btn btn-success"><li>Products</li></a>
                         <a href="#" class="btn btn-success"><li>Categories</li></a>
                     </ul>
                 </div>

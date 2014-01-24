@@ -190,7 +190,7 @@ busc=$('#searchForm').serialize();
                 <div class="clear"></div>
                 <div id="colIzquierda">
                     <ul>
-                        <a href="#"  class="btn btn-success"><li>Clients</li></a>
+                        <a href="adminClient.php"  class="btn btn-success"><li>Clients</li></a>
                         <a href="adminProductos.php" class="btn btn-success"><li>Products</li></a>
                         <a href="#" class="btn btn-success"><li>Categories</li></a>
                     </ul>
