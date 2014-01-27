@@ -199,7 +199,7 @@
                     &copy; PC Store 2013. Spain. All rights reserved.<br />
                     Proyecto 2 - Tienda
                 </div>
-            </div>
+          </div>
 
 
 
@@ -245,7 +245,7 @@
                 </div>
             </div>
 
-
+        </div>
 
 
 
