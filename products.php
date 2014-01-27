@@ -29,7 +29,8 @@
             
             $.ajax({
                 dataType: 'json',
-                url: 'phps/productos.php',
+                url: 'phps/productoCategoria.php?categoria='+categoria,
+                type: 'GET',
                 success: function(data) {
 				 var datos = '<table>';
                    $.each(data, function(index) {
@@ -40,6 +41,13 @@
                 }
             });
         });
+
+            function productoCategoria(categoria){
+                
+                
+            };
+
+
 
         </script>
 
@@ -148,11 +156,13 @@
             <div id="contenidoTop">
                 <div id="MPrincipal">
                     <ul>
-                        <li class="btn btn-success" onclick="">PC</li>
+                        <li class="btn btn-success" onclick="productoCategoria('PC')">PC</li>
                         <li class="btn btn-success" onclick="">Laptop</li>
+                        <!--Smartphone
+                        tablets-->
+                        <li class="btn btn-success" onclick="">Memory</li>
                         <li class="btn btn-success" onclick="">Keyboards</li>
                         <li class="btn btn-success" onclick="">Cameras</li>
-                        <li class="btn btn-success" onclick="">Memory</li>
                         <li class="btn btn-success" onclick="">Smart Phones</li>
                         <li class="btn btn-success" onclick="">Tardis</li>
                         <li class="btn btn-success" onclick="">Other Stuff</li>
