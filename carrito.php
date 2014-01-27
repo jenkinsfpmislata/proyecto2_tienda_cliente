@@ -101,7 +101,35 @@
                             <li>Confirm</li>
                         </ul>                 
                     </div>
-                    <div id="carrito"></div>
+                    <div id="carritoDetalles">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td class="col-xs-2"></td>
+                                    <td class="col-xs-3">Product</td>
+                                    <td class="col-xs-2">Price</td>
+                                    <td class="col-xs-3">Quantity</td>
+                                    <td class="col-xs-1">Total</td>
+                                    <td class="col-xs-1">Options</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>Product</td>
+                                    <td>Price</td>
+                                    <td class="col-xs-1">  
+                                        <a class="btn btn-default btn-xs col-xs-1">-</a>
+                                        <input type="text" class="col-xs-1">
+                                        <a class="btn btn-default btn-xs col-xs-1">+</a>
+                                    </td>
+                                    <td>1500 €</td>
+                                    <td>X</td>                                  
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
             </div>
 
