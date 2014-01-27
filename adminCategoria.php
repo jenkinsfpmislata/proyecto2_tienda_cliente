@@ -178,6 +178,28 @@
                 </div>
             </div>
         </div>
+        <div id="pie">
+                <div id="LegalStuff">
+                    <a href="">Legal Terms</a>
+                    <a href="">Security</a>
+                    <a href="">Privacy</a> 
+                    <a href="">Rate</a> 
+                    <a href="">Contact</a> 
+                    <a href="">Web Map</a>
+                </div>
+
+
+                <div id="icons">
+                    <img class="icon-footer" src="imagenes/icons/facebook24.png">
+                    <img class="icon-footer" src="imagenes/icons/twitter14.png">
+                    <img class="icon-footer" src="imagenes/icons/google17.png">
+                    <img class="icon-footer" src="imagenes/icons/social68.png">
+                </div>
+                <div id="icons">
+                    &copy; PC Store 2013. Spain. All rights reserved.<br />
+                    Proyecto 2 - Tienda
+                </div>
+            </div>
 
 
 
@@ -230,28 +252,7 @@
 
 
 
-            <div id="pie">
-                <div id="LegalStuff">
-                    <a href="">Legal Terms</a>
-                    <a href="">Security</a>
-                    <a href="">Privacy</a> 
-                    <a href="">Rate</a> 
-                    <a href="">Contact</a> 
-                    <a href="">Web Map</a>
-                </div>
-
-
-                <div id="icons">
-                    <img class="icon-footer" src="imagenes/icons/facebook24.png">
-                    <img class="icon-footer" src="imagenes/icons/twitter14.png">
-                    <img class="icon-footer" src="imagenes/icons/google17.png">
-                    <img class="icon-footer" src="imagenes/icons/social68.png">
-                </div>
-                <div id="icons">
-                    &copy; PC Store 2013. Spain. All rights reserved.<br />
-                    Proyecto 2 - Tienda
-                </div>
-            </div>
+            
 
 
 
