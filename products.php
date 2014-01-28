@@ -21,15 +21,12 @@
         <script type="text/javascript" language="javascript">
 
 
-            $(document).ready(function() {
-                $(".box_skitter_large").css({width: 820, height: 298}).skitter({numbers: false});
-            });
             
             $(document).ready(function() {
             
             $.ajax({
                 dataType: 'json',
-                url: 'phps/productoCategoria.php?categoria='+categoria,
+                url: 'phps/productoCategoria/productoCategoria.php?categoria='+categoria,
                 type: 'GET',
                 success: function(data) {
 				 var datos = '<table>';
@@ -232,25 +229,7 @@
                     <div id="listaProducto"><!-- caja donde se cargan los artículos -->
                     
                     
-                    <div class="producto"  onclick="">
-                        <p id="precio">2999.99&euro;</p>
-                        <a href="#"><img src="imagenes/imagenesProductos/art6.jpg"></a>
-
-                        <div id="descripcion">
-                            <p>This is other example from webpage...</p>
-                        </div>
-                        <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"></div>
-                    </div>
-
-                    <div class="producto"  onclick="">
-                        <p id="precio">1250&euro;</p>
-                        <a href="#"><img src="imagenes/imagenesProductos/art3.jpg"></a>
-
-                        <div id="descripcion">
-                            <p>This is other example from webpage...</p>
-
-                        </div><div class="carrito"><img src="imagenes/imagenesStatic/carro.png"></div>
-                    </div>
+                    
                         
                     </div><!-- fin de la caja donde se cargan los artículos -->
 
