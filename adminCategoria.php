@@ -1,3 +1,5 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -28,10 +30,11 @@
                     dataType: 'json',
                     url: 'phps/admin/categoriaAdmin.php',
                     success: function(data) {
-                        datos = '<tr id="primerTr"><td>#</td><td>Categorie</td>';
+                        datos = '<tr id="primerTr"><td>Category</td><td>Edit</td></tr>';
                         $.each(data, function(index) {
+						
                             datos += '<tr>';
-                            datos += '<td>' + data[index].idProducto + '<td>' + data[index].Categoria + '<td><a class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" href="javascript:prepareUpdate(' + data[index].idCliente + ')"><span class="glyphicon glyphicon-edit"></span></a><a class="btn btn-default btn-sm" href="javascript:deleteCliente(' + data[index].idProducto + ')"><span class="glyphicon glyphicon-remove"></span></a></td>';
+                            datos +=  '<td>' + data[index].Categoria + '<td><div class="btn btn-default btn-sm" onclick="prepareUpdate('+"'"+ data[index].Categoria + "'"+')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteCategoria('+"'"+ data[index].Categoria + "'"+')"><span class="glyphicon glyphicon-remove"></span></a>';
                             datos += '</tr>';
                         });
                         $('#tabla').html(datos);
@@ -49,21 +52,22 @@
                     dataType: 'json',
                     url: 'phps/admin/categoriaAdmin.php',
                     success: function(data) {
-                        datos = '<tr id="primerTr"><td>#</td><td>Categorie</td><td>Nick</td><td>@</td><td>Imagen<td>Password</td><td>Role</td><td>Edit</td></tr>';
+                        datos = '<tr id="primerTr"><td>Category</td><td>Edit</td></tr>';
                         $.each(data, function(index) {
+						
                             datos += '<tr>';
-                            datos += '<td>' + data[index].idCategoria + '<td>' + data[index].Categoria + '<td><a class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" href="javascript:prepareUpdate(' + data[index].idCliente + ')"><span class="glyphicon glyphicon-edit"></span></a><a class="btn btn-default btn-sm" href="javascript:deleteCliente(' + data[index].idProducto + ')"><span class="glyphicon glyphicon-remove"></span></a></td>';
+                            datos +=  '<td>' + data[index].Categoria + '<td><div class="btn btn-default btn-sm" onclick="prepareUpdate('+"'"+ data[index].Categoria + "'"+')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteCategoria('+"'"+ data[index].Categoria + "'"+')"><span class="glyphicon glyphicon-remove"></span></a>';
                             datos += '</tr>';
                         });
                         $('#tabla').html(datos);
                     }
                 });
 
-            }
-            ;
+            };
 
 
             function deleteCategoria(categoria) {
+			
                 $.ajax({
                     type: 'GET',
                     url: 'phps/admin/deleteCategoria.php?categoria=' + categoria,
@@ -85,13 +89,13 @@
                     url: 'phps/admin/insertCategoria.php',
                     type: 'POST',
                     data: insertar,
-                    success: function(data) {
+                    success: function() {
                         alert("Inserted Categorie");
                         refrescar();
 
                     }
                 });
-
+			refrescar();
 
             }
             ;
@@ -110,6 +114,25 @@
                     }
                 });
                 refrescar();
+            };
+			function prepareUpdate(categoria) {
+
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/selectCategoria.php?categoria=' + categoria,
+                    type: 'GET',
+                    success: function(data) {
+
+                        index = 0;
+                        datos = '<form id="updatar" class="form-horizontal"  >Categoria<input class="form-control" name="nick" value="' + data[index].categoria + '"></input><a class="btn btn-success" href="javascript:update()">Update</a>   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button></form>'
+                        $('#updateDiv').html(datos);
+
+                    }
+
+
+                });
+
+
             }
             ;
 
@@ -153,14 +176,22 @@
                     </ul>
                 </div>
                 <div id="colDerecha">
-                    <h4>Administer Categories</h4>
+                    <h4>Administering Categories</h4>
+
                     <div id="addSearch">
                         <div id="search" class="input-group input-group-sm">
-                            <input type="text" class="form-control" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+
+                            <form id="searchForm">
+                                <input type="text" class="form-control" name="nom" placeholder="Search...">
+                            </form>
+
+                            <span class="input-group-btn" >
+                                <a href="javascript:buscar()"><button action="buscar()" class="btn btn-default" ><span class="glyphicon glyphicon-search"></span></button></a>
                             </span>
+
                         </div>
+
+
                         <div id="add">
                             <a class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" href="#"><span class="glyphicon glyphicon-plus"></span> Add</a> 
                         </div>
@@ -182,50 +213,47 @@
 
 
 
-
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div id="modalDesc" class="modal-dialog">
                 <div class="modal-content">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <div class="modal-body">
                         <div id="descrip">
-                            <div class="form-group" id="updateDiv" >
-                                <form id="insertarCategoria" class="form-horizontal" action="phps/insertCategories.php" method="post">
-                                    IdProduct<input class="form-control" name="idProducto"></input>
-                                    Categorie<input class="form-control" name="categoria"></input>
-
-                                    <a class="btn btn-success" href="javascript:insertar()"  >Insert</a>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </form>
+                            <div class="form-group"  >
+                                <form id="insertarCategoria" class="form-horizontal" >
+                                    
+                                   Categoria<input class="form-control" name="categoria"></input>
+                                    
                             </div>
-
+                            <a class="btn btn-success" href="javascript:insertar()"  >Insert</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </form>
                         </div>
 
                     </div>
+
                 </div>
             </div>
         </div>
 
-            <div class="modal fade" id="myModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div id="modalDesc" class="modal-dialog">
-                    <div class="modal-content">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <div class="modal-body">
-                            <div id="updateDiv">
-                                <!--TODA LA DESCRIPCION DEL PRODUCTO-->
-                            </div>
 
+        <div class="modal fade" id="myModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div id="modalDesc" class="modal-dialog">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="modal-body">
+                        <div id="updateDiv">
+                            <!--TODA LA DESCRIPCION DEL PRODUCTO-->
                         </div>
 
-
-
-
                     </div>
+
+
+
+
                 </div>
             </div>
-
-        
-
+        </div>
 
         <div id="pie">
             <div id="LegalStuff">
@@ -249,10 +277,6 @@
                 Proyecto 2 - Tienda
             </div>
         </div>
-
-
-
-
 
 
 

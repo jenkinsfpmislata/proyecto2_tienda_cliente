@@ -21,9 +21,7 @@
         <script type="text/javascript" language="javascript">
 
 
-            $(document).ready(function() {
-                $(".box_skitter_large").css({width: 820, height: 298}).skitter({numbers: false});
-            });
+            
             
             $(document).ready(function() {
             
