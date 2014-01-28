@@ -112,12 +112,8 @@
                         $('#updateDiv').html(datos);
 
                     }
-
-
-                });
-
-
-            }
+					});
+					}
             ;
 
             function update() {

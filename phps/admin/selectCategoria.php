@@ -6,12 +6,12 @@
 	mysql_select_db("proyecto2_tienda")or die ("Error connecting db");
 	
 	
-	$SQL="SELECT * FROM categoria WHERE categoria LIKE '$categoria';";
+	$SQL="SELECT Categoria FROM categoria WHERE Categoria LIKE '$categoria';";
 	$result = mysql_query( $SQL ) or die("Couldnt execute query.");
 	
 	$fila=mysql_fetch_array($result,MYSQL_ASSOC);
 	
-	$datos[0]=array('categoria'=>$fila["categoria"]);
+	$datos[0]=array('Categoria'=>$fila["Categoria"]);
 		
 		
 	

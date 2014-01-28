@@ -102,7 +102,7 @@
             function update() {
 
                 updatar = $('#updatar').serialize();
-
+			
                 $.ajax({
                     url: 'phps/admin/updateCategoria.php',
                     type: 'POST',
@@ -124,7 +124,8 @@
                     success: function(data) {
 
                         index = 0;
-                        datos = '<form id="updatar" class="form-horizontal"  >Categoria<input class="form-control" name="nick" value="' + data[index].categoria + '"></input><a class="btn btn-success" href="javascript:update()">Update</a>   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button></form>'
+                        datos = '<form id="updatar" class="form-horizontal"  ><input id="oculto" class="form-control" name="columna" value="' + categoria + '"></input>Categoria<input class="form-control" name="Categoria" value="' + data[index].Categoria + '"></input><a class="btn btn-success" href="javascript:update()">Update</a>   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button></form>'
+						
                         $('#updateDiv').html(datos);
 
                     }
@@ -133,8 +134,7 @@
                 });
 
 
-            }
-            ;
+            };
 
 
 
@@ -242,8 +242,10 @@
                 <div class="modal-content">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <div class="modal-body">
+					
                         <div id="updateDiv">
-                            <!--TODA LA DESCRIPCION DEL PRODUCTO-->
+                            <!--MODAL DEL UPDATE-->
+							
                         </div>
 
                     </div>
