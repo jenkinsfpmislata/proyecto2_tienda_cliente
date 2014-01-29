@@ -101,7 +101,53 @@
                             <li>Confirm</li>
                         </ul>                 
                     </div>
-                    <div id="carrito"></div>
+                    <div id="carritoDetalles">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td class="col-xs-2"></td>
+                                    <td class="col-xs-3">Product</td>
+                                    <td class="col-xs-1">Price</td>
+                                    <td class="col-xs-3">Quantity</td>
+                                    <td class="col-xs-1">Total</td>
+                                    <td class="col-xs-1">Options</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><img src="imagenes/imagenesProductos/art1.jpg" /></td>
+                                    <td>TOSHIBA Satellite C55-A-1NH - blanco</td>
+                                    <td>1120 <span class="glyphicon glyphicon-euro"></span></td>
+                                    <td>  
+                                        <a class="btn btn-default btn-sm">-</a>
+                                        1
+                                        <a class="btn btn-default btn-sm">+</a>
+                                    </td>
+                                    <td>1500 <span class="glyphicon glyphicon-euro"></span></td>
+                                    <td><span class="glyphicon glyphicon-trash"></span></td>                                  
+                                </tr>
+                                <tr>
+                                    <td><img src="imagenes/imagenesProductos/art1.jpg" /></td>
+                                    <td>TOSHIBA Satellite C55-A-1NH - blanco</td>
+                                    <td>1120 <span class="glyphicon glyphicon-euro"></span></td>
+                                    <td>  
+                                        <a class="btn btn-default btn-sm">-</a>
+                                        1
+                                        <a class="btn btn-default btn-sm">+</a>
+                                    </td>
+                                    <td>1500 <span class="glyphicon glyphicon-euro"></span></td>
+                                    <td><span class="glyphicon glyphicon-trash"></span></td>                                  
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="5">Total: 3000<span class="glyphicon glyphicon-euro"></span></td>
+                                    <td><a class="btn btn-default btn-sm">Continue</a></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
                 </div>
             </div>
 
