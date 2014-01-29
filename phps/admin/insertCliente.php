@@ -11,7 +11,7 @@
 	
 	
 
-	mysql_connect("192.168.59.106","root","frodo2013")or die("Connection Error:");
+	mysql_connect("localhost","root","frodo2013")or die("Connection Error:");
 	mysql_select_db("proyecto2_tienda")or die ("Error connecting db");
 	
 	$SQL="INSERT INTO cliente (idCliente, nombreCliente, nick, email, imagen,contrasenya,rol,Conectado) VALUES (NULL,'$nom','$nick','$email','perfil1.jpg','$pass', 'user','true');";
