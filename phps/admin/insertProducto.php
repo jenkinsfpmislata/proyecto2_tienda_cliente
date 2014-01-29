@@ -11,7 +11,7 @@
 	$precio=$_POST["precio"];
 	
 
-	mysql_connect("localhost","root","")or die("Connection Error:");
+	mysql_connect("192.168.59.106","root","frodo2013")or die("Connection Error:");
 	mysql_select_db("proyecto2_tienda")or die ("Error connecting db");
 	
 	$SQL="INSERT INTO producto (idProducto, Nombre, Descripcion, Imagen, vecesBuscado, vecesVendido, vecesFavorito, marca, precio) VALUES (NULL,'$Nombre','$Descripcion','$Imagen','0','0','0', '$marca','$precio');";
