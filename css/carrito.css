@@ -47,18 +47,18 @@
     padding: 14px;
 }
 
-#contenido #contenidoTop #contieneCarrito #carritoDetalles{
+#contenido #contenidoTop #contieneCarrito #carritoDetalles,#contenido #contenidoTop #contieneCarrito #carritoLogin{
     width: 95%;
     margin: 5px auto;
 }
 
-#contenido #contenidoTop #contieneCarrito #carritoDetalles table{
+#contenido #contenidoTop #contieneCarrito #carritoDetalles table, #carritoLogin table{
     text-align: center;
     border: solid 2px #009933;
 }
 
 
-#contenido #contenidoTop #contieneCarrito #carritoDetalles table thead{
+#contenido #contenidoTop #contieneCarrito #carritoDetalles table thead, #carritoLogin table thead{
     border: solid 2px #009933;
     background-color: #6C0;
     color: #FFF;
@@ -70,15 +70,23 @@
     height: 50px;
 }
 
-#contenido #contenidoTop #contieneCarrito #carritoDetalles table tbody tr td{
+#contenido #contenidoTop #contieneCarrito #carritoDetalles table tbody tr td, #carritoLogin table tbody tr td{
     vertical-align: middle;
 }
 
-#contenido #contenidoTop #contieneCarrito #carritoDetalles table tfoot{
+#contenido #contenidoTop #contieneCarrito #carritoDetalles table tfoot, #carritoLogin table tfoot{
     border: solid 2px #009933;
     background-color: #6C0;
     color: #FFF;
     font-weight: bold;
     text-align: right;
     vertical-align: middle;
+}
+
+#contenido #contenidoTop #contieneCarrito #carritoLogin div{
+    margin-top: 10px;
+}
+
+#contenido #contenidoTop #contieneCarrito #carritoLogin table tbody tr td{
+    border: solid 1px #009933;
 }
