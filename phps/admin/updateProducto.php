@@ -3,6 +3,7 @@
 	$Nombre=$_POST["Nombre"];
 	$Descripcion=$_POST["Descripcion"];
 	$Imagen=$_POST["Imagen"];
+	$categoria=$_POST["categoria"];
 	$vecesBuscado=$_POST["vecesBuscado"];
 	$vecesVendido=$_POST["vecesVendido"];
 	$vecesFavorito=$_POST["vecesFavorito"];
@@ -14,7 +15,7 @@
 	mysql_select_db("proyecto2_tienda")or die ("Error connecting db");
 	
 	$SQL="UPDATE producto
-	SET Nombre='$Nombre', Descripcion='$Descripcion', Imagen='$Imagen', vecesBuscado='$vecesBuscado', vecesVendido='$vecesVendido', vecesFavorito='$vecesFavorito', marca='$marca', precio='$precio'
+	SET Nombre='$Nombre', Descripcion='$Descripcion', Imagen='$Imagen', vecesBuscado='$vecesBuscado', vecesVendido='$vecesVendido', vecesFavorito='$vecesFavorito', marca='$marca', precio='$precio', categoria='$categoria'
 	WHERE idProducto=$idProducto; ";
 	
 	$resultado=mysql_query($SQL) or die("Couldnt execute query");

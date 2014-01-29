@@ -1,3 +1,7 @@
+<?php
+$categoria= $_GET["categoria"];
+?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -24,10 +28,14 @@
             
             
             $(document).ready(function() {
+			
+			
+			categorias="<?php echo $categoria ?>";
+			
             
             $.ajax({
                 dataType: 'json',
-                url: 'phps/productoCategoria.php?categoria='+categoria,
+                url: 'phps/productoCategoria/productoCategoria.php?categoria='+categorias,
                 type: 'GET',
                 success: function(data) {
 				 var datos = '<table>';
@@ -40,10 +48,7 @@
             });
         });
 
-            function productoCategoria(categoria){
-                
-                
-            };
+            
 
 
 
@@ -99,38 +104,11 @@
 
 
                 <!---------productos comprados-->
-                <div class="producto" >
-                    <div id="cerrar"><img  src="imagenes/imagenesStatic/close.png" onclick="">		</div>
-                    <img src="imagenes/imagenesProductos/art6.jpg">
+                
 
-                    <div id="descripcion">
-                        <p id="precioLista">2999.99&euro;</p>
-                        <p>This is other example from webpage...</p>
-                    </div>
+                
 
-                </div>
-
-                <div class="producto" >
-                    <div id="cerrar"><img  src="imagenes/imagenesStatic/close.png" onclick="">		</div>
-                    <img src="imagenes/imagenesProductos/art7.jpg">
-
-                    <div id="descripcion">
-                        <p id="precioLista">1250&euro;</p>
-                        <p>This is other example from webpage...</p>
-
-                    </div>
-                </div>
-
-                <div class="producto" >
-                    <div id="cerrar"><img  src="imagenes/imagenesStatic/close.png" onclick="">		</div>
-                    <img src="imagenes/imagenesProductos/art5.jpg">
-
-                    <div id="descripcion">
-                        <p id="precioLista">1250&euro;</p>
-                        <p>This is other example from webpage...</p>
-
-                    </div>
-                </div>
+                
 
                 <!--------- fin productos comprados-->
             </div>
@@ -230,25 +208,9 @@
                     <div id="listaProducto"><!-- caja donde se cargan los artículos -->
                     
                     
-                    <div class="producto"  onclick="">
-                        <p id="precio">2999.99&euro;</p>
-                        <a href="#"><img src="imagenes/imagenesProductos/art6.jpg"></a>
+                    
 
-                        <div id="descripcion">
-                            <p>This is other example from webpage...</p>
-                        </div>
-                        <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"></div>
-                    </div>
-
-                    <div class="producto"  onclick="">
-                        <p id="precio">1250&euro;</p>
-                        <a href="#"><img src="imagenes/imagenesProductos/art3.jpg"></a>
-
-                        <div id="descripcion">
-                            <p>This is other example from webpage...</p>
-
-                        </div><div class="carrito"><img src="imagenes/imagenesStatic/carro.png"></div>
-                    </div>
+                   
                         
                     </div><!-- fin de la caja donde se cargan los artículos -->
 

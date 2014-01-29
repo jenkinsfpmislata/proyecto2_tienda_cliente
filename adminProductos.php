@@ -30,10 +30,10 @@
                     dataType: 'json',
                     url: 'phps/admin/productoAdmin.php',
                     success: function(data) {
-                        datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Description</td><td>Image</td><td>Searched<td>Sold</td><td>Fav.</td><td>Brand</td><td>Price</td><td>Edit</td></tr>';
+                        datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Categoria</td><td>Description</td><td>Image</td><td>Precio<td>Edit</td><td>Search</td><td>Sold</td><td>Fav.</td><td>Brand</td></tr>';
                         $.each(data, function(index) {
                             datos += '<tr>';
-                            datos += '<td>' + data[index].idProducto + '<td>' + data[index].Nombre + '<td>' + data[index].Descripcion + '<td>' + data[index].Imagen + '<td>' + data[index].vecesBuscado + '<td>' + data[index].vecesVendido + '<td>' + data[index].vecesFavorito + '<td>' + data[index].marca + '<td>' + data[index].precio + '<td><div class="btn btn-default btn-sm" onclick="prepareUpdate(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteProducto(' + data[index].idProducto + ')"><span class="glyphicon glyphicon-remove"></span></a></td>';
+                            datos += '<td>' + data[index].idProducto +'<td>' + data[index].Nombre +'<td>' + data[index].categoria +  '<td>' + data[index].Descripcion + '<td>' + data[index].Imagen + '<td>' + data[index].precio +'<td><div class="btn btn-default btn-sm" onclick="prepareUpdate(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteProducto(' + data[index].idProducto + ')"><span class="glyphicon glyphicon-remove"></span></a></td><td>' + data[index].vecesBuscado + '<td>' + data[index].vecesVendido + '<td>' + data[index].vecesFavorito + '<td>' + data[index].marca + '</td>' ;
                             datos += '</tr>';
                         });
                         $('#tabla').html(datos);
@@ -51,10 +51,10 @@
                     dataType: 'json',
                     url: 'phps/admin/productoAdmin.php',
                     success: function(data) {
-                        datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Description</td><td>Image</td><td>Searched<td>Sold</td><td>Fav.</td><td>manufacturer</td><td>price</td></tr>';
+                        datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Categoria</td><td>Description</td><td>Image</td><td>Precio<td>Edit</td><td>Search</td><td>Sold</td><td>Fav.</td><td>Brand</td></tr>';
                         $.each(data, function(index) {
                             datos += '<tr>';
-                            datos += '<td>' + data[index].idProducto + '<td>' + data[index].Nombre + '<td>' + data[index].Descripcion + '<td>' + data[index].Imagen + '<td>' + data[index].vecesBuscado + '<td>' + data[index].vecesVendido + '<td>' + data[index].vecesFavorito + '<td>' + data[index].marca + '<td>' + data[index].precio + '<td><div class="btn btn-default btn-sm" onclick="prepareUpdate(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteProducto(' + data[index].idProducto + ')"><span class="glyphicon glyphicon-remove"></span></a></td>';
+                            datos += '<td>' + data[index].idProducto +'<td>' + data[index].Nombre +'<td>' + data[index].categoria +  '<td>' + data[index].Descripcion + '<td>' + data[index].Imagen + '<td>' + data[index].precio +'<td><div class="btn btn-default btn-sm" onclick="prepareUpdate(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteProducto(' + data[index].idProducto + ')"><span class="glyphicon glyphicon-remove"></span></a></td><td>' + data[index].vecesBuscado + '<td>' + data[index].vecesVendido + '<td>' + data[index].vecesFavorito + '<td>' + data[index].marca + '</td>' ;
                             datos += '</tr>';
                         });
                         $('#tabla').html(datos);
@@ -107,7 +107,7 @@
                     success: function(data) {
 
                         index = 0;
-                        datos = '<form id="updatar" class="form-horizontal"  ><input id="oculto" class="form-control" name="idProducto" value="' + data[index].idProducto + '"></input>Name<input class="form-control" name="Nombre" value="' + data[index].Nombre + '"  ></input>Description<input class="form-control" name="Descripcion" value="' + data[index].Descripcion + '"></input>Image<input class="form-control" name="Imagen" value="' + data[index].Imagen + '"></input>Searched<input class="form-control"  name="vecesBuscado" value="' + data[index].vecesBuscado + '">Sold<input class="form-control" name="vecesVendido" value="' + data[index].vecesVendido + '"  ></input>Fav.<input class="form-control" name="vecesFavorito" value="' + data[index].vecesFavorito + '"  ></input>Brand<input class="form-control" name="marca" value="' + data[index].marca + '"  ></input>Price<input class="form-control" name="precio" value="' + data[index].precio + '"  ></input></input></div><a class="btn btn-success" href="javascript:update()">Update</a>   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button></form>'
+                        datos = '<form id="updatar" class="form-horizontal"  ><input id="oculto" class="form-control" name="idProducto" value="' + data[index].idProducto + '"></input>Name<input class="form-control" name="Nombre" value="' + data[index].Nombre + '"  ></input>Categoria<input class="form-control" name="categoria" value="' + data[index].categoria + '"  ></input>Description<input class="form-control" name="Descripcion" value="' + data[index].Descripcion + '"></input>Image<input class="form-control" name="Imagen" value="' + data[index].Imagen + '"></input>Searched<input class="form-control"  name="vecesBuscado" value="' + data[index].vecesBuscado + '">Sold<input class="form-control" name="vecesVendido" value="' + data[index].vecesVendido + '"  ></input>Fav.<input class="form-control" name="vecesFavorito" value="' + data[index].vecesFavorito + '"  ></input>Brand<input class="form-control" name="marca" value="' + data[index].marca + '"  ></input>Price<input class="form-control" name="precio" value="' + data[index].precio + '"  ></input></input></div><a class="btn btn-success" href="javascript:update()">Update</a>   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button></form>'
                         $('#updateDiv').html(datos);
 
                     }
@@ -246,11 +246,9 @@
 
                                     Nombre<input class="form-control" name="Nombre"></input>
                                     Descripcion<input class="form-control" name="Descripcion"></input>
+									Categoria<input class="form-control" name="categoria"></input>
                                     Imagen<input class="form-control"  name="Imagen"></input>
-
-
-
-                                    marca<input class="form-control" name="marca"></input>
+									marca<input class="form-control" name="marca"></input>
                                     precio<input class="form-control" name="precio"></input>
                             </div>
                             <a class="btn btn-success" href="javascript:insertar()"  >Insert</a>

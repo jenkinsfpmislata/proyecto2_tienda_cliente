@@ -55,14 +55,23 @@
 
             function validar() {
                 datosInicioSesion = $('#inicioForm').serialize();
-
+				
+				index=0;
                 $.ajax({
                     dataType: 'json',
                     url: 'phps/validacion.php',
                     type: 'POST',
                     data: datosInicioSesion,
                     success: function(data) {
-                        alert("estaViivo");
+					
+					
+					if(data[index].idCliente>0){
+					window.location="indexLogeado.php?idCliente="+ data[index].idCliente;
+					}
+					else{
+					alert("el cliente no existe");
+					 }
+                        
 
                     }
                 });
@@ -252,11 +261,11 @@
                 <div id="MPrincipal">
                     <ul>
                         <li class="btn btn-success" onclick="productoCategoria('PC')">PC</li>
-                        <li class="btn btn-success" onclick="">Laptop</li>
-                        <li class="btn btn-success" onclick="">Keyboards</li>
-                        <li class="btn btn-success" onclick="">Cameras</li>
-                        <li class="btn btn-success" onclick="">Memory</li>
-                        <li class="btn btn-success" onclick="">Smart Phones</li>
+                        <li class="btn btn-success" onclick="productoCategoria('Portatil')">Laptop</li>
+                        <li class="btn btn-success" onclick="productoCategoria('Keyboard')">Keyboards</li>
+                        <li class="btn btn-success" onclick="productoCategoria('Camera')">Cameras</li>
+                        <li class="btn btn-success" onclick="productoCategoria('Memory')">Memory</li>
+                        <li class="btn btn-success" onclick="productoCategoria('Movil')">Smart Phones</li>
                         <li class="btn btn-success" onclick="">Tardis</li>
                         <li class="btn btn-success" onclick="">Other Stuff</li>
                     </ul>

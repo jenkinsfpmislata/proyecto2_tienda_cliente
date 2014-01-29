@@ -1,3 +1,8 @@
+<?php
+$idCliente= $_GET["idCliente"];
+?>
+
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -29,17 +34,27 @@
 			//--------------------------------
 			
 			
-		$('.boton2').click( function() {
-			$.ajax({
-				type: 'POST',
-				url: 'ejemplo2.php',
-				data: 'nombre=Pepe&apellido=Perez',
-				success: function(data){
-					$('.resultados').html(data);
-				}
-			});
-		});
+		$(document).ready(function() {
+		id="<?php echo $idCliente; ?>";
 		
+
+               $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/selectClient.php?id=' + id,
+                    type: 'GET',
+                    success: function(data) {
+					
+                         index = 0;
+						 if(data[index].rol=="admin"){
+						 
+						 datos='<a href="adminClient.php"><li id="perfil"></li></a>';
+						  $('#adminButton').html(datos);
+						 }
+						 else{}
+                        
+                    }
+                });
+            });
 		
         </script>
 
@@ -67,16 +82,21 @@
         	<a href="indexLogeado.php"><li id="inicio" ></li></a>
             <a href="PerfilUsuario.php"><li id="perfil"></li></a>
 			
+			
             <a href="mensajes.php"> <li id="mensajes"><span class="cantidadProducto">0</span></li></a>
             <a href="carrito.php"><li id="carrito"><span class="cantidadProducto">0</span></li></a>
 			
+			
+			
         </ul>
+		
 		</div>
 		
 	<div id="menutopbar2">
     <ul>
 	
 	<a href="index.php"><li id="salir"></li></a>
+	<div id="adminButton"></div>
 	</ul>
 	</div>
 	

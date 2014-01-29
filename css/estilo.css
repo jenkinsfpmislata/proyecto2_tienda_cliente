@@ -1,5 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
+#adminbutton, #admin{
+background-color::#6C0;}
 #perfil:hover{
 background-color:#009933;
 }
@@ -10,6 +12,7 @@ background-color:#009933;
 #inicio:active{
 background-color:#FFCC00;
 }
+
 
 #perfil:hover  #inicioSesion{
 display:block;
@@ -129,6 +132,12 @@ background-repeat:no-repeat;
 background-position:center;
 }
 #perfil{
+background-image:url(../imagenes/imagenesStatic/user.png);
+background-size:28px 28px;
+background-repeat:no-repeat;
+background-position:center;
+}
+#admin{
 background-image:url(../imagenes/imagenesStatic/user.png);
 background-size:28px 28px;
 background-repeat:no-repeat;
