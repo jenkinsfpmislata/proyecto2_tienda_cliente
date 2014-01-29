@@ -89,8 +89,7 @@
                     type: 'POST',
                     data: insertar,
                     success: function() {
-
-                        alert("Cliente Insertado");
+						alert("Cliente Insertado");
                         refrescar();
 
                     }
@@ -113,12 +112,8 @@
                         $('#updateDiv').html(datos);
 
                     }
-
-
-                });
-
-
-            }
+					});
+					}
             ;
 
             function update() {
@@ -236,7 +231,7 @@
             </div>
         </div>
 
-
+<div id="cosa">lololololoLOLOLOLOLOL</div>
 
 
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
