@@ -256,7 +256,7 @@ $idCliente= $_GET["idCliente"];
 </div>
 	<?php
 	
-	$db=mysql_connect("localhost","root","")or die("Connection Error:");
+	$db=mysql_connect("localhost","root","frodo2013")or die("Connection Error:");
 	mysql_select_db("proyecto2_tienda")or die ("Error connecting db");
 	
 	$SQL="SELECT * FROM producto";
