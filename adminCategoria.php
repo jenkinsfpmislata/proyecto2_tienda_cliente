@@ -147,7 +147,7 @@
             <div id="logotopbar"></div>
             <div id="menutopbar">
                 <ul>
-                    <li id="inicio"></li>
+                    <a href="index.php"><li id="inicio" ></li></a>
                     <li id="perfil">
                 </ul>
             </div>
