@@ -81,8 +81,7 @@ $categoria= $_GET["categoria"];
 
                             </div></form>
                     </li>
-                    <li id="mensajes"><span class="cantidadProducto">0</span></li>
-                    <li id="carrito"><span class="cantidadProducto">0</span></li>
+                  
                 </ul>
             </div>
 
@@ -149,38 +148,33 @@ $categoria= $_GET["categoria"];
                 <div >
                     <center><h1> The best products </h1></center>
 
-                    <div class="producto"  onclick="">
-                        <p id="precio">2999.99&euro;</p>
+                    <div class="productoB"  onclick="">
+                        <p id="precioB">2999.99&euro;</p>
                         <a href="#"><img src="imagenes/imagenesProductos/art6.jpg"></a>
 
-                        <div id="descripcion">
+                        <div id="descripcionB">
                             <p>This is other example from webpage...</p>
                         </div>
-                        <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"></div>
+                        <div class="carritoB"><img src="imagenes/imagenesStatic/carro.png"></div>
                     </div>
-                    
-
-                        
-
-
-                    <div class="producto"  onclick="">
-                        <p id="precio">249.99&euro;</p>
+                     <div class="productoB"  onclick="">
+                        <p id="precioB">249.99&euro;</p>
                         <a href="#"><img src="imagenes/imagenesProductos/art7.jpg"></a>
 
-                        <div id="descripcion">
+                        <div id="descripcionB">
                             <p>This is other example from webpage...</p>
 
-                        </div><div class="carrito"><img src="imagenes/imagenesStatic/carro.png"></div>
+                        </div><div class="carritoB"><img src="imagenes/imagenesStatic/carro.png"></div>
                     </div>
 
-                    <div class="producto"  onclick="">
-                        <p id="precio">2499&euro;</p>
+                    <div class="productoB"  onclick="">
+                        <p id="precioB">2499&euro;</p>
                         <a href="#"><img src="imagenes/imagenesProductos/art2.jpg"></a>
 
-                        <div id="descripcion">
+                        <div id="descripcionB">
                             <p>This is other example from webpage...</p>
 
-                        </div><div class="carrito"><img src="imagenes/imagenesStatic/carro.png"></div>
+                        </div><div class="carritoB"><img src="imagenes/imagenesStatic/carro.png"></div>
                     </div>
 
                 </div>
