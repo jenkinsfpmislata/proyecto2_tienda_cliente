@@ -209,8 +209,6 @@ $categoria= $_GET["categoria"];
                     
                     
                     
-
-                   
                         
                     </div><!-- fin de la caja donde se cargan los artículos -->
 
