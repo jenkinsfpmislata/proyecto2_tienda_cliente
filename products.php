@@ -67,7 +67,7 @@ $categoria= $_GET["categoria"];
             <div id="menutopbar">
 
                 <ul>
-                    <li id="inicio"></li>
+                    <a href="index.php"><li id="inicio" ></li></a>
                     <li id="perfil">
                         <form role="form">
                             <div class="form-group" id="inicioSesion">
