@@ -81,8 +81,7 @@ $categoria= $_GET["categoria"];
 
                             </div></form>
                     </li>
-                    <li id="mensajes"><span class="cantidadProducto">0</span></li>
-                    <li id="carrito"><span class="cantidadProducto">0</span></li>
+                  
                 </ul>
             </div>
 
