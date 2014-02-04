@@ -106,6 +106,7 @@ left:780px;
 #buscador img{
 width:25px;
 height:20px;
+float:left;
 }
 #buscador img:hover{
 background-color:green;
@@ -125,6 +126,9 @@ background-image:url(../imagenes/imagenesStatic/imgBuscClic.png);
 }
 #buscador input{
 height:18px;
+}
+#searchForm{
+   height:18px;
 }
 
  input.active{
