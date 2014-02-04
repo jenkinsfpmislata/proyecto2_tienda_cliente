@@ -131,7 +131,7 @@
             ;
 //BUSCAR---PRODUCTOS-----------------------
                 function buscar() {
-                busc = $('#buscador').serialize();
+                busc = $('#searchForm').serialize();
 
 
                 $.ajax({
@@ -186,7 +186,10 @@
                 <div id="buscador">
                     
                     <img onclick="buscar()" src="imagenes/imagenesStatic/imgBusc.png">
+                    <form id="searchForm">
                         <input name="Nombre" type="text">
+                    </form>
+
 
                     
                 </div>
