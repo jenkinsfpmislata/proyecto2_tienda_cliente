@@ -109,7 +109,7 @@ if (isset($_SESSION["idCliente"])){
                     <a href="mensajes.php"> <li id="mensajes"><span class="cantidadProducto">0</span></li></a>
                     <a href="carrito.php"><li id="carrito"><span class="cantidadProducto">0</span></li></a>
 
-<a id="nombreCliente"></a>
+                       <a id="nombreCliente"></a>
 
                 </ul>
 
