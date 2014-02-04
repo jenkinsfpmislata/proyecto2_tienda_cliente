@@ -44,8 +44,9 @@
                         var datos = '<ul>';
                         $.each(data, function(index) {
                             datos += '<li class="btn btn-success" onclick="productoCategoria(' + "'" + data[index].Categoria + "'" + ')">' + data[index].Categoria+'</li>';
-                            datos += '</ul>';
+                            
                         });
+                        datos += '</ul>';
                         $('#MPrincipal').html(datos);
                     }
                 });
@@ -277,10 +278,7 @@
                     <ul>
                         <li class="btn btn-success" onclick="productoCategoria('PC')">PC</li>
                         <li class="btn btn-success" onclick="productoCategoria('Laptop')">Laptop</li>
-                        <li class="btn btn-success" onclick="productoCategoria('Keyboard')">Keyboards</li>
-                        <li class="btn btn-success" onclick="productoCategoria('Camera')">Cameras</li>
                         <li class="btn btn-success" onclick="productoCategoria('Mouse')">Mouse</li>
-                        <li class="btn btn-success" onclick="productoCategoria('Smartphone')">Smartphone</li>
                         <li class="btn btn-success" onclick="">Tardis</li>
                         <li class="btn btn-success" onclick="">Other Stuff</li>
                     </ul>
