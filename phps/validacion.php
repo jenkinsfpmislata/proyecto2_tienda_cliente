@@ -1,5 +1,7 @@
 <?php
-	
+
+	session_start();
+
 	$nick=$_POST["nick"];
 	$pass=$_POST["pass"];
 	
@@ -9,17 +11,18 @@
 	$SQL="SELECT idCliente FROM cliente WHERE nick LIKE '$nick' AND contrasenya LIKE '$pass'";
 	
 	$result=mysql_query($SQL) or die("Couldnt execute query");
+	$numRows=mysql_num_rows($result);
 	
+	if($numRows==1){
 	$fila=mysql_fetch_array($result,MYSQL_ASSOC);
-		
-	$datos[0]=array('idCliente'=>$fila["idCliente"]);
+	$_SESSION["idCliente"]=$fila["idCliente"];
 	
-	echo json_encode($datos);
+	echo "indexLogeado.php";
 	
+	}
+	else{
 	
-
-		
+	};
+	
 	?>
-	
-	
 	

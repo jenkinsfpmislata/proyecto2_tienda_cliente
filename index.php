@@ -68,25 +68,16 @@
 
             function validar() {
                 datosInicioSesion = $('#inicioForm').serialize();
-
-                index = 0;
+				
+				
                 $.ajax({
-                    dataType: 'json',
                     url: 'phps/validacion.php',
                     type: 'POST',
                     data: datosInicioSesion,
-                    success: function(data) {
-
-
-                        if (data[index].idCliente > 0) {
-                            window.location = "indexLogeado.php?idCliente=" + data[index].idCliente;
-                        }
-                        else {
-                            alert("el cliente no existe");
-                        }
-
-
-                    }
+                    success: function(url) {
+					
+			window.location=url;
+					}
                 });
 
 
