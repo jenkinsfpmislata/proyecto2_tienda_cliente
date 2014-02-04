@@ -1,5 +1,11 @@
 <?php
-$idCliente = $_GET["idCliente"];
+
+
+session_start();
+
+if (isset($_SESSION["idCliente"])){
+
+
 ?>
 
 
@@ -35,28 +41,29 @@ $idCliente = $_GET["idCliente"];
 
 
             $(document).ready(function() {
-                id = "<?php echo $idCliente; ?>";
+		id="<?php echo $_SESSION["idCliente"]; ?>";
+		
 
-
-                $.ajax({
+               $.ajax({
                     dataType: 'json',
                     url: 'phps/admin/selectClient.php?id=' + id,
                     type: 'GET',
                     success: function(data) {
-
-                        index = 0;
-                        if (data[index].rol == "admin") {
-
-                            datos = '<a href="adminClient.php"><li id="perfil"></li></a>';
-                            $('#adminButton').html(datos);
-                        }
-                        else {
-                        }
-
+					
+                         index = 0;
+						 if(data[index].rol=="admin"){
+						 
+						 datos='<a href="adminClient.php"><li id="perfil"></li></a>';
+						  $('#adminButton').html(datos);
+						 }
+						 else{}
+						 dato2='<a>'+ data[index].nombreCliente+ '</a>';
+						 $('#nombreCliente').html(dato2);
+                        
                     }
                 });
             });
-
+		
 
             $(document).ready(function() {
                 $.ajax({
@@ -102,7 +109,7 @@ $idCliente = $_GET["idCliente"];
                     <a href="mensajes.php"> <li id="mensajes"><span class="cantidadProducto">0</span></li></a>
                     <a href="carrito.php"><li id="carrito"><span class="cantidadProducto">0</span></li></a>
 
-
+<a id="nombreCliente"></a>
 
                 </ul>
 
@@ -321,3 +328,9 @@ $idCliente = $_GET["idCliente"];
 
     </body>
 </html>
+<?php
+}
+else{
+echo("acceso denegado");
+};
+?>
