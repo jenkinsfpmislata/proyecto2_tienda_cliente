@@ -124,8 +124,9 @@ height:18px;
 #buscador img.active{
 background-image:url(../imagenes/imagenesStatic/imgBuscClic.png);
 }
-#buscador input{
+#searchForm input{
 height:18px;
+font-size:12px;
 }
 #searchForm{
    height:18px;
