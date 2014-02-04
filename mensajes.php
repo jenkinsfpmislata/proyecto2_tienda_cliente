@@ -43,6 +43,9 @@
                     }});
             });
 
+            function productoCategoria(categoria) {
+                window.location = "products.php?categoria=" + categoria;
+            }
 
 
         </script>

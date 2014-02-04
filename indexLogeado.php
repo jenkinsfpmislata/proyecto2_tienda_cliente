@@ -78,6 +78,10 @@ if (isset($_SESSION["idCliente"])){
                         $('#MPrincipal').html(datos);
                     }});
             });
+            
+            function productoCategoria(categoria) {
+                window.location = "products.php?categoria=" + categoria;
+            }
 
         </script>
 
