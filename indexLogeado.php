@@ -258,6 +258,25 @@ if (isset($_SESSION["idCliente"])) {
                     </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
 
+                
+                <div class="modal fade" id="myModalDescripcion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div id="modalDesc" class="modal-dialog">
+                    <div class="modal-content">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <div class="modal-body">
+                            <div id="descrip">
+                                <!--TODA LA DESCRIPCION DEL PRODUCTO-->
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
 
                 <div id="contenidoTopIndex">
                     <div id="MPrincipal">
