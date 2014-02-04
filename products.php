@@ -63,7 +63,10 @@ $categoria= $_GET["categoria"];
                     }});
             });
 
-            
+            function productoCategoria(categoria) {
+
+                window.location = "products.php?categoria=" + categoria;
+            }
 
 
 
