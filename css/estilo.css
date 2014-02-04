@@ -1,9 +1,17 @@
 @charset "utf-8";
 /* CSS Document */
 #adminbutton, #admin{
-background-color::#6C0;}
+background-color:#6C0;}
 #perfil:hover{
 background-color:#009933;
+}
+ #nombreCliente{
+      color:white;
+    font-size: 20px;
+    
+   
+    padding-left:40px;
+     padding-right:10px;
 }
 
 #inicio:hover{
@@ -93,9 +101,7 @@ margin-bottom:20px;
 	border-right:solid 1px #FFF;
 	}
 	#menutopbar2{
-	
-	margin-left:350px;
-	
+	margin-left:220px;
 	float:left;
 	border-left:solid 1px #FFF;
 	}
