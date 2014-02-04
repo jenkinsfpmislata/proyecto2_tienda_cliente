@@ -36,22 +36,19 @@
 
 
             $(document).ready(function() {
-
                 $.ajax({
                     dataType: 'json',
                     url: 'phps/admin/categoriaAdmin.php',
                     success: function(data) {
                         var datos = '<ul>';
                         $.each(data, function(index) {
-                            datos += '<li class="btn btn-success" onclick="productoCategoria(' + "'" + data[index].Categoria + "'" + ')">' + data[index].Categoria+'</li>';
-                            
+                            datos += '<li class="btn btn-success" onclick="productoCategoria(' + "'" + data[index].Categoria + "'" + ')">' + data[index].Categoria + '</li>';
                         });
                         datos += '</ul>';
                         $('#MPrincipal').html(datos);
-                    }
-                });
+                    }});
             });
-            
+
             $(document).ready(function() {
 
                 $.ajax({
@@ -71,23 +68,23 @@
 
             function validar() {
                 datosInicioSesion = $('#inicioForm').serialize();
-				
-				index=0;
+
+                index = 0;
                 $.ajax({
                     dataType: 'json',
                     url: 'phps/validacion.php',
                     type: 'POST',
                     data: datosInicioSesion,
                     success: function(data) {
-					
-					
-					if(data[index].idCliente>0){
-					window.location="indexLogeado.php?idCliente="+ data[index].idCliente;
-					}
-					else{
-					alert("el cliente no existe");
-					 }
-                        
+
+
+                        if (data[index].idCliente > 0) {
+                            window.location = "indexLogeado.php?idCliente=" + data[index].idCliente;
+                        }
+                        else {
+                            alert("el cliente no existe");
+                        }
+
 
                     }
                 });
@@ -136,10 +133,11 @@
             ;
 
 
-            function productoCategoria(categoria){
-                
-               window.location="products.php?categoria="+categoria; 
-            };
+            function productoCategoria(categoria) {
+
+                window.location = "products.php?categoria=" + categoria;
+            }
+            ;
 
 
         </script>
@@ -275,13 +273,7 @@
 
             <div id="contenidoTopIndex">
                 <div id="MPrincipal">
-                    <ul>
-                        <li class="btn btn-success" onclick="productoCategoria('PC')">PC</li>
-                        <li class="btn btn-success" onclick="productoCategoria('Laptop')">Laptop</li>
-                        <li class="btn btn-success" onclick="productoCategoria('Mouse')">Mouse</li>
-                        <li class="btn btn-success" onclick="">Tardis</li>
-                        <li class="btn btn-success" onclick="">Other Stuff</li>
-                    </ul>
+
                 </div>
 
 

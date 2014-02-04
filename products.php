@@ -47,6 +47,21 @@ $categoria= $_GET["categoria"];
                 }
             });
         });
+        
+        
+                    $(document).ready(function() {
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/categoriaAdmin.php',
+                    success: function(data) {
+                        var datos = '<ul>';
+                        $.each(data, function(index) {
+                            datos += '<li class="btn btn-success" onclick="productoCategoria(' + "'" + data[index].Categoria + "'" + ')">' + data[index].Categoria + '</li>';
+                        });
+                        datos += '</ul>';
+                        $('#MPrincipal').html(datos);
+                    }});
+            });
 
             
 
@@ -130,18 +145,7 @@ $categoria= $_GET["categoria"];
 
             <div id="contenidoTop">
                 <div id="MPrincipal">
-                    <ul>
-                        <li class="btn btn-success" onclick="productoCategoria('PC')">PC</li>
-                        <li class="btn btn-success" onclick="">Laptop</li>
-                        <!--Smartphone
-                        tablets-->
-                        <li class="btn btn-success" onclick="">Memory</li>
-                        <li class="btn btn-success" onclick="">Keyboards</li>
-                        <li class="btn btn-success" onclick="">Cameras</li>
-                        <li class="btn btn-success" onclick="">Smart Phones</li>
-                        <li class="btn btn-success" onclick="">Tardis</li>
-                        <li class="btn btn-success" onclick="">Other Stuff</li>
-                    </ul>
+
                 </div>
 
 

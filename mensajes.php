@@ -30,8 +30,20 @@
 
 
             $(document).ready(function() {
-                $(".box_skitter_large").css({width: 820, height: 298}).skitter({numbers: false});
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/categoriaAdmin.php',
+                    success: function(data) {
+                        var datos = '<ul>';
+                        $.each(data, function(index) {
+                            datos += '<li class="btn btn-success" onclick="productoCategoria(' + "'" + data[index].Categoria + "'" + ')">' + data[index].Categoria + '</li>';
+                        });
+                        datos += '</ul>';
+                        $('#MPrincipal').html(datos);
+                    }});
             });
+
+
 
         </script>
 
@@ -140,16 +152,7 @@
 
             <div id="contenidoTop">
                 <div id="MPrincipal">
-                    <ul>
-                        <li class="btn btn-success" onclick="">PC</li>
-                        <li class="btn btn-success" onclick="">Laptop</li>
-                        <li class="btn btn-success" onclick="">Keyboards</li>
-                        <li class="btn btn-success" onclick="">Cameras</li>
-                        <li class="btn btn-success" onclick="">Memory</li>
-                        <li class="btn btn-success" onclick="">Smart Phones</li>
-                        <li class="btn btn-success" onclick="">Tardis</li>
-                        <li class="btn btn-success" onclick="">Other Stuff</li>
-                    </ul>
+
                 </div>
 
 
