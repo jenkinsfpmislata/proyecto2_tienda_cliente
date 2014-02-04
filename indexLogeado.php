@@ -61,7 +61,7 @@ if (isset($_SESSION["idCliente"])) {
                     });
                 });
 
-    //mostrar productos---------------
+                //mostrar productos---------------
                 $(document).ready(function() {
 
                     $.ajax({
@@ -77,7 +77,7 @@ if (isset($_SESSION["idCliente"])) {
                         }
                     });
                 });
-     //fin mostrar productos-------------------
+                //fin mostrar productos-------------------
 
 
                 $(document).ready(function() {
@@ -97,6 +97,49 @@ if (isset($_SESSION["idCliente"])) {
                 function productoCategoria(categoria) {
                     window.location = "products.php?categoria=" + categoria;
                 }
+
+
+                function anyadirCarrito(id) {
+
+                    $.ajax({
+                        dataType: 'json',
+                        url: 'phps/descripcion.php?id=' + id,
+                        type: 'GET',
+                        success: function(data) {
+                            index = 0;
+
+                            datos = datos + '<div class="producto"><p id="precioLista">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div></div>';
+                            precioProducto = parseFloat(data[index].precio);
+                            precioTotal = precioTotal + precioProducto;
+                            precio = '<p>Total: ' + precioTotal + ' &euro; </p>';
+                            cantidad = cantidad + 1;
+                            cantidadTotal = cantidad;
+                            $('#listaCarro').html(datos);
+                            $('#precioTotal').html(precio);
+                            $('#cantidad').html(cantidadTotal);
+                        }
+                    });
+                }
+                ;
+
+
+                function descripcion(id) {
+
+                    $.ajax({
+                        dataType: 'json',
+                        url: 'phps/descripcion.php?id=' + id,
+                        type: 'GET',
+                        success: function(data) {
+                            index = 0;
+                            var datos = '<div id="descripcionProductoNuevo"><h4 class="modeloProducto"><b>' + data[index].marca + ' ' + data[index].Nombre + '</b></h4><div class="productoTienda"><img src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"></div><div id="descripcionProducto"><h4><i><b>Description:</b></i></h5><p>' + data[index].Descripcion + '</p></div><div id="caracteristicas"></div><div id="precioProducto">' + data[index].precio + ' &euro;</div><a  href="javascript:anyadirCarrito(' + data[index].idProducto + ')"><div class="btn btn-success" id="anadirCarrito" ><img src="imagenes/imagenesStatic/carro.png"></div></a>                                 </div>';
+
+                            $('#descrip').html(datos);
+                        }
+                    });
+                }
+                ;
+
+
 
             </script>
 
@@ -152,51 +195,18 @@ if (isset($_SESSION["idCliente"])) {
 
 
             <div id="carroRightbar">
-                <a href="carrito.php"><div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><p id="cantidad">3</p></div>
-                </a>
-                <div id="precioTotal">  <p> Total: 3562.87&euro;</p> </div>
+                <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><div id="cantidad"></div></div>
+                
+                <div id="precioTotal">  </div>
                 <div id="listaCarro">
 
 
 
                     <!---------productos comprados-->
-                    <a href="description.php"><div class="producto" >
-                            <div id="cerrar"><img  src="imagenes/imagenesStatic/close.png" onclick="">		</div>
-                            <img id="imgProd" src="imagenes/imagenesProductos/art6.jpg">
-
-                            <div id="description">
-                                <p id="precioLista">2999.99&euro;</p>
-                                <p>This is other example from webpage...</p>
-                            </div>
-
-                        </div></a>
-
-                    <div class="producto" >
-                        <div id="cerrar"><img  src="imagenes/imagenesStatic/close.png" onclick="">		</div>
-                        <img id='imgProd' src="imagenes/imagenesProductos/art7.jpg">
-
-                        <div id="description">
-                            <p id="precioLista">1250&euro;</p>
-                            <p>This is other example from webpage...</p>
-
-                        </div>
-                    </div>
-
-                    <div class="producto" >
-                        <div id="cerrar"><img  src="imagenes/imagenesStatic/close.png" onclick="">		</div>
-                        <img id='imgProd' src="imagenes/imagenesProductos/art5.jpg">
-
-                        <div id="description">
-                            <p id="precioLista">1250&euro;</p>
-                            <p>This is other example from webpage...</p>
-
-                        </div>
-                    </div>
-
-                    <!--------- fin productos comprados-->
+                    
                 </div>
             </div>
-
+            <!--------- fin productos comprados-->
             <div id="cabecera">
 
                 <div id="logo"><img src="imagenes/logo2.png"></div>
@@ -275,19 +285,19 @@ if (isset($_SESSION["idCliente"])) {
                 </div>
 
 
-                
-                    <div id="productoTitulo">
+
+                <div id="productoTitulo">
 
 
-                        <p>Order:<select class="form-control">
-                                <option>Searched</option>
-                                <option>Favorites</option>
-                                <option>Solds</option>
-                            </select>
-                        </p>
+                    <p>Order:<select class="form-control">
+                            <option>Searched</option>
+                            <option>Favorites</option>
+                            <option>Solds</option>
+                        </select>
+                    </p>
 
-                    </div>
-    
+                </div>
+
                 <div id="listaProducto">
 
                 </div>
