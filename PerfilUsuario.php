@@ -1,43 +1,74 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+session_start();
 
-        <title>ShopWeb</title>
-        <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/tiendaCSS.css" rel="stylesheet" type="text/css" />
-        <link href="css/estilo.css" rel="stylesheet" type="text/css" />
-        <link href="css/perfil.css" rel="stylesheet" type="text/css" />
+if (isset($_SESSION["idCliente"])) {
+    ?>
 
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 
-        <link type="text/css" href="css/skitter.styles.css" media="all" rel="stylesheet" />
-        <script type="text/javascript" language="javascript" src="js/jquery-1.6.3.min.js"></script>
-        <script type="text/javascript" language="javascript" src="js/jquery.easing.1.3.js"></script>
-        <script type="text/javascript" language="javascript" src="js/jquery.animate-colors-min.js"></script>
-        <script type="text/javascript" language="javascript" src="js/jquery.skitter.min.js"></script>
-
-        <script type="text/javascript" language="javascript">
+            <title>ShopWeb</title>
+            <!-- Bootstrap core CSS -->
+            <link href="css/bootstrap.css" rel="stylesheet">
+            <link href="css/tiendaCSS.css" rel="stylesheet" type="text/css" />
+            <link href="css/estilo.css" rel="stylesheet" type="text/css" />
+            <link href="css/perfil.css" rel="stylesheet" type="text/css" />
 
 
-            $(document).ready(function() {
+            <link type="text/css" href="css/skitter.styles.css" media="all" rel="stylesheet" />
+            <script type="text/javascript" language="javascript" src="js/jquery-1.6.3.min.js"></script>
+            <script type="text/javascript" language="javascript" src="js/jquery.easing.1.3.js"></script>
+            <script type="text/javascript" language="javascript" src="js/jquery.animate-colors-min.js"></script>
+            <script type="text/javascript" language="javascript" src="js/jquery.skitter.min.js"></script>
+
+            <script type="text/javascript" language="javascript">
+
+
+                $(document).ready(function() {
+
+
                 $.ajax({
-                    dataType: 'json',
-                    url: 'phps/admin/categoriaAdmin.php',
-                    success: function(data) {
-                        var datos = '<ul>';
+                dataType: 'json',
+                        url: 'phps/admin/categoriaAdmin.php',
+                        success: function(data) {
+                var datos = '<ul>';
                         $.each(data, function(index) {
-                            datos += '<li class="btn btn-success" onclick="productoCategoria(' + "'" + data[index].Categoria + "'" + ')">' + data[index].Categoria + '</li>';
-                        });
+                datos += '<li class="btn btn-success" onclick="productoCategoria(' + "'" + data[index].Categoria + "'" + ')">' + data[index].Categoria + '</li>';
+                });
                         datos += '</ul>';
                         $('#MPrincipal').html(datos);
-                    }});
-            });
-            
-            function productoCategoria(categoria) {
-                window.location = "products.php?categoria=" + categoria;
-            }
+                }});
+                });
+                        
+
+
+
+$(document).ready(function() {
+
+                id = "<?php echo $_SESSION["idCliente"]; ?>";
+                $.ajax({
+			dataType: 'json',
+                    url: 'phps/admin/selectClient.php?id=' + id,
+                    type: 'GET',
+                        success: function(data) {
+                        index = 0;
+			datos = '<img id = "imagenPerfil" src = "imagenes/perfil/'+ data[index].imagen +'"><p class = "perfilConstante"> Name: </p> <p class = "perfilVariable">'+ data[index].nombreCliente +'<img class="perfilIcon" src = "imagenes/icons/ojo.png"></p><p class = "perfilConstante" >Nick:</p><p class = "perfilVariable">'+ data[index].nick +'</p><p class = "perfilConstante" > E - mail: </p><p class = "perfilVariable">'+ data[index].email +'<img class = "perfilIcon" src = "imagenes/icons/ojo.png"> </p><p class = "perfilConstante" id = "descripcion"> Description: </p><input class = "form-control"> </input>';
+						
+			$('#perfilContenido').html(datos);
+
+                            }
+                            });
+                            });
+                                    
+
+
+
+function productoCategoria(categoria) {
+                                    window.location = "products.php?categoria=" + categoria;
+                                    }
 
         </script>
 
@@ -50,152 +81,82 @@
 
     <body>
 
-        <?php
-        $db = mysql_connect("localhost", "root", "frodo2013") or die("Connection Error:");
-        mysql_select_db("proyecto2_tienda") or die("Error connecting db");
+        <div id="topbar">
+            <div id="logotopbar"></div>
 
-        $SQL = "SELECT * FROM cliente WHERE idCliente=1";
+            <div id="menutopbar">
 
-        $resultado = mysql_query($SQL) or die("Couldnt execute query");
+                <ul>
+                    <a href="indexLogeado.php"><li id="inicio" ></li></a>
+                    <a href="PerfilUsuario.php" ><li id="perfil"></li></a>
 
-        while ($fila = mysql_fetch_array($resultado, MYSQL_ASSOC)) {
-            ?>
+                    <a href="mensajes.php"> <li id="mensajes"><span class="cantidadProducto">0</span></li></a>
+                    <a href="carrito.php"><li id="carrito"><span class="cantidadProducto">0</span></li></a>
 
+                </ul>
+            </div>
+            <div id="menutopbar2">
+                <ul>
 
-            <div id="topbar">
-                <div id="logotopbar"></div>
-
-                <div id="menutopbar">
-
-                    <ul>
-                        <a href="indexLogeado.php"><li id="inicio" ></li></a>
-                        <a href="PerfilUsuario.php" ><li id="perfil"></li></a>
-
-                        <a href="mensajes.php"> <li id="mensajes"><span class="cantidadProducto">0</span></li></a>
-                        <a href="carrito.php"><li id="carrito"><span class="cantidadProducto">0</span></li></a>
-
-                    </ul>
-                </div>
-                <div id="menutopbar2">
-                    <ul>
-
-                        <a href="index.php"><li id="salir"></li></a>
-                    </ul>
-                </div>
-
-
-                <div id="buscador">
-                    <img src="imagenes/imagenesStatic/imgBusc.png">
-                    <input name="buscador" type="text">
-                </div>
+                    <a href="index.php"><li id="salir"></li></a>
+                </ul>
             </div>
 
 
-
-            <div id="carroRightbar">
-                <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><p id="cantidad">3</p></div>
-
-                <div id="precioTotal">  <p> Total: 3562.87&euro;</p> </div>
-                <div id="listaCarro">
-
+            <div id="buscador">
+                <img src="imagenes/imagenesStatic/imgBusc.png">
+                <input name="buscador" type="text">
+            </div>
+        </div>
 
 
-                    <!---------productos comprados-->
-                    <div class="producto" >
-                        <div id="cerrar"><img  src="imagenes/imagenesStatic/close.png" onclick="">		</div>
-                        <img src="imagenes/imagenesProductos/art6.jpg">
 
-                        <div id="descripcion">
-                            <p id="precioLista">2999.99&euro;</p>
-                            <p>This is other example from webpage...</p>
-                        </div>
+        <div id="carroRightbar">
+            <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><p id="cantidad">3</p></div>
 
-                    </div>
+            <div id="precioTotal">  <p> Total: 3562.87&euro;</p> </div>
+            <div id="listaCarro">
 
-                    <div class="producto" >
-                        <div id="cerrar"><img  src="imagenes/imagenesStatic/close.png" onclick="">		</div>
-                        <img src="imagenes/imagenesProductos/art7.jpg">
 
-                        <div id="descripcion">
-                            <p id="precioLista">1250&euro;</p>
-                            <p>This is other example from webpage...</p>
 
-                        </div>
-                    </div>
+                <!---------productos comprados-->
+                
 
-                    <div class="producto" >
-                        <div id="cerrar"><img  src="imagenes/imagenesStatic/close.png" onclick="">		</div>
-                        <img src="imagenes/imagenesProductos/art5.jpg">
+                
 
-                        <div id="descripcion">
-                            <p id="precioLista">1250&euro;</p>
-                            <p>This is other example from webpage...</p>
+                
 
-                        </div>
-                    </div>
+                <!--------- fin productos comprados-->
+            </div>
+        </div>
 
-                    <!--------- fin productos comprados-->
+        <div id="cabecera">
+
+            <div id="logo"><img src="imagenes/logo2.png"></div>
+            <div id="sublogo"><h1><img src="imagenes/subLogo.png"></h1></div>
+
+        </div>
+
+
+        <div id="menu">
+
+
+        </div>
+
+        <div id="contenido">
+
+            <div id="contenidoTop">
+                <div id="MPrincipal">
+
                 </div>
-            </div>
+					<div id="perfilContenedor">
+                    <div id="perfilNavegador">
+                        <a href="#" class="activoP">Profile</a><a href="mensajes.php">Messages</a>
 
-            <div id="cabecera">
-
-                <div id="logo"><img src="imagenes/logo2.png"></div>
-                <div id="sublogo"><h1><img src="imagenes/subLogo.png"></h1></div>
-
-            </div>
-
-
-            <div id="menu">
-
-
-            </div>
-
-            <div id="contenido">
-
-                <div id="contenidoTop">
-                    <div id="MPrincipal">
-                            
                     </div>
 
+                    <div id="perfilContenido">
 
-                    <div id="perfilContenedor">
-                        <div id="perfilNavegador">
-                            <a href="#" class="activoP">Profile</a><a href="mensajes.php">Messages</a>
-
-                        </div>
-
-                        <div id="perfilContenido">
-                            <img id="imagenPerfil" src="imagenes/perfil/<?php
-        echo $fila["imagen"];
-        ?>">
-                            <p class="perfilConstante" >Name: </p> 
-                            <p class="perfilVariable">
-
-                                 <?php
-                                 echo $fila["nombreCliente"];
-                                 ?>
-
-                                <img class="perfilIcon" src="imagenes/icons/ojo.png"></p>
-                            <p class="perfilConstante">Nick: </p> 
-                            <p class="perfilVariable">	
-
-    <?php
-    echo $fila["nick"];
-    ?>
-
-                            </p>
-                            <p class="perfilConstante">E-mail: </p>
-                            <p class="perfilVariable">
-
-    <?php
-    echo $fila["email"];
-}
-?>
-                            <img class="perfilIcon" src="imagenes/icons/ojo.png"></p>
-
-                        <p class="perfilConstante" id="descripcion">Description:</p>
-                        <input class="form-control"></input>
 
                     </div>
                 </div>
@@ -238,3 +199,8 @@
 
     </body>
 </html>
+<?php
+} else {
+    echo("acceso denegado");
+};
+?>
