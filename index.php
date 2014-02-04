@@ -68,16 +68,16 @@
 
             function validar() {
                 datosInicioSesion = $('#inicioForm').serialize();
-				
-				
+
+
                 $.ajax({
                     url: 'phps/validacion.php',
                     type: 'POST',
                     data: datosInicioSesion,
                     success: function(url) {
-					
-			window.location=url;
-					}
+
+                        window.location = url;
+                    }
                 });
 
 
@@ -129,7 +129,24 @@
                 window.location = "products.php?categoria=" + categoria;
             }
             ;
-
+//BUSCAR---PRODUCTOS-----------------------
+            $(document).ready(function() {
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/buscarProducto.php',
+                    type: 'POST',
+                    data: busc,
+                    success: function(data) {
+                        var datos = '<table>';
+                        $.each(data, function(index) {
+                            datos += '<div class="producto"  onclick=""><p id="precio">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div><a  ><div class="carrito" onclick="descripcion(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalDescripcion"><img src="imagenes/imagenesStatic/carro.png"></div></a></div>';
+                            datos += '</table>';
+                        });
+                        $('#listaProducto').html(datos);
+                    }
+                });
+            });
+//FIN BUSCAR PRODUCTOS------------------
 
         </script>
 
