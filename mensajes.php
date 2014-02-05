@@ -42,6 +42,21 @@
                         $('#MPrincipal').html(datos);
                     }});
             });
+            $(document).ready(function() {
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/mensajes.php',
+                    success: function(data) {
+                        
+                    $.each(data, function(index) {
+                  
+                         datos = '<div class="mensaje2"><table class="table"><tr><td></p>'+  $fila2['nick'] +'</p></td><td > <a class="collapsed" href="#demo'+ $fila['idMensaje'] + '"data-toggle="collapse"><div class="elipsis">' + $fila['mensaje'] + '</div></a></td><td>' + $fila['fecha'] + '</td></tr></table><tr><div id="demo' + $fila['idMensaje']+ '" class="panel-collapse collapse"><p>'+ $fila['mensaje'] +'</p></div></tr></div>';
+
+                        $('#tablaMensajes').html(datos);  
+                    });
+                    }
+                    });
+           } );
 
             function productoCategoria(categoria) {
                 window.location = "products.php?categoria=" + categoria;
@@ -100,38 +115,11 @@
 
 
                 <!---------productos comprados-->
-                <div class="producto" >
-                    <div id="cerrar"><img  src="imagenes/imagenesStatic/close.png" onclick="">		</div>
-                    <img src="imagenes/imagenesProductos/art6.jpg">
+                
 
-                    <div id="descripcion">
-                        <p id="precioLista">2999.99&euro;</p>
-                        <p>This is other example from webpage...</p>
-                    </div>
+                
 
-                </div>
-
-                <div class="producto" >
-                    <div id="cerrar"><img  src="imagenes/imagenesStatic/close.png" onclick="">		</div>
-                    <img src="imagenes/imagenesProductos/art7.jpg">
-
-                    <div id="descripcion">
-                        <p id="precioLista">1250&euro;</p>
-                        <p>This is other example from webpage...</p>
-
-                    </div>
-                </div>
-
-                <div class="producto" >
-                    <div id="cerrar"><img  src="imagenes/imagenesStatic/close.png" onclick="">		</div>
-                    <img src="imagenes/imagenesProductos/art5.jpg">
-
-                    <div id="descripcion">
-                        <p id="precioLista">1250&euro;</p>
-                        <p>This is other example from webpage...</p>
-
-                    </div>
-                </div>
+                
 
                 <!--------- fin productos comprados-->
 
@@ -166,23 +154,7 @@
                     </div>
 
                     <div id="tablaMensajes">
-                        <?php
-                        $db = mysql_connect("localhost", "root", "frodo2013") or die("Connection Error:");
-                        mysql_select_db("proyecto2_tienda") or die("Error connecting db");
-
-                        $SQL = "SELECT * FROM mensaje WHERE idRecibe=1 ORDER BY idMensaje DESC;";
-                        $resultado = mysql_query($SQL) or die("Couldnt execute query1 ");
-
-                        while ($fila = mysql_fetch_array($resultado, MYSQL_ASSOC)) {
-                            $idMensaje = $fila['idMensaje'];
-                            $SQL2 = "SELECT nick FROM cliente WHERE idCliente = (SELECT idEnvia FROM mensaje WHERE idMensaje='$idMensaje');";
-                            $resultadoNombre = mysql_query($SQL2) or die("Couldnt execute query2");
-                            $fila2 = mysql_fetch_array($resultadoNombre, MYSQL_ASSOC);
-
-                            echo "<div class='mensaje2'><table class='table'><tr><td></p>" . $fila2['nick'] . "</p></td><td > <a class='collapsed' href='#demo" . $fila['idMensaje'] . "'  data-toggle='collapse'><div class='elipsis'>" . $fila['mensaje'] . "</div>
-                                </a></td><td>" . $fila['fecha'] . "</td></tr></table><tr><div id='demo" . $fila['idMensaje'] . "' class='panel-collapse collapse'><p>" . $fila['mensaje'] . "</p></div></tr></div>";
-                        }
-                        ?>
+                        
 
 
 
