@@ -68,16 +68,16 @@
 
             function validar() {
                 datosInicioSesion = $('#inicioForm').serialize();
-				
-				
+
+
                 $.ajax({
                     url: 'phps/validacion.php',
                     type: 'POST',
                     data: datosInicioSesion,
                     success: function(url) {
-					
-			window.location=url;
-					}
+
+                        window.location = url;
+                    }
                 });
 
 
@@ -129,7 +129,27 @@
                 window.location = "products.php?categoria=" + categoria;
             }
             ;
+//BUSCAR---PRODUCTOS-----------------------
+                function buscar() {
+                busc = $('#searchForm').serialize();
 
+
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/buscarProducto.php',
+                    type: 'POST',
+                    data: busc,
+                    success: function(data) {
+                        datos = '<table>';
+                        $.each(data, function(index) {
+                            datos += '<div class="producto"  onclick=""><p id="precio">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div><a  ><div class="carrito" onclick="descripcion(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalDescripcion"><img src="imagenes/imagenesStatic/carro.png"></div></a></div>';
+                            datos += '</table>';
+                        });
+                        $('#listaProducto').html(datos);
+                    }
+                });
+            };
+//FIN BUSCAR PRODUCTOS------------------
 
         </script>
 
@@ -164,8 +184,14 @@
                                 </li></div></form></ul>
 
                 <div id="buscador">
-                    <img src="imagenes/imagenesStatic/imgBusc.png">
-                    <input name="buscador" type="text">
+                    
+                    <img onclick="buscar()" src="imagenes/imagenesStatic/imgBusc.png">
+                    <form id="searchForm">
+                        <input name="Nombre" type="text">
+                    </form>
+
+
+                    
                 </div>
             </div>
 
