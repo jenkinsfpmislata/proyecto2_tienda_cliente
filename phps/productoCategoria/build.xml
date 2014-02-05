@@ -1,0 +1,32 @@
+<property name=”tomcat.manager.url” value=”http://localhost:8080/manager”/>
+<property name=”tomcat.username” value=”tomcat”/>
+<property name=”tomcat.password” value=”tomcat”/>
+<!
+--
+Classpath for Tomcat ant tasks
+--
+>
+<path id=”deployer.classpath”>
+<fileset dir=”${tomcat.home}/lib”>
+<include name=”*.jar”/>
+</fileset>
+</path>
+
+
+
+<target name=”deploy” depends=”dist” description=”Deploy web
+application”>
+<deploy url=”${tomcat.manager.url}
+”
+username=”${tomcat.username}”
+password=”${tomcat.password}” path=”${context.path}”
+war=”${war.file}” update=”true” />
+</target>
+
+<target name=”undeploy” description=”Undeploy web application”>
+<undeploy url=”${tomcat.manager.url}”
+username=”${tomcat.username}”
+password
+=”${tomcat.password}” path=”${context.path}”/>
+</target
+>

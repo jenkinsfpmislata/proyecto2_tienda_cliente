@@ -28,7 +28,10 @@ if (isset($_SESSION["idCliente"])) {
 
             <script type="text/javascript" language="javascript">
 
-
+				var precioTotal = 0;
+				var cantidad = 0;
+            var datos = '';
+				
                 $(document).ready(function() {
                     $(".box_skitter_large").css({width: 820, height: 298}).skitter({numbers: false});
                 });
@@ -102,12 +105,13 @@ if (isset($_SESSION["idCliente"])) {
                 function anyadirCarrito(id) {
 
                     $.ajax({
+					
                         dataType: 'json',
                         url: 'phps/descripcion.php?id=' + id,
                         type: 'GET',
                         success: function(data) {
                             index = 0;
-
+alert("funciona todo");
                             datos = datos + '<div class="producto"><p id="precioLista">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div></div>';
                             precioProducto = parseFloat(data[index].precio);
                             precioTotal = precioTotal + precioProducto;
@@ -150,15 +154,7 @@ if (isset($_SESSION["idCliente"])) {
 
 
         <body>
-
-
-
-
-
-
-
-
-            <div id="topbar">
+			<div id="topbar">
                 <div id="logotopbar"></div>
 
                 <div id="menutopbar">
@@ -195,17 +191,17 @@ if (isset($_SESSION["idCliente"])) {
 
 
             <div id="carroRightbar">
-                <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><div id="cantidad"></div></div>
-                
-                <div id="precioTotal">  </div>
-                <div id="listaCarro">
+            <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><div id="cantidad"></div></div>
+
+            <div id="precioTotal">   </div>
+            <div id="listaCarro">
 
 
 
-                    <!---------productos comprados-->
-                    
-                </div>
+                <!---------productos comprados-->
+
             </div>
+        </div>
             <!--------- fin productos comprados-->
             <div id="cabecera">
 
