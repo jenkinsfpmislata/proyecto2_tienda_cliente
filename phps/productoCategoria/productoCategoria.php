@@ -8,7 +8,7 @@
 	$SQL="SELECT * FROM producto WHERE categoria LIKE '$categoria';";
 	$result=mysql_query($SQL) or die("Couldnt execute query");
 	
-	$fila=mysql_fetch_array($result,MYSQL_ASSOC);
+	
 	$i=0;
     while($fila = mysql_fetch_array($result,MYSQL_ASSOC)) 
 	{
