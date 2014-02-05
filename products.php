@@ -14,13 +14,19 @@ $categoria = $_GET["categoria"];
         <link href="css/tiendaCSS.css" rel="stylesheet" type="text/css" />
         <link href="css/estilo.css" rel="stylesheet" type="text/css" />
         <link href="css/products.css" rel="stylesheet" type="text/css" />
+<link type="text/css" href="css/skitter.styles.css" media="all" rel="stylesheet" />
 
 
-        <link type="text/css" href="css/skitter.styles.css" media="all" rel="stylesheet" />
-        <script type="text/javascript" language="javascript" src="js/jquery-1.6.3.min.js"></script>
-        <script type="text/javascript" language="javascript" src="js/jquery.easing.1.3.js"></script>
-        <script type="text/javascript" language="javascript" src="js/jquery.animate-colors-min.js"></script>
-        <script type="text/javascript" language="javascript" src="js/jquery.skitter.min.js"></script>
+        <script type="text/javascript" language="javascript" src="js/jquery-2.0.3.min.js">
+        </script>
+        <script type="text/javascript" language="javascript" src="js/bootstrap.min.js">
+        </script>
+        <script type="text/javascript" language="javascript" src="js/jquery.easing.1.3.js">
+        </script>
+        <script type="text/javascript" language="javascript" src="js/jquery.animate-colors-min.js">
+        </script>
+        <script type="text/javascript" language="javascript" src="js/jquery.skitter.min.js">
+        </script>
 
         <script type="text/javascript" language="javascript">
 
