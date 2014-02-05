@@ -16,6 +16,7 @@ if (isset($_SESSION["idCliente"])) {
             <link href="css/bootstrap.css" rel="stylesheet">
             <link href="css/tiendaCSS.css" rel="stylesheet" type="text/css" />
             <link href="css/estilo.css" rel="stylesheet" type="text/css" />
+			 <link href="css/descriptionProducto.css" rel="stylesheet" type="text/css" />
             <link type="text/css" href="css/skitter.styles.css" media="all" rel="stylesheet" />
 
             <script type="text/javascript" language="javascript" src="js/jquery-2.0.3.min.js"></script>
