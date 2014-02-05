@@ -56,7 +56,7 @@
                     url: 'phps/productos.php',
                     success: function(data) {
                         var datos = '<table>';
-                        index=0;
+                        
                         $.each(data, function(index) {
                             
                         
