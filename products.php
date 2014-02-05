@@ -71,6 +71,7 @@ $categoria = $_GET["categoria"];
 
 //----------------------------------------------
             function descripcion(id) {
+                alert(id);
 
                 $.ajax({
                     dataType: 'json',
