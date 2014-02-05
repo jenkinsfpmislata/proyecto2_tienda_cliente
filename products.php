@@ -77,7 +77,6 @@ $categoria = $_GET["categoria"];
 
 //----------------------------------------------
             function descripcion(id) {
-                alert(id);
 
                 $.ajax({
                     dataType: 'json',
@@ -169,9 +168,9 @@ $categoria = $_GET["categoria"];
 
 
         <div id="carroRightbar">
-            <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><p id="cantidad">3</p></div>
+            <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><p id="cantidad">0</p></div>
 
-            <div id="precioTotal">  <p> Total: 3562.87&euro;</p> </div>
+            <div id="precioTotal">  <p> Total: 0&euro;</p> </div>
             <div id="listaCarro">
 
 
