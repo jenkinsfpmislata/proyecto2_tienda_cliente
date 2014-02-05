@@ -204,9 +204,9 @@
 
 
         <div id="carroRightbar">
-            <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><div id="cantidad"></div></div>
+            <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><div id="cantidad">0</div></div>
 
-            <div id="precioTotal">   </div>
+            <div id="precioTotal">  <p> Total: 0&euro;</p> </div>
             <div id="listaCarro">
 
 
