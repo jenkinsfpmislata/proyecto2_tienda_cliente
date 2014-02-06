@@ -56,16 +56,16 @@
                     url: 'phps/productos.php',
                     success: function(data) {
                         var datos = '<table>';
-                        
+
                         $.each(data, function(index) {
-                            
-                        
-                            if(index<15){
-                        
-                            datos += '<div class="producto"><p id="precio">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div><a  ><div class="carrito" onclick="descripcion(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalDescripcion"><img src="imagenes/imagenesStatic/carro.png"></div></a></div>';
-                            datos += '</table>';
+
+
+                            if (index < 15) {
+
+                                datos += '<div class="producto"><p id="precio">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div><a  ><div class="carrito" onclick="descripcion(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalDescripcion"><img src="imagenes/imagenesStatic/carro.png"></div></a></div>';
+                                datos += '</table>';
                             }
-                           
+
                         });
                         $('#listaProducto').html(datos);
                     }
@@ -125,6 +125,8 @@
                         $('#listaCarro').html(datos);
                         $('#precioTotal').html(precio);
                         $('#cantidad').html(cantidadTotal);
+
+                        addproducto(data[index].Nombre, data[index].precio, data[index].Imagen);
                     }
                 });
             }
@@ -137,7 +139,7 @@
             }
             ;
 //BUSCAR---PRODUCTOS-----------------------
-                function buscar() {
+            function buscar() {
                 busc = $('#searchForm').serialize();
 
 
@@ -155,8 +157,88 @@
                         $('#listaProducto').html(dato);
                     }
                 });
-            };
+            }
+            ;
 //FIN BUSCAR PRODUCTOS------------------
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+            function pedido(idPedido) {
+                this.idPedido = idPedido;
+                this.total = 0;
+                this.listaproductos = [];
+            }
+
+            pedido.prototype.nuevo = function(producto) {
+                this.listaproductos[this.listaproductos.length] = producto;
+            }
+
+
+            function producto(nombreProducto, precio, imagen) {
+                this.nombreProducto = nombreProducto;
+                this.precio = precio;
+                this.imagen = imagen;
+                this.stock = 1;
+            }
+            producto.prototype.mostrar = function() {
+                alert("nombreProducto: " + this.nombreProducto + " precio: " + this.precio + " imagen: " + this.imagen + " stock: " + this.stock)
+            }
+            producto.prototype.comprar = function() {
+                this.stock++
+            }
+            producto.prototype.vender = function() {
+                this.stock--
+            }
+
+
+            function addproducto(addNombre, addPrecio, addImagen) {
+                nombreProducto = addNombre;
+                precio = addPrecio;
+                imagen = addImagen;
+                miproducto = new producto(nombreProducto, precio, imagen);
+                mipedido.nuevo(miproducto);
+            }
+            function verproducto() {
+                miproducto.mostrar();
+            }
+
+            function venderproducto() {
+                miproducto.vender();
+            }
+
+            function comprarproducto() {
+                miproducto.comprar();
+            }
+
+            pedido.prototype.totalproductos = function() {
+                alert(this.listaproductos.length);
+            }
+
+            function verproductos() {
+                mipedido.verproductos();
+            }
+
+            pedido.prototype.verproductos = function() {
+                productos = "Productos:";
+                for (i = 0; i < this.listaproductos.length; i++) {
+                    nombreProducto = this.listaproductos[i].nombreProducto;
+                    precio = this.listaproductos[i].precio;
+                    imagen = this.listaproductos[i].imagen;
+                    stock = this.listaproductos[i].stock;
+                    productos += "\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", Stock: " + stock;
+                }
+
+                alert(productos);
+            }
+
+
+            window.onload = function() {
+                mipedido = new pedido("DAW");
+            }
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------	
 
         </script>
 
@@ -191,14 +273,14 @@
                                 </li></div></form></ul>
 
                 <div id="buscador">
-                    
+
                     <img onclick="buscar()" src="imagenes/imagenesStatic/imgBusc.png">
                     <form id="searchForm">
                         <input name="Nombre" type="text">
                     </form>
 
 
-                    
+
                 </div>
             </div>
 
