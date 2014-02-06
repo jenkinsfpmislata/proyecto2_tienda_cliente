@@ -118,8 +118,8 @@ if (isset($_SESSION["idCliente"])) {
                             index = 0;
 
                             datos = datos + '<div class="producto"><p id="precioLista">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div></div>';
-                            precioProducto = Math.round((parseFloat(data[index].precio))*100)/100;
-                            precioTotal = precioTotal + precioProducto;
+                            precioProducto = parseFloat(data[index].precio);
+                            precioTotal = Math.round((precioTotal + precioProducto)*100)/100;
                             precio = '<p>Total: ' + precioTotal + ' &euro; </p>';
                             cantidad = cantidad + 1;
                             cantidadTotal = cantidad;
@@ -251,8 +251,8 @@ if (isset($_SESSION["idCliente"])) {
                         <a href="PerfilUsuario.php"><li id="perfil"></li></a>
 
 
-                        <a href="mensajes.php"> <li id="mensajes"><span class="cantidadProducto">0</span></li></a>
-                        <a href="carrito.php"><li id="carrito"><span class="cantidadProducto">0</span></li></a>
+                        <a href="mensajes.php"> <li id="mensajes"></li></a>
+                        <a href="carrito.php"><li id="carrito"></li></a>
 
                         <a id="nombreCliente"></a>
 
