@@ -118,7 +118,7 @@ if (isset($_SESSION["idCliente"])) {
                             index = 0;
 
                             datos = datos + '<div class="producto"><p id="precioLista">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div></div>';
-                            precioProducto = parseFloat(data[index].precio);
+                            precioProducto = Math.round((parseFloat(data[index].precio))*100)/100;
                             precioTotal = precioTotal + precioProducto;
                             precio = '<p>Total: ' + precioTotal + ' &euro; </p>';
                             cantidad = cantidad + 1;
