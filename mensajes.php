@@ -49,12 +49,12 @@ if (isset($_SESSION["idCliente"])) {
                     }});
             });
             $(document).ready(function() {
-             id = "<?php echo $_SESSION["idCliente"]; ?>";
+             idCliente = "<?php echo $_SESSION["idCliente"]; ?>";
              alert(id);
             
                 $.ajax({
                     dataType: 'json',
-                    url: 'phps/mensajes.php?idCliente='+id,
+                    url: 'phps/mensajes.php?idCliente='+idCliente,
                     type: 'GET',
                     success: function(data) {
                      
