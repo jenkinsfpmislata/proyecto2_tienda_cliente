@@ -12,6 +12,7 @@ $categoria = $_GET["categoria"];
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/tiendaCSS.css" rel="stylesheet" type="text/css" />
+          <link href="css/descriptionProducto.css" rel="stylesheet" type="text/css" />
         <link href="css/estilo.css" rel="stylesheet" type="text/css" />
         <link href="css/products.css" rel="stylesheet" type="text/css" />
 <link type="text/css" href="css/skitter.styles.css" media="all" rel="stylesheet" />

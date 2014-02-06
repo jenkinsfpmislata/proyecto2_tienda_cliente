@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+if (isset($_SESSION["idCliente"])) {
+    ?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -43,9 +49,12 @@
                     }});
             });
             $(document).ready(function() {
+             id = "<?php echo $_SESSION["idCliente"]; ?>";
+            
                 $.ajax({
                     dataType: 'json',
-                    url: 'phps/mensajes.php',
+                    url: 'phps/mensajes.php?idCliente='+id,
+                    type: 'GET',
                     success: function(data) {
                         
                     $.each(data, function(index) {
@@ -206,3 +215,8 @@
 
     </body>
 </html>
+ <?php
+} else {
+    echo("acceso denegado");
+};
+?>
