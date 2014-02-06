@@ -59,11 +59,12 @@ if (isset($_SESSION["idCliente"])) {
                     url: 'phps/mensajes.php?idCliente='+idCliente,
                     type: 'GET',
                     success: function(data) {
-                     
+                     datos='<table>'
         $.each(data, function(index) {
                   
-                         datos = '<div class="mensaje2"><table class="table"><tr><td></p>'+   data[index].nick  +'</p></td><td > <a class="collapsed" href="#demo'+  data[index].idMensaje  + '"data-toggle="collapse"><div class="elipsis">' +  data[index].mensaje  + '</div></a></td><td>' +  data[index].fecha  + '</td></tr></table><tr><div id="demo' + data[index].idMensaje + '" class="panel-collapse collapse"><p>'+ data[index].mensaje  +'</p></div></tr></div>';
-                    alert(data[index].nick);
+                         datos += '<div class="mensaje2"><table class="table"><tr><td></p>'+   data[index].nick  +'</p></td><td > <a class="collapsed" href="#demo'+  data[index].idMensaje  + '"data-toggle="collapse"><div class="elipsis">' +  data[index].mensaje  + '</div></a></td><td>' +  data[index].fecha  + '</td></tr></table><tr><div id="demo' + data[index].idMensaje + '" class="panel-collapse collapse"><p>'+ data[index].mensaje  +'</p></div></tr></div>';
+                    datos+='</table>'
+    alert(data[index].nick);
                         $('#tablaMensajes').html(datos);  
                     });
                     }
