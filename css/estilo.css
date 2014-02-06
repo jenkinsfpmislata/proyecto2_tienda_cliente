@@ -303,6 +303,16 @@ margin-right:60px;
 				top:0px;
 				padding-bottom:-50px;
 				}
+                                
+                                #indexComprar{
+                                    margin:5px;
+                                    margin-top:315px;
+                                    width: 100%;
+                                }
+                                #indexComprar button{
+                                    
+                                    width: 100%;
+                                }
 	
 	 
 	

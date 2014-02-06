@@ -292,6 +292,7 @@
             <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><div id="cantidad">0</div></div>
 
             <div id="precioTotal">  <p> Total: 0&euro;</p> </div>
+             <div id="indexComprar">  <button class="btn btn-success"> COMPRAR</button> </div>
             <div id="listaCarro">
 
 
