@@ -4,7 +4,7 @@
 	$db=mysql_connect("localhost","root","frodo2013")or die("Connection Error:");
 	mysql_select_db("proyecto2_tienda")or die ("Error connecting db");
 	
-	$SQL = "SELECT * FROM mensaje WHERE idRecibe=$idCliente ORDER BY idMensaje DESC;";
+	$SQL = "SELECT * FROM mensaje WHERE idRecibe='$idCliente' ORDER BY idMensaje DESC;";
         $resultado = mysql_query($SQL) or die("Couldnt execute query1 ");
         $i=0;
         while ($fila = mysql_fetch_array($resultado, MYSQL_ASSOC)) {
