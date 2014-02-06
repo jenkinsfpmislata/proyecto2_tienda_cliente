@@ -18,6 +18,7 @@ background-color:#009933;
    
 }
 
+
 #inicio:hover{
 background-color:#009933;
 }
@@ -170,6 +171,7 @@ background-image:url(../imagenes/imagenesStatic/salir.png);
 background-size:28px 28px;
 background-repeat:no-repeat;
 background-position:center;
+margin-right:60px;
 }
 
 .cantidadProducto{
