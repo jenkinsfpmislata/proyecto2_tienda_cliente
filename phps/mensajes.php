@@ -13,8 +13,8 @@
             $resultadoNombre = mysql_query($SQL2) or die("Couldnt execute query2");
             $fila2 = mysql_fetch_array($resultadoNombre, MYSQL_ASSOC);
             
-            $datos[$i]=array('nick'=>$fila2["nick"],'idMensaje'=>$fila["idMensaje"],'mensaje'=>$fila["menssaje"],'fecha'=>$fila["fecha"]);
-$i++;
+            $datos[$i]=array('nick'=>$fila2["nick"],'idMensaje'=>$fila["idMensaje"],'mensaje'=>$fila["mensaje"],'fecha'=>$fila["fecha"]);
+            $i++;
         }
 	echo json_encode($datos);
 	

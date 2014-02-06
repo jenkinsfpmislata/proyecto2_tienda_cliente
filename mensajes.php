@@ -59,7 +59,7 @@ if (isset($_SESSION["idCliente"])) {
                         
                     $.each(data, function(index) {
                   
-                         datos = '<div class="mensaje2"><table class="table"><tr><td></p>'+  $fila2['nick'] +'</p></td><td > <a class="collapsed" href="#demo'+ $fila['idMensaje'] + '"data-toggle="collapse"><div class="elipsis">' + $fila['mensaje'] + '</div></a></td><td>' + $fila['fecha'] + '</td></tr></table><tr><div id="demo' + $fila['idMensaje']+ '" class="panel-collapse collapse"><p>'+ $fila['mensaje'] +'</p></div></tr></div>';
+                         datos = '<div class="mensaje2"><table class="table"><tr><td></p>'+   data[index].nick  +'</p></td><td > <a class="collapsed" href="#demo'+ + data[index].idMensaje  + '"data-toggle="collapse"><div class="elipsis">' + + data[index].mensaje  + '</div></a></td><td>' +  data[index].fecha  + '</td></tr></table><tr><div id="demo' + data[index].idMensaje + '" class="panel-collapse collapse"><p>'+ data[index].mensaje  +'</p></div></tr></div>';
 
                         $('#tablaMensajes').html(datos);  
                     });
@@ -164,17 +164,7 @@ if (isset($_SESSION["idCliente"])) {
 
                     <div id="tablaMensajes">
                         
-
-
-
-
-
-
-
-
-
-
-                    </div>
+                </div>
                 </div>
 
 
