@@ -9,7 +9,7 @@
         $i=0;
         while ($fila = mysql_fetch_array($resultado, MYSQL_ASSOC)) {
             $idMensaje = $fila['idMensaje'];
-            $SQL2 = "SELECT nick FROM cliente WHERE idCliente = (SELECT idEnvia FROM mensaje WHERE idMensaje='$idMensaje');";
+            $SQL2 = "SELECT nick FROM cliente WHERE idCliente = (SELECT idEnvia FROM mensaje WHERE idMensaje=$idMensaje);";
             $resultadoNombre = mysql_query($SQL2) or die("Couldnt execute query2");
             $fila2 = mysql_fetch_array($resultadoNombre, MYSQL_ASSOC);
             
