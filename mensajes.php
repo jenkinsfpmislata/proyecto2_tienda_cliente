@@ -48,9 +48,11 @@ if (isset($_SESSION["idCliente"])) {
                         $('#MPrincipal').html(datos);
                     }});
             });
+           
+
             $(document).ready(function() {
              idCliente = "<?php echo $_SESSION["idCliente"]; ?>";
-             alert(id);
+            
             
                 $.ajax({
                     dataType: 'json',
@@ -60,8 +62,8 @@ if (isset($_SESSION["idCliente"])) {
                      
         $.each(data, function(index) {
                   
-                         datos = '<div class="mensaje2"><table class="table"><tr><td></p>'+   data[index].nick  +'</p></td><td > <a class="collapsed" href="#demo'+ + data[index].idMensaje  + '"data-toggle="collapse"><div class="elipsis">' + + data[index].mensaje  + '</div></a></td><td>' +  data[index].fecha  + '</td></tr></table><tr><div id="demo' + data[index].idMensaje + '" class="panel-collapse collapse"><p>'+ data[index].mensaje  +'</p></div></tr></div>';
-                    alert(""+data[index].nick+"");
+                         datos = '<div class="mensaje2"><table class="table"><tr><td></p>'+   data[index].nick  +'</p></td><td > <a class="collapsed" href="#demo'+  data[index].idMensaje  + '"data-toggle="collapse"><div class="elipsis">' +  data[index].mensaje  + '</div></a></td><td>' +  data[index].fecha  + '</td></tr></table><tr><div id="demo' + data[index].idMensaje + '" class="panel-collapse collapse"><p>'+ data[index].mensaje  +'</p></div></tr></div>';
+                    alert(data[index].nick);
                         $('#tablaMensajes').html(datos);  
                     });
                     }
