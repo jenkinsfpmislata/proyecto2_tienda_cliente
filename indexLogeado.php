@@ -153,9 +153,7 @@ if (isset($_SESSION["idCliente"])) {
 
 //FIN BUSCAR PRODUCTOS------------------
 //------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
+
             function pedido(idPedido) {
                 this.idPedido = idPedido;
                 this.total = 0;
@@ -281,6 +279,7 @@ if (isset($_SESSION["idCliente"])) {
             <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><div id="cantidad">0</div></div>
 
             <div id="precioTotal">  <p> Total: 0&euro;</p> </div>
+            <div id="indexComprar">  <button class="btn btn-primary"> comprar</button> </div>
             <div id="listaCarro">
 
 
@@ -440,6 +439,6 @@ if (isset($_SESSION["idCliente"])) {
     </html>
     <?php
 } else {
-    echo("acceso denegado");
+    echo("Acceso denegado");
 };
 ?>
