@@ -221,7 +221,7 @@ if (isset($_SESSION["idCliente"])) {
                 }
                 alert("lolol");
                 alert(productos);
-                alert(mipedido.toJSONString());
+                alert(mipedido.listaproductos.toJSONString());
                 
             }
 
