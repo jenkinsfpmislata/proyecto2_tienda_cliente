@@ -175,19 +175,20 @@ session_start();
 
             pedido.prototype.nuevo = function(producto) {
                 this.listaproductos[this.listaproductos.length] = producto;
-                carrito = JSON.stringify(mipedido);
-                alert(carrito);
-                $.ajax({
+                carrito=JSON.stringify(mipedido);
+              
+               $.ajax({
                     url: 'phps/listaPedido.php',
                     type: 'POST',
-                    data: pedido=carrito,
+                    data: "pedido="+carrito,
                     success: function() {
                         alert(carrito)
                     }
                 });
-                alert("<?php echo $_SESSION["pedido"]; ?>");
-
-
+                cosa="<?php echo $_SESSION["pedido"]; ?>";
+                alert(cosa);
+        
+        
             }
 
 
