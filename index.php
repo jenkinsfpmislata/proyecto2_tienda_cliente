@@ -176,9 +176,9 @@
                     
                     url: 'phps/listaPedido.php',
                     type: 'POST',
-                    data: "pedido:"+carrito,
+                    data: "pedido="+carrito,
                     success: function() {
-                        
+                        alert(carrito)
                     }
                 });
                 alert( "<?php echo $_SESSION["pedido"]; ?>");
