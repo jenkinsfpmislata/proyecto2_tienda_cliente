@@ -172,14 +172,14 @@ if (isset($_SESSION["idCliente"])) {
                 this.stock = 1;
             }
             producto.prototype.mostrar = function() {
-                alert("nombreProducto: " + this.nombreProducto + " precio: " + this.precio + " imagen: " + this.imagen + " stock: " + this.stock)
-            }
+                alert("nombreProducto: " + this.nombreProducto + " precio: " + this.precio + " imagen: " + this.imagen + " stock: " + this.stock);
+            };
             producto.prototype.comprar = function() {
-                this.stock++
-            }
+                this.stock++;
+            };
             producto.prototype.vender = function() {
-                this.stock--
-            }
+                this.stock--;
+            };
 
 
             function addproducto(addNombre, addPrecio, addImagen) {
