@@ -170,6 +170,20 @@
 
             pedido.prototype.nuevo = function(producto) {
                 this.listaproductos[this.listaproductos.length] = producto;
+                carrito=JSON.stringify(mipedido);
+              alert(carrito);
+               $.ajax({
+                    
+                    url: 'phps/listaPedido.php',
+                    type: 'POST',
+                    data: "pedido:"+carrito,
+                    success: function() {
+                        
+                    }
+                });
+                alert( "<?php echo $_SESSION["pedido"]; ?>");
+        
+        
             }
 
 

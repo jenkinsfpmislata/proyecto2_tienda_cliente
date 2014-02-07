@@ -149,6 +149,8 @@ if (isset($_SESSION["idCliente"])) {
                     });
                 }
                 ;
+                
+                
 
 
 //FIN BUSCAR PRODUCTOS------------------
@@ -217,17 +219,47 @@ if (isset($_SESSION["idCliente"])) {
                     imagen = this.listaproductos[i].imagen;
                     stock = this.listaproductos[i].stock;
                     productos += ""+mipedido.idPedido+"\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", Stock: " + stock;
+                    objeto =this.listaproductos[i];
                 }
-
+             //  mandar_carrito();
                 alert(productos);
+               
+                
             }
 
 
             window.onload = function() {
-                mipedido = new pedido("P "+"<?php echo $_SESSION["idCliente"]; ?>");
+                var mipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
+            }
+            
+            
+            function mandar_carrito(){
+                carrito=JSON.stringify(mipedido);
+                alCarrito(carrito);
+                alert(carrito);
+                
+                //elObjeto=JSON.parse(elJson);  alert(elObjeto.laLista[0].elNombre);
+                
             }
 //------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
+//-------
+function alCarrito(carrito) {
+
+                    $.ajax({
+                        dataType: 'mipedidojson',
+                        url: 'phps/pedido.php',
+                        type: 'POST',
+                        data: carrito,
+                        success: function(data) {
+                            index = 0;
+                            var datos = '<div id="descripcionProductoNuevo"><h4 class="modeloProducto"><b>' + data[index].marca + ' ' + data[index].Nombre + '</b></h4><div class="productoTienda"><img src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"></div><div id="descripcionProducto"><h4><i><b>Description:</b></i></h5><p>' + data[index].Descripcion + '</p></div><div id="caracteristicas"></div><div id="precioProducto">' + data[index].precio + ' &euro;</div><a  href="javascript:anyadirCarrito(' + data[index].idProducto + ')"><div class="btn btn-success" id="anadirCarrito" ><img src="imagenes/imagenesStatic/carro.png"></div></a>                                 </div>';
+
+                            $('#descrip').html(datos);
+                        }
+                    });
+                } ;
+               
+//-----------------------------------------------------------------------
 //------------------------------------------------------------------------------	
 
             </script>
