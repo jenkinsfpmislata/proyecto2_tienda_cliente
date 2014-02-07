@@ -221,7 +221,7 @@ if (isset($_SESSION["idCliente"])) {
                 }
 
                 alert(productos);
-                alert(this.listaproductos[i].producto);
+                alert(mipedido);
             }
 
 
