@@ -216,7 +216,7 @@ if (isset($_SESSION["idCliente"])) {
                     precio = this.listaproductos[i].precio;
                     imagen = this.listaproductos[i].imagen;
                     stock = this.listaproductos[i].stock;
-                    productos += ""+mipedido+"\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", Stock: " + stock;
+                    productos += ""+mipedido.idPedido+"\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", Stock: " + stock;
                 }
 
                 alert(productos);
