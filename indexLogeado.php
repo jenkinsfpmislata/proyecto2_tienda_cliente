@@ -16,7 +16,7 @@ if (isset($_SESSION["idCliente"])) {
             <link href="css/bootstrap.css" rel="stylesheet">
             <link href="css/tiendaCSS.css" rel="stylesheet" type="text/css" />
             <link href="css/estilo.css" rel="stylesheet" type="text/css" />
-			 <link href="css/descriptionProducto.css" rel="stylesheet" type="text/css" />
+            <link href="css/descriptionProducto.css" rel="stylesheet" type="text/css" />
             <link type="text/css" href="css/skitter.styles.css" media="all" rel="stylesheet" />
 
             <script type="text/javascript" language="javascript" src="js/jquery-2.0.3.min.js"></script>
@@ -29,10 +29,10 @@ if (isset($_SESSION["idCliente"])) {
 
             <script type="text/javascript" language="javascript">
 
-				var precioTotal = 0;
-				var cantidad = 0;
-            var datos = '';
-				
+                var precioTotal = 0;
+                var cantidad = 0;
+                var datos = '';
+
                 $(document).ready(function() {
                     $(".box_skitter_large").css({width: 820, height: 298}).skitter({numbers: false});
                 });
@@ -74,12 +74,12 @@ if (isset($_SESSION["idCliente"])) {
                         success: function(data) {
                             var datos = '<table>';
                             $.each(data, function(index) {
-                                
-                                 if(index<15){
-                           
-                                datos += '<div class="producto"  onclick=""><p id="precio">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div><a  ><div class="carrito" onclick="descripcion(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalDescripcion"><img src="imagenes/imagenesStatic/carro.png"></div></a></div>';
-                                datos += '</table>';
-                            }
+
+                                if (index < 15) {
+
+                                    datos += '<div class="producto"  onclick=""><p id="precio">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div><a  ><div class="carrito" onclick="descripcion(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalDescripcion"><img src="imagenes/imagenesStatic/carro.png"></div></a></div>';
+                                    datos += '</table>';
+                                }
                             });
                             $('#listaProducto').html(datos);
                         }
@@ -103,14 +103,13 @@ if (isset($_SESSION["idCliente"])) {
                 });
 
                 function productoCategoria(categoria) {
-                    window.location = "products.php?categoria=" + categoria;
+                    window.location = "productsLogeado.php?categoria=" + categoria;
                 }
 
 
                 function anyadirCarrito(id) {
 
                     $.ajax({
-					
                         dataType: 'json',
                         url: 'phps/descripcion.php?id=' + id,
                         type: 'GET',
@@ -119,14 +118,14 @@ if (isset($_SESSION["idCliente"])) {
 
                             datos = datos + '<div class="producto"><p id="precioLista">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div></div>';
                             precioProducto = parseFloat(data[index].precio);
-                            precioTotal = Math.round((precioTotal + precioProducto)*100)/100;
+                            precioTotal = Math.round((precioTotal + precioProducto) * 100) / 100;
                             precio = '<p>Total: ' + precioTotal + ' &euro; </p>';
                             cantidad = cantidad + 1;
                             cantidadTotal = cantidad;
                             $('#listaCarro').html(datos);
                             $('#precioTotal').html(precio);
                             $('#cantidad').html(cantidadTotal);
-                            
+
                             addproducto(data[index].Nombre, data[index].precio, data[index].Imagen);
                         }
                     });
@@ -149,101 +148,101 @@ if (isset($_SESSION["idCliente"])) {
                     });
                 }
                 ;
-                
-                
 
 
-//FIN BUSCAR PRODUCTOS------------------
-//------------------------------------------------------------------------------
-
-            function pedido(idPedido) {
-                this.idPedido = idPedido;
-                this.total = 0;
-                this.listaproductos = [];
-            }
-
-            pedido.prototype.nuevo = function(producto) {
-                this.listaproductos[this.listaproductos.length] = producto;
-            }
 
 
-            function producto(nombreProducto, precio, imagen) {
-                this.nombreProducto = nombreProducto;
-                this.precio = precio;
-                this.imagen = imagen;
-                this.stock = 1;
-            }
-            producto.prototype.mostrar = function() {
-                alert("nombreProducto: " + this.nombreProducto + " precio: " + this.precio + " imagen: " + this.imagen + " stock: " + this.stock)
-            }
-            producto.prototype.comprar = function() {
-                this.stock++
-            }
-            producto.prototype.vender = function() {
-                this.stock--
-            }
+    //FIN BUSCAR PRODUCTOS------------------
+    //------------------------------------------------------------------------------
 
-
-            function addproducto(addNombre, addPrecio, addImagen) {
-                nombreProducto = addNombre;
-                precio = addPrecio;
-                imagen = addImagen;
-                miproducto = new producto(nombreProducto, precio, imagen);
-                mipedido.nuevo(miproducto);
-            }
-            function verproducto() {
-                miproducto.mostrar();
-            }
-
-            function venderproducto() {
-                miproducto.vender();
-            }
-
-            function comprarproducto() {
-                miproducto.comprar();
-            }
-
-            pedido.prototype.totalproductos = function() {
-                alert(this.listaproductos.length);
-            }
-
-            function verproductos() {
-                mipedido.verproductos();
-            }
-
-            pedido.prototype.verproductos = function() {
-                productos = "Productos:";
-                for (i = 0; i < this.listaproductos.length; i++) {
-                    nombreProducto = this.listaproductos[i].nombreProducto;
-                    precio = this.listaproductos[i].precio;
-                    imagen = this.listaproductos[i].imagen;
-                    stock = this.listaproductos[i].stock;
-                    productos += ""+mipedido.idPedido+"\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", Stock: " + stock;
-                    objeto =this.listaproductos[i];
+                function pedido(idPedido) {
+                    this.idPedido = idPedido;
+                    this.total = 0;
+                    this.listaproductos = [];
                 }
-             //  mandar_carrito();
-                alert(productos);
-               
-                
-            }
+
+                pedido.prototype.nuevo = function(producto) {
+                    this.listaproductos[this.listaproductos.length] = producto;
+                }
 
 
-            window.onload = function() {
-                var mipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
-            }
-            
-            
-            function mandar_carrito(){
-                carrito=JSON.stringify(mipedido);
-                alCarrito(carrito);
-                alert(carrito);
-                
-                //elObjeto=JSON.parse(elJson);  alert(elObjeto.laLista[0].elNombre);
-                
-            }
-//------------------------------------------------------------------------------
-//-------
-function alCarrito(carrito) {
+                function producto(nombreProducto, precio, imagen) {
+                    this.nombreProducto = nombreProducto;
+                    this.precio = precio;
+                    this.imagen = imagen;
+                    this.stock = 1;
+                }
+                producto.prototype.mostrar = function() {
+                    alert("nombreProducto: " + this.nombreProducto + " precio: " + this.precio + " imagen: " + this.imagen + " stock: " + this.stock);
+                };
+                producto.prototype.comprar = function() {
+                    this.stock++;
+                };
+                producto.prototype.vender = function() {
+                    this.stock--;
+                };
+
+
+                function addproducto(addNombre, addPrecio, addImagen) {
+                    nombreProducto = addNombre;
+                    precio = addPrecio;
+                    imagen = addImagen;
+                    miproducto = new producto(nombreProducto, precio, imagen);
+                    mipedido.nuevo(miproducto);
+                }
+                function verproducto() {
+                    miproducto.mostrar();
+                }
+
+                function venderproducto() {
+                    miproducto.vender();
+                }
+
+                function comprarproducto() {
+                    miproducto.comprar();
+                }
+
+                pedido.prototype.totalproductos = function() {
+                    alert(this.listaproductos.length);
+                }
+
+                function verproductos() {
+                    mipedido.verproductos();
+                }
+
+                pedido.prototype.verproductos = function() {
+                    productos = "Productos:";
+                    for (i = 0; i < this.listaproductos.length; i++) {
+                        nombreProducto = this.listaproductos[i].nombreProducto;
+                        precio = this.listaproductos[i].precio;
+                        imagen = this.listaproductos[i].imagen;
+                        stock = this.listaproductos[i].stock;
+                        productos += "" + mipedido.idPedido + "\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", Stock: " + stock;
+                        objeto = this.listaproductos[i];
+                    }
+                    //  mandar_carrito();
+                    alert(productos);
+
+
+                }
+
+
+                window.onload = function() {
+                    var mipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
+                }
+
+
+                function mandar_carrito() {
+                    carrito = JSON.stringify(mipedido);
+                    alCarrito(carrito);
+                    alert(carrito);
+
+                    //elObjeto=JSON.parse(elJson);  alert(elObjeto.laLista[0].elNombre);
+
+                }
+    //------------------------------------------------------------------------------
+    //-------
+                function alCarrito(carrito) {
 
                     $.ajax({
                         dataType: 'mipedidojson',
@@ -257,10 +256,34 @@ function alCarrito(carrito) {
                             $('#descrip').html(datos);
                         }
                     });
-                } ;
-               
-//-----------------------------------------------------------------------
-//------------------------------------------------------------------------------	
+                }
+                ;
+
+    //-----------------------------------------------------------------------
+    //------------------------------------------------------------------------------	
+    
+    //BUSCAR---PRODUCTOS-----------------------
+            function buscar() {
+                busc = $('#searchForm').serialize();
+
+
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/buscarProducto.php',
+                    type: 'POST',
+                    data: busc,
+                    success: function(data) {
+                        dato = '<table>';
+                        $.each(data, function(index) {
+                            dato += '<div class="producto"  onclick=""><p id="precio">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div><a  ><div class="carrito" onclick="descripcion(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalDescripcion"><img src="imagenes/imagenesStatic/carro.png"></div></a></div>';
+                            dato += '</table>';
+                        });
+                        $('#listaProducto').html(dato);
+                    }
+                });
+            }
+            ;
+//FIN BUSCAR PRODUCTOS------------------
 
             </script>
 
@@ -271,7 +294,7 @@ function alCarrito(carrito) {
 
 
         <body>
-			<div id="topbar">
+            <div id="topbar">
                 <div id="logotopbar"></div>
 
                 <div id="menutopbar">
@@ -300,27 +323,31 @@ function alCarrito(carrito) {
 
 
                 <div id="buscador">
-                    <img src="imagenes/imagenesStatic/imgBusc.png">
-                    <input name="buscador" type="text">
+
+                    <img onclick="buscar()" src="imagenes/imagenesStatic/imgBusc.png">
+                    <form id="searchForm">
+                        <input name="Nombre" type="text">
+                    </form>
+                    
                 </div>
             </div>
 
 
 
             <div id="carroRightbar">
-            <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><div id="cantidad">0</div></div>
+                <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><div id="cantidad">0</div></div>
 
-            <div id="precioTotal">  <p> Total: 0&euro;</p> </div>
-           
-            <div id="listaCarro">
+                <div id="precioTotal">  <p> Total: 0&euro;</p> </div>
+
+                <div id="listaCarro">
 
 
 
-                <!---------productos comprados-->
+                    <!---------productos comprados-->
 
+                </div>
+                <div id="indexComprar">  <button class="btn btn-success"> comprar</button> </div>
             </div>
-             <div id="indexComprar">  <button class="btn btn-success"> comprar</button> </div>
-        </div>
             <!--------- fin productos comprados-->
             <div id="cabecera">
 
@@ -373,25 +400,25 @@ function alCarrito(carrito) {
                     </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
 
-                
+
                 <div class="modal fade" id="myModalDescripcion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div id="modalDesc" class="modal-dialog">
-                    <div class="modal-content">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <div class="modal-body">
-                            <div id="descrip">
-                                <!--TODA LA DESCRIPCION DEL PRODUCTO-->
+                    <div id="modalDesc" class="modal-dialog">
+                        <div class="modal-content">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <div class="modal-body">
+                                <div id="descrip">
+                                    <!--TODA LA DESCRIPCION DEL PRODUCTO-->
+                                </div>
+
                             </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-                
+
 
                 <div id="contenidoTopIndex">
                     <div id="MPrincipal">
