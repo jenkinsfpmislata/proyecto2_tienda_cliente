@@ -222,6 +222,7 @@ if (isset($_SESSION["idCliente"])) {
 
                 alert(productos);
                 alert(this.listaproductos.toJSONString());
+                alert("lolol");
             }
 
 
