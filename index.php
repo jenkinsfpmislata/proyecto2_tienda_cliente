@@ -1,3 +1,8 @@
+
+<?php
+session_start();
+
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -175,9 +180,9 @@
                 $.ajax({
                     url: 'phps/listaPedido.php',
                     type: 'POST',
-                    data: "pedido:" + carrito,
+                    data: pedido=carrito,
                     success: function() {
-
+                        alert(carrito)
                     }
                 });
                 alert("<?php echo $_SESSION["pedido"]; ?>");
