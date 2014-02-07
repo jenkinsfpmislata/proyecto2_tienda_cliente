@@ -90,8 +90,8 @@ function productoCategoria(categoria) {
                     <a href="indexLogeado.php"><li id="inicio" ></li></a>
                     <a href="PerfilUsuario.php" ><li id="perfil"></li></a>
 
-                    <a href="mensajes.php"> <li id="mensajes"><span class="cantidadProducto">0</span></li></a>
-                    <a href="carrito.php"><li id="carrito"><span class="cantidadProducto">0</span></li></a>
+                    <a href="mensajes.php"> <li id="mensajes"></li></a>
+                    <a href="carrito.php"><li id="carrito"></li></a>
 
                 </ul>
             </div>
@@ -199,7 +199,7 @@ function productoCategoria(categoria) {
 
     </body>
 </html>
-<?php
+        <?php
 } else {
     echo("acceso denegado");
 };
