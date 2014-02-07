@@ -170,6 +170,16 @@
 
             pedido.prototype.nuevo = function(producto) {
                 this.listaproductos[this.listaproductos.length] = producto;
+                 carrito=JSON.stringify(mipedido);
+                <?php
+
+	session_start();
+        $_SESSION["pedido"]= 'carrito'?> carrito   
+        <?php ;
+                
+                   
+	?>
+	alert(carrito);
             }
 
 
