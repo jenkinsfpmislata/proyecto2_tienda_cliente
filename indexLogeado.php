@@ -217,14 +217,16 @@ if (isset($_SESSION["idCliente"])) {
                     imagen = this.listaproductos[i].imagen;
                     stock = this.listaproductos[i].stock;
                     productos += ""+mipedido.idPedido+"\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", Stock: " + stock;
+                    objeto =this.listaproductos[0];
                 }
 
                 alert(productos);
+                alert(objeto);
             }
 
 
             window.onload = function() {
-                mipedido = new pedido("P "+"<?php echo $_SESSION["idCliente"]; ?>");
+                mipedido = new pedido("P"+"<?php echo $_SESSION["idCliente"]; ?>");
             }
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
