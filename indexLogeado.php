@@ -219,10 +219,10 @@ if (isset($_SESSION["idCliente"])) {
                     productos += ""+mipedido.idPedido+"\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", Stock: " + stock;
                     objeto =this.listaproductos[i];
                 }
-
-                alert(productos);
-                alert(this.listaproductos.toJSONString());
                 alert("lolol");
+                alert(productos);
+                alert(mipedido.toJSONString());
+                
             }
 
 
