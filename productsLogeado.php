@@ -78,7 +78,7 @@ if (isset($_SESSION["idCliente"])) {
                         }});
                 });
 
-                function productoCategoria(categoria) {
+                function productoCategoria(categoria) { 
                     window.location = "productsLogeado.php?categoria=" + categoria;
                 }
 
