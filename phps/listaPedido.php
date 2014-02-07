@@ -2,7 +2,7 @@
 
 	session_start();
 
-	$pedido=$_GET["pedido"];
+	$pedido=$_POST["pedido"];
 	
 	$_SESSION["pedido"]=$pedido;
 	
