@@ -174,9 +174,9 @@
               alert(carrito);
                $.ajax({
                     
-                    url: 'phps/listaPedido.php?pedido='+carrito,
-                    type: 'GET',
-                    //data: "pedido="+carrito,
+                    url: 'phps/listaPedido.php',
+                    type: 'POST',
+                    data: pedido=carrito,
                     success: function() {
                         alert(carrito)
                     }
