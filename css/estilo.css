@@ -13,6 +13,11 @@ background-color:#009933;
     padding-left:40px;
      padding-right:10px;
 }
+ #nombreCliente a{
+      color:white;
+   
+}
+
 
 #inicio:hover{
 background-color:#009933;
@@ -166,6 +171,7 @@ background-image:url(../imagenes/imagenesStatic/salir.png);
 background-size:28px 28px;
 background-repeat:no-repeat;
 background-position:center;
+margin-right:60px;
 }
 
 .cantidadProducto{
@@ -297,6 +303,16 @@ background-position:center;
 				top:0px;
 				padding-bottom:-50px;
 				}
+                                
+                                #indexComprar{
+                                    margin:5px;
+                                    margin-top:0px;
+                                    width: 100%;
+                                }
+                                #indexComprar button{
+                                    
+                                    width: 100%;
+                                }
 	
 	 
 	

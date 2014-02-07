@@ -216,7 +216,7 @@ if (isset($_SESSION["idCliente"])) {
                     precio = this.listaproductos[i].precio;
                     imagen = this.listaproductos[i].imagen;
                     stock = this.listaproductos[i].stock;
-                    productos += "\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", Stock: " + stock;
+                    productos += ""+mipedido.idPedido+"\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", Stock: " + stock;
                 }
 
                 alert(productos);
@@ -224,7 +224,7 @@ if (isset($_SESSION["idCliente"])) {
 
 
             window.onload = function() {
-                mipedido = new pedido("DAW");
+                mipedido = new pedido("P "+"<?php echo $_SESSION["idCliente"]; ?>");
             }
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
@@ -279,7 +279,7 @@ if (isset($_SESSION["idCliente"])) {
             <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><div id="cantidad">0</div></div>
 
             <div id="precioTotal">  <p> Total: 0&euro;</p> </div>
-            <div id="indexComprar">  <button class="btn btn-primary"> comprar</button> </div>
+           
             <div id="listaCarro">
 
 
@@ -287,6 +287,7 @@ if (isset($_SESSION["idCliente"])) {
                 <!---------productos comprados-->
 
             </div>
+             <div id="indexComprar">  <button class="btn btn-success"> comprar</button> </div>
         </div>
             <!--------- fin productos comprados-->
             <div id="cabecera">
