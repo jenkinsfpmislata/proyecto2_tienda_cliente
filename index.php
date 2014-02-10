@@ -183,8 +183,8 @@ session_start();
                     data: "pedido="+carrito,
                     success: function() {
                         alert(carrito)
-                         cosa="<?php echo $_SESSION["pedido"]; ?>";
-                alert(cosa);
+                 /*        cosa="<?php echo $_SESSION["pedido"]; ?>";
+                alert(cosa);*/
                     }
                 });
                
