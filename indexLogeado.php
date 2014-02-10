@@ -1,8 +1,8 @@
 <?php
 session_start();
-
+if (isset($_SESSION["pedido"])) {
 if (isset($_SESSION["idCliente"])) {
-    if (isset($_SESSION["pedido"])) {
+    
     ?>
 
 
