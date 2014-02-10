@@ -180,7 +180,7 @@ session_start();
                $.ajax({
                     url: 'phps/listaPedido.php',
                     type: 'POST',
-                    data: 'pedido='+carrito,
+                    data: carrito,
                     success: function() {
                        
                 
