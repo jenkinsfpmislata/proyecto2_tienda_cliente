@@ -182,7 +182,7 @@ session_start();
                     type: 'POST',
                     data: "pedido="+carrito,
                     success: function() {
-                        alert(carrito)
+                        alert(carrito);
                 
                     }
                 });
