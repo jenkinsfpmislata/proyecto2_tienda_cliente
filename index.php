@@ -182,11 +182,7 @@ session_start();
                     type: 'POST',
                     data: "pedido="+carrito,
                     success: function() {
-                        <?php
-session_start();
-?>
-                       
-                         var ped = "<?php echo $_SESSION["pedido"]; ?>";
+                        var ped = "<?php echo $_SESSION["pedido"]; ?>";
                         alert(ped);
                 
                     }
