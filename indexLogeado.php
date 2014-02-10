@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION["pedido"])) {
+
 if (isset($_SESSION["idCliente"])) {
     
     ?>
@@ -44,10 +44,6 @@ if (isset($_SESSION["idCliente"])) {
                 $(document).ready(function() {
                     id = "<?php echo $_SESSION["idCliente"]; ?>";
                     
-                    
-                    
-
-
                     $.ajax({
                         dataType: 'json',
                         url: 'phps/admin/selectClient.php?id=' + id,
@@ -68,6 +64,43 @@ if (isset($_SESSION["idCliente"])) {
                         }
                     });
                 });
+                
+                <?php
+session_start();
+if (isset($_SESSION["pedido"])) {
+    ?>
+                
+                 $(document).ready(function() {
+                    ped = "<?php echo $_SESSION["pedido"]; ?>";
+                    alert(ped);
+                    $.ajax({
+                        dataType: 'json',
+                        url: 'phps/admin/selectClient.php?id=' + id,
+                        type: 'GET',
+                        success: function(data) {
+
+                            index = 0;
+                            if (data[index].rol == "admin") {
+
+                                datos = '<a href="adminClient.php"><li id="perfil"></li></a>';
+                                $('#adminButton').html(datos);
+                            }
+                            else {
+                            }
+                            dato2 = '<a>' + data[index].nombreCliente + '</a>';
+                            $('#nombreCliente').html(dato2);
+
+                        }
+                    });
+                });
+                
+<?php
+}
+    ?>
+                
+                
+                
+                
 
                 //mostrar productos---------------
                 $(document).ready(function() {
@@ -502,7 +535,7 @@ if (isset($_SESSION["idCliente"])) {
         </body>
     </html>
     <?php
-    }
+    
 } else {
     echo("Acceso denegado");
 };
