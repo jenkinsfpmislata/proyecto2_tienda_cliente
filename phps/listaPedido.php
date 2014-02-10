@@ -1,8 +1,8 @@
 <?php
 
 	session_start();
-$pedido=file.get.contents("php://input");
-	
+
+	$pedido=$_POST["pedido"];
 	
 	$_SESSION["pedido"]=$pedido;
 	
