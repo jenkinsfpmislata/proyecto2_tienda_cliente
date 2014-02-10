@@ -73,25 +73,10 @@ if (isset($_SESSION["pedido"])) {
                  $(document).ready(function() {
                     ped = "<?php echo $_SESSION["pedido"]; ?>";
                     alert(ped);
-                    $.ajax({
-                        dataType: 'json',
-                        url: 'phps/admin/selectClient.php?id=' + id,
-                        type: 'GET',
-                        success: function(data) {
-
-                            index = 0;
-                            if (data[index].rol == "admin") {
-
-                                datos = '<a href="adminClient.php"><li id="perfil"></li></a>';
-                                $('#adminButton').html(datos);
-                            }
-                            else {
-                            }
-                            dato2 = '<a>' + data[index].nombreCliente + '</a>';
-                            $('#nombreCliente').html(dato2);
-
-                        }
-                    });
+                    
+                    objPed = JSON.parse(ped);
+                    alert(objPed);
+                    
                 });
                 
 <?php
