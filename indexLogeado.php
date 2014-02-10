@@ -28,6 +28,29 @@ if (isset($_SESSION["idCliente"])) {
             <script type="text/javascript" language="javascript" src="js/jquery.animate-colors-min.js"></script>
             <script type="text/javascript" language="javascript" src="js/jquery.skitter.min.js"></script>
 
+            <?php
+session_start();
+
+if (isset($_SESSION["pedido"])) {
+    
+    ?>
+<script>
+ $(document).ready(function() {
+                    ped = "<?php echo $_SESSION["pedido"]; ?>";
+                    alert(ped);
+                    
+                    objPed = JSON.parse(ped);
+                    alert(objPed);
+                    
+                });
+                                </script>
+                 <?php
+    
+} else {
+    echo("No funciona");
+};
+?>
+            
             <script type="text/javascript" language="javascript">
 
                 var precioTotal = 0;
@@ -296,28 +319,7 @@ if (isset($_SESSION["idCliente"])) {
 //FIN BUSCAR PRODUCTOS------------------
  </script> 
             
-<?php
-session_start();
 
-if (isset($_SESSION["pedido"])) {
-    
-    ?>
-<script>
- $(document).ready(function() {
-                    ped = "<?php echo $_SESSION["pedido"]; ?>";
-                    alert(ped);
-                    
-                    objPed = JSON.parse(ped);
-                    alert(objPed);
-                    
-                });
-                                </script>
-                 <?php
-    
-} else {
-    echo("Acceso denegado");
-};
-?>
             
 
 
