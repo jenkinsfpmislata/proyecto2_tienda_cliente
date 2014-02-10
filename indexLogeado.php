@@ -67,16 +67,7 @@ if (isset($_SESSION["idCliente"])) {
                 
                 
              
-                 $(document).ready(function() {
-                    ped = "<?php session_start();
-                    echo $_SESSION["pedido"]; 
-                    ?>";
-                    alert(ped);
-                    
-                    objPed = JSON.parse(ped);
-                    alert(objPed);
-                    
-                });
+                
                 
                        
                 
@@ -303,8 +294,31 @@ if (isset($_SESSION["idCliente"])) {
             }
             ;
 //FIN BUSCAR PRODUCTOS------------------
+ </script> 
+            
+<?php
+session_start();
 
-            </script>
+if (isset($_SESSION["pedido"])) {
+    
+    ?>
+<script>
+ $(document).ready(function() {
+                    ped = "<?php echo $_SESSION["pedido"]; ?>";
+                    alert(ped);
+                    
+                    objPed = JSON.parse(ped);
+                    alert(objPed);
+                    
+                });
+                                </script>
+                 <?php
+    
+} else {
+    echo("Acceso denegado");
+};
+?>
+            
 
 
 
