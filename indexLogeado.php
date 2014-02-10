@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION["idCliente"])) {
-    if (isset($_SESSION["pedido"])) {
+    
     ?>
 
 
@@ -44,10 +44,6 @@ if (isset($_SESSION["idCliente"])) {
                 $(document).ready(function() {
                     id = "<?php echo $_SESSION["idCliente"]; ?>";
                     
-                    
-                    
-
-
                     $.ajax({
                         dataType: 'json',
                         url: 'phps/admin/selectClient.php?id=' + id,
@@ -68,6 +64,23 @@ if (isset($_SESSION["idCliente"])) {
                         }
                     });
                 });
+                
+                
+                
+                 $(document).ready(function() {
+                    ped = "<?php echo $_SESSION["pedido"]; ?>";
+                    alert(ped);
+                    
+                    objPed = JSON.parse(ped);
+                    alert(objPed);
+                    
+                });
+                
+
+                
+                
+                
+                
 
                 //mostrar productos---------------
                 $(document).ready(function() {
@@ -502,7 +515,7 @@ if (isset($_SESSION["idCliente"])) {
         </body>
     </html>
     <?php
-    }
+    
 } else {
     echo("Acceso denegado");
 };
