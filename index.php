@@ -186,7 +186,7 @@ session_start();
 session_start();
 ?>
                        
-                         ped = "<?php echo $_SESSION["pedido"]; ?>";
+                         var ped = "<?php echo $_SESSION["pedido"]; ?>";
                         alert(ped);
                 
                     }
