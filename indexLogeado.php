@@ -66,7 +66,7 @@ if (isset($_SESSION["idCliente"])) {
                 });
                 
                 
-             /*
+             
                  $(document).ready(function() {
                     ped = "<?php echo $_SESSION["pedido"]; ?>";
                     alert(ped);
@@ -76,7 +76,7 @@ if (isset($_SESSION["idCliente"])) {
                     
                 });
                 
-                        */
+                       
                 
                 
                 
