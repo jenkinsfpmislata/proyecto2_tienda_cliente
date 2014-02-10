@@ -65,10 +65,7 @@ if (isset($_SESSION["idCliente"])) {
                     });
                 });
                 
-                <?php
-session_start();
-if (isset($_SESSION["pedido"])) {
-    ?>
+                
                 
                  $(document).ready(function() {
                     ped = "<?php echo $_SESSION["pedido"]; ?>";
@@ -79,9 +76,7 @@ if (isset($_SESSION["pedido"])) {
                     
                 });
                 
-<?php
-}
-    ?>
+
                 
                 
                 
