@@ -35,7 +35,7 @@ if (isset($_SESSION["pedido"])) {
     
     ?>
 <script>
- $(document).ready(function() {
+
      alert("cualsevol cosa");
  
                     ped = "<?php echo $_SESSION["pedido"]; ?>";
@@ -45,7 +45,7 @@ if (isset($_SESSION["pedido"])) {
                     objPed = JSON.parse(ped);
                     alert(objPed);
                     
-                });
+              
                                 </script>
                  <?php
     
