@@ -42,7 +42,7 @@ if (isset($_SESSION["idCliente"])) {
 
                 $(document).ready(function() {
                     id = "<?php echo $_SESSION["idCliente"]; ?>";
-                    echo= "<?php echo $_SESSION["pedido"]; ?>";
+                    alert("<?php echo $_SESSION["pedido"]; ?>");
 
 
                     $.ajax({
