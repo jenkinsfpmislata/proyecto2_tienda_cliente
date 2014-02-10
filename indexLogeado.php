@@ -36,7 +36,10 @@ if (isset($_SESSION["pedido"])) {
     ?>
 <script>
  $(document).ready(function() {
+     alert("cualsevol cosa");
+ 
                     ped = "<?php echo $_SESSION["pedido"]; ?>";
+                    
                     alert(ped);
                     
                     objPed = JSON.parse(ped);
