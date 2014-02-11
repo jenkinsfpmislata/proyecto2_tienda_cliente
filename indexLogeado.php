@@ -38,8 +38,8 @@ if (isset($_SESSION["pedido"])) {
 
      alert("cualsevol cosa");
  
-                    ped = <?php echo $_SESSION["pedido"]; ?>;
-                    alert(ped.idPedido);
+                    ped = '<?php echo $_SESSION["pedido"]; ?>';
+                    alert(ped);
                     
                     //objPed = JSON.parse(ped);
                    // alert(objPed);
