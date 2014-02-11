@@ -38,8 +38,11 @@ if (isset($_SESSION["pedido"])) {
 
      alert("cualsevol cosa");
  
-                    ped = '<?php echo $_SESSION["pedido"]; ?>';
-                    alert(ped);
+                    mipedido = <?php echo $_SESSION["pedido"]; ?>;
+                    
+                    alert(mipedido.idPedido);
+                    mipedido.idPedido="<?php echo $_SESSION["idCliente"]; ?>";
+                    alert(mipedido.idPedido);
                     
                     //objPed = JSON.parse(ped);
                    // alert(objPed);
@@ -49,7 +52,14 @@ if (isset($_SESSION["pedido"])) {
                  <?php
     
 } else {
-    echo("No funciona");
+    ?>
+        <script>
+   window.onload = function() {
+                    var mipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
+                    //mipedido = loquerecogeCarritomepasa;
+                }
+   </script>
+              <?php
 };
 ?>
             
@@ -101,18 +111,7 @@ if (isset($_SESSION["pedido"])) {
                     }
                 });
                 }
-                
-                
-             
-                
-                
-                       
-                
-                
-                
-                
-
-                //mostrar productos---------------
+            //mostrar productos---------------
                 $(document).ready(function() {
 
                     $.ajax({
@@ -236,6 +235,11 @@ if (isset($_SESSION["pedido"])) {
                     imagen = addImagen;
                     miproducto = new producto(nombreProducto, precio, imagen);
                     mipedido.nuevo(miproducto);
+                    
+                    
+                    carrito=JSON.stringify(mipedido);
+                     alert(carrito);
+                  
                 }
                 function verproducto() {
                     miproducto.mostrar();
@@ -274,10 +278,7 @@ if (isset($_SESSION["pedido"])) {
                 }
 
 
-                window.onload = function() {
-                    var mipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
-                    //mipedido = loquerecogeCarritomepasa;
-                }
+               
 
 
                 function mandar_carrito() {
