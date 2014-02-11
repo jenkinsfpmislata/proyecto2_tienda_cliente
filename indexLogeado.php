@@ -36,16 +36,24 @@ if (isset($_SESSION["pedido"])) {
     ?>
 <script>
 
-     alert("cualsevol cosa");
+     
  
                     mipedido = <?php echo $_SESSION["pedido"]; ?>;
                     
                     alert(mipedido.idPedido);
+                    alert(mipedido.listaproductos);
                     mipedido.idPedido="<?php echo $_SESSION["idCliente"]; ?>";
                     alert(mipedido.idPedido);
                     
-                    //objPed = JSON.parse(ped);
-                   // alert(objPed);
+                     carrito=JSON.stringify(mipedido);
+                     alert(carrito);
+                     
+                     var objMipedido= new pedido( mipedido.idPedido)
+                    // objMipedido.antiguo(mipedido.idPedido, mipedido.)
+                    // objMipedido.
+                     
+                    
+                  
                     
               
                                 </script>
@@ -235,7 +243,6 @@ if (isset($_SESSION["pedido"])) {
                     imagen = addImagen;
                     miproducto = new producto(nombreProducto, precio, imagen);
                     mipedido.nuevo(miproducto);
-                    
                     
                     carrito=JSON.stringify(mipedido);
                      alert(carrito);
