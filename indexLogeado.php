@@ -42,8 +42,8 @@ if (isset($_SESSION["pedido"])) {
                     
                     alert(ped);
                     
-                    objPed = JSON.parse(ped);
-                    alert(objPed);
+                    //objPed = JSON.parse(ped);
+                   // alert(objPed);
                     
               
                                 </script>
