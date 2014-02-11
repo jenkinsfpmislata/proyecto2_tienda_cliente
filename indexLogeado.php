@@ -42,8 +42,8 @@ if (isset($_SESSION["pedido"])) {
                     
                     alert(ped);
                     
-                    //objPed = JSON.parse(ped);
-                   // alert(objPed);
+                    objPed = JSON.parse(ped);
+                    alert(objPed);
                     
               
                                 </script>
@@ -265,7 +265,9 @@ if (isset($_SESSION["pedido"])) {
 
                 window.onload = function() {
                     var mipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
-                }
+             
+             
+             }
 
 
                 function mandar_carrito() {
