@@ -100,7 +100,7 @@ if (isset($_SESSION["pedido"])) {
 
                     success: function() {
 
-                        window.location = index.php;
+                        window.location = "index.php";
                     }
                 });
                 }
