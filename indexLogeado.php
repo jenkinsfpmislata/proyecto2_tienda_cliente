@@ -29,7 +29,7 @@ if (isset($_SESSION["idCliente"])) {
             <script type="text/javascript" language="javascript" src="js/jquery.skitter.min.js"></script>
 
             <?php
-session_start();
+//session_start();
 
 if (isset($_SESSION["pedido"])) {
     
@@ -42,8 +42,8 @@ if (isset($_SESSION["pedido"])) {
                     
                     alert(ped);
                     
-                    objPed = JSON.parse(ped);
-                    alert(objPed);
+                    //objPed = JSON.parse(ped);
+                   // alert(objPed);
                     
               
                                 </script>
