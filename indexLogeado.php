@@ -91,6 +91,21 @@ if (isset($_SESSION["pedido"])) {
                     });
                 });
                 
+
+                function salir(){
+               
+
+
+                $.ajax({
+                    url: 'phps/salir.php',
+
+                    success: function() {
+
+                        window.location = index.php;
+                    }
+                });
+                }
+                
                 
              
                 
@@ -265,9 +280,8 @@ if (isset($_SESSION["pedido"])) {
 
                 window.onload = function() {
                     var mipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
-             
-             
-             }
+                    //mipedido = loquerecogeCarritomepasa;
+                }
 
 
                 function mandar_carrito() {
@@ -356,7 +370,7 @@ if (isset($_SESSION["pedido"])) {
                 <div id="menutopbar2">
                     <ul>
 
-                        <a href="index.php"><li id="salir"></li></a>
+                        <a href="javascript:salir()"><li id="salir"></li></a>
                         <div id="adminButton"></div>
                     </ul>
                 </div>
