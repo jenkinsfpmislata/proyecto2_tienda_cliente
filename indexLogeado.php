@@ -38,7 +38,7 @@ if (isset($_SESSION["pedido"])) {
 
      alert("cualsevol cosa");
  
-                    ped = "<?php echo $_SESSION["pedido"]; ?>";
+                    ped = <?php echo $_SESSION["pedido"]; ?>;
                     
                     alert(ped);
                     
