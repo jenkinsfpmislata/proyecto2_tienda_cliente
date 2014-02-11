@@ -50,7 +50,7 @@ if (isset($_SESSION["pedido"])) {
                      alert(carrito);
                      
                      var objMipedido= new pedido( mipedido.idPedido)
-                    // objMipedido.antiguo(mipedido.idPedido, mipedido.)
+                    // objMipedido.antiguo(mipedido.idPedido, mipedido.listaproductos)
                     // objMipedido.
                      
                     
