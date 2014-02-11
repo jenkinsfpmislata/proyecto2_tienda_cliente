@@ -41,7 +41,7 @@ if (isset($_SESSION["pedido"])) {
                     mipedido = <?php echo $_SESSION["pedido"]; ?>;
                     
                     alert(mipedido.idPedido);
-                    alert(mipedido.listaproductos);
+                    alert(mipedido.listaproductos.precio);
                     mipedido.idPedido="<?php echo $_SESSION["idCliente"]; ?>";
                     alert(mipedido.idPedido);
                     
