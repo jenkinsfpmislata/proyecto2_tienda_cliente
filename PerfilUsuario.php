@@ -69,6 +69,18 @@ $(document).ready(function() {
 function productoCategoria(categoria) {
                                     window.location = "products.php?categoria=" + categoria;
                                     }
+                                    
+//-----------------------------------------------------
+                function salir(){
+                $.ajax({
+                    url: 'phps/salir.php',
+
+                    success: function() {
+
+                        window.location = "index.php";
+                    }
+                });
+                }
 
         </script>
 
@@ -98,9 +110,10 @@ function productoCategoria(categoria) {
             <div id="menutopbar2">
                 <ul>
 
-                    <a href="index.php"><li id="salir"></li></a>
+                    <a href="javascript:salir()"><li id="salir"></li></a>
                 </ul>
             </div>
+
 
 
             <div id="buscador">

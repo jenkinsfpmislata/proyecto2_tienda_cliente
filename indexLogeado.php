@@ -93,9 +93,6 @@ if (isset($_SESSION["pedido"])) {
                 
 
                 function salir(){
-               
-
-
                 $.ajax({
                     url: 'phps/salir.php',
 
