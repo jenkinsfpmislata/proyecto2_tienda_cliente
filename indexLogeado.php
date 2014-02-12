@@ -298,6 +298,8 @@ if (isset($_SESSION["idCliente"])) {
                     });
                 }
                 ;
+                
+
 
 
 
@@ -315,7 +317,7 @@ if (isset($_SESSION["idCliente"])) {
 
                     $.ajax({
                         dataType: 'mipedidojson',
-                        url: 'phps/pedido.php',
+                        url: 'phps/recogeCarrito.php',
                         type: 'POST',
                         data: carrito,
                         success: function(data) {
@@ -417,7 +419,7 @@ if (isset($_SESSION["idCliente"])) {
                     <!---------productos comprados-->
 
                 </div>
-                <div id="indexComprar">  <button class="btn btn-success"> comprar</button> </div>
+                <div id="indexComprar">  <button class="btn btn-success" onclick="mandar_carrito()"> comprar</button> </div>
             </div>
             <!--------- fin productos comprados-->
             <div id="cabecera">
