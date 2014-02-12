@@ -55,11 +55,12 @@ if (isset($_SESSION["idCliente"])) {
                      alert(objMipedido.idPedido);
                     alert(carrito);
                      
-                     for (j = 0; j < mipedido.listaproductos.length; j++){
-                         miproducto= new producto(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
+                     for (j=0; j<mipedido.listaproductos.length; j++){
+                         var miproducto= new producto(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
                             objMipedido.nuevo(miproducto);
+                           alert(objMipedido.verproductos());
                      alert(objMipedido.listaproductos[0].nombreProducto);
-                          miproducto = new producto(nombreProducto, precio, imagen);
+                        
                             
                     
                          
