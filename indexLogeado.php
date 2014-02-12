@@ -63,6 +63,7 @@ if (isset($_SESSION["idCliente"])) {
                          precio=mipedido.listaproductos[j].precio;
                          imagen=mipedido.listaproductos[j].imagen;
                           miproducto= new producto(nombre, precio,imagen );
+                          alert(miproducto.nombreProducto);
                          /*   
                         alert(miproducto.nombreProducto);
                         objMipedido.nuevo(miproducto);
