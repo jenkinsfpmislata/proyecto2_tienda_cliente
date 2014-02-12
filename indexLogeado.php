@@ -64,7 +64,7 @@ if (isset($_SESSION["idCliente"])) {
         ?>
                 <script>
                     window.onload = function() {
-                        var mipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
+                        var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
                         //mipedido = loquerecogeCarritomepasa;
                     }
                 </script>
