@@ -36,20 +36,39 @@ if (isset($_SESSION["pedido"])) {
     ?>
 <script>
 
-     alert("cualsevol cosa");
+     
  
-                    ped = <?php echo $_SESSION["pedido"]; ?>;
-                    alert(ped.idPedido);
+                    mipedido = <?php echo $_SESSION["pedido"]; ?>;
                     
-                    //objPed = JSON.parse(ped);
-                   // alert(objPed);
+                    alert(mipedido.idPedido);
+                    alert(mipedido.listaproductos[0].precio);
+                    alert(mipedido);
+                    mipedido.idPedido="<?php echo $_SESSION["idCliente"]; ?>";
+                    alert(mipedido.idPedido);
+                    
+                     carrito=JSON.stringify(mipedido);
+                     alert(carrito);
+                     
+                     var objMipedido= new pedido( mipedido.idPedido)
+                    // objMipedido.antiguo(mipedido.idPedido, mipedido.listaproductos)
+                    // objMipedido.
+                     
+                    
+                  
                     
               
                                 </script>
                  <?php
     
 } else {
-    echo("No funciona");
+    ?>
+        <script>
+   window.onload = function() {
+                    var mipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
+                    //mipedido = loquerecogeCarritomepasa;
+                }
+   </script>
+              <?php
 };
 ?>
             
@@ -101,18 +120,7 @@ if (isset($_SESSION["pedido"])) {
                     }
                 });
                 }
-                
-                
-             
-                
-                
-                       
-                
-                
-                
-                
-
-                //mostrar productos---------------
+            //mostrar productos---------------
                 $(document).ready(function() {
 
                     $.ajax({
@@ -241,6 +249,10 @@ if (isset($_SESSION["pedido"])) {
                     imagen = addImagen;
                     miproducto = new producto(nombreProducto, precio, imagen);
                     mipedido.nuevo(miproducto);
+                    
+                    carrito=JSON.stringify(mipedido);
+                     alert(carrito);
+                  
                 }
                 function verproducto() {
                     miproducto.mostrar();
@@ -279,10 +291,7 @@ if (isset($_SESSION["pedido"])) {
                 }
 
 
-                window.onload = function() {
-                    var mipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
-                    //mipedido = loquerecogeCarritomepasa;
-                }
+               
 
 
                 function mandar_carrito() {

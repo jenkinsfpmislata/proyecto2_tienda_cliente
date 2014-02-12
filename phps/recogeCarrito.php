@@ -10,10 +10,10 @@ $ocarrito=json_decode($carrito);
         foreach ($ocarrito->listaproductos as $linea) {
     
 
-	$nombreProducto->nombreProducto;
-	$precio->precio;
-	$imagen->imagen;
-	$stock->stock;
+	echo $linea->nombreProducto;
+	$linea->precio;
+	$linea->imagen;
+	$linea->stock;
         
 }	
 
