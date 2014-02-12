@@ -48,6 +48,7 @@ if (isset($_SESSION["idCliente"])) {
                     /////////////////////////
                     
                       id = "<?php echo $_SESSION["idCliente"]; ?>";
+                      alert("id");
                       objMipedido= new pedido("id");
                      alert(objMipedido.idPedido);
                     alert(carrito);
@@ -225,7 +226,11 @@ if (isset($_SESSION["idCliente"])) {
 
 
 
-    //FIN BUSCAR PRODUCTOS------------------
+//
+//
+//
+//
+ //FIN BUSCAR PRODUCTOS------------------
     //------------------------------------------------------------------------------
 
                 function pedido(idPedido) {
