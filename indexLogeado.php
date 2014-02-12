@@ -48,10 +48,11 @@ if (isset($_SESSION["idCliente"])) {
                     /////////////////////////
                     
                       id = "<?php echo $_SESSION["idCliente"]; ?>";
-                      objMipedido= new pedido(id);
-                     alert(objMipedido.idPedido);
-                    alert(carrito);
-                     
+                      alert(id);
+                     // objMipedido= new pedido("id");
+                    // alert(objMipedido.idPedido);
+                  
+                     alert("id2");
                      for (j=0; j<mipedido.listaproductos.length; j++){
                          var miproducto= new producto(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
                             objMipedido.nuevo(miproducto);
@@ -68,17 +69,17 @@ if (isset($_SESSION["idCliente"])) {
 
 
 
- </script>
-        <?php
-    } else {
-        ?>
-                <script>
-                    window.onload = function() {
-                        var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
-                     }
+ 
                 </script>
-       
+                <?php
+            } else {
+                ?>
+                <script>
+                    $(document).ready(function() {
+                        var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
 
+                    });
+                </script>
                 <?php
             };
             ?>
@@ -225,7 +226,11 @@ if (isset($_SESSION["idCliente"])) {
 
 
 
-    //FIN BUSCAR PRODUCTOS------------------
+//
+//
+//
+//
+ //FIN BUSCAR PRODUCTOS------------------
     //------------------------------------------------------------------------------
 
                 function pedido(idPedido) {
