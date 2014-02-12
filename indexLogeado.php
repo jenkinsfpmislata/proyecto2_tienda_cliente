@@ -48,24 +48,29 @@ if (isset($_SESSION["idCliente"])) {
                     mipedido.idPedido = "<?php echo $_SESSION["idCliente"]; ?>";
                     alert("id Pedido Nueva: " + mipedido.idPedido);
                     /////////////////////////
-                    /*
+                    
                       
-                      alert(id);
-                     // objMipedido= new pedido("id");
+                      
+                      objMipedido= new pedido("id");
+                      alert(objMipedido);
                     // alert(objMipedido.idPedido);
                   
-                     alert("id2"); */
+                     
                      for (j=0; j<=mipedido.listaproductos.length; j++){
-                          miproducto= new producto(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
+                         nombre=mipedido.listaproductos[j].nombreProducto
+                         alert(nombre);
+                         precio=mipedido.listaproductos[j].precio;
+                         imagen=mipedido.listaproductos[j].imagen;
+                          miproducto= new producto(nombre, precio,imagen );
                             
                         alert(miproducto.nombreProducto);
-                        /*objMipedido.nuevo(miproducto);
+                        objMipedido.nuevo(miproducto);
                            alert(objMipedido.verproductos());
                      alert(objMipedido.listaproductos[0].nombreProducto);
                      
                     carrito=JSON.stringify(objMipedido);
                      alert(carrito);
-                        */
+                        
                       }
                       /*
                      carrito=JSON.stringify(objMipedido);
