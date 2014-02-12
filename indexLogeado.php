@@ -118,6 +118,7 @@ if (isset($_SESSION["idCliente"])) {
                         }
                         function mandar_carrito() {
                     carrito = JSON.stringify(objMipedido);
+                    alert(carrito);
                     alCarrito(carrito);
                    }
             
