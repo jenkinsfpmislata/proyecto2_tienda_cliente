@@ -143,10 +143,12 @@ if (isset($_SESSION["idCliente"])) {
                        nombrePed=mipedido.listaproductos[j].nombreProducto;
                         precioPed=mipedido.listaproductos[j].precio;
                         imagenPed=mipedido.listaproductos[j].imagen;
-                        alert(idProducto)  ;   
+                        alert(idProducto)  ;  
+                        anyadirCarrito(idProducto);
+                        descripcion(idProducto);
                         addproducto(nombrePed, precioPed,imagenPed, idProducto);
                                 
-                        anyadirCarrito(idProducto);
+                        
                         
                            }
                       
@@ -281,11 +283,7 @@ if (isset($_SESSION["idCliente"])) {
                     });
                 }
                 ;
-                  
-                
-
-
-                function descripcion(id) {
+               function descripcion(id) {
 
                     $.ajax({
                         dataType: 'json',
