@@ -42,15 +42,18 @@ if (isset($_SESSION["pedido"])) {
                     
                     alert(mipedido.idPedido);
                     alert(mipedido.listaproductos[0].precio);
-                    alert(mipedido);
+                    
                     mipedido.idPedido="<?php echo $_SESSION["idCliente"]; ?>";
                     alert(mipedido.idPedido);
                     
                      carrito=JSON.stringify(mipedido);
                      alert(carrito);
                      
-                     var objMipedido= new pedido( mipedido.idPedido)
-                    // objMipedido.antiguo(mipedido.idPedido, mipedido.listaproductos)
+                     var objMipedido= new pedido( mipedido.idPedido);
+                    
+                     
+                     ///////------------ME HE QUEDADO AQUI!! AHI QUE METER LOS PRODUCTOS COMO OBJETOS INDIVIDUALES CON UN WHILE H
+                 
                     // objMipedido.
                      
                     
@@ -64,7 +67,7 @@ if (isset($_SESSION["pedido"])) {
     ?>
         <script>
    window.onload = function() {
-                    var mipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
+                    var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
                     //mipedido = loquerecogeCarritomepasa;
                 }
    </script>
@@ -243,9 +246,9 @@ if (isset($_SESSION["pedido"])) {
                     precio = addPrecio;
                     imagen = addImagen;
                     miproducto = new producto(nombreProducto, precio, imagen);
-                    mipedido.nuevo(miproducto);
+                   objMipedido.nuevo(miproducto);
                     
-                    carrito=JSON.stringify(mipedido);
+                    carrito=JSON.stringify(objMipedido);
                      alert(carrito);
                   
                 }
@@ -266,7 +269,7 @@ if (isset($_SESSION["pedido"])) {
                 }
 
                 function verproductos() {
-                    mipedido.verproductos();
+                   objMipedido.verproductos();
                 }
 
                 pedido.prototype.verproductos = function() {
@@ -276,7 +279,7 @@ if (isset($_SESSION["pedido"])) {
                         precio = this.listaproductos[i].precio;
                         imagen = this.listaproductos[i].imagen;
                         stock = this.listaproductos[i].stock;
-                        productos += "" + mipedido.idPedido + "\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", Stock: " + stock;
+                        productos += "" + objMipedido.idPedido + "\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", Stock: " + stock;
                         objeto = this.listaproductos[i];
                     }
                     //  mandar_carrito();
@@ -290,7 +293,7 @@ if (isset($_SESSION["pedido"])) {
 
 
                 function mandar_carrito() {
-                    carrito = JSON.stringify(mipedido);
+                    carrito = JSON.stringify(objMipedido);
                     alCarrito(carrito);
                     alert(carrito);
 
