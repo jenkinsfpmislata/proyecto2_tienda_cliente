@@ -36,7 +36,7 @@ if (isset($_SESSION["idCliente"])) {
 
 
                 pedido.prototype.nuevo = function(producto) {
-                    mipedido.listaproductos[mipedido.listaproductos.length] = producto;
+                    objMipedido.listaproductos[mipedido.listaproductos.length] = producto;
                     carrito = JSON.stringify(mipedido);
                     alert(carrito);
 
@@ -74,22 +74,22 @@ if (isset($_SESSION["idCliente"])) {
                     precio = addPrecio;
                     imagen = addImagen;
                     miproducto = new producto(nombreProducto, precio, imagen);
-                    mipedido.nuevo(miproducto);
+                   objMipedido.nuevo(miproducto);
 
                     carrito = JSON.stringify(mipedido);
                     alert(carrito);
 
                 }
                 function verproducto() {
-                    miproducto.mostrar();
+                    objMiproducto.mostrar();
                 }
 
                 function venderproducto() {
-                    miproducto.vender();
+                    objMiproducto.vender();
                 }
 
                 function comprarproducto() {
-                    miproducto.comprar();
+                    objMiproducto.comprar();
                 }
 
                 pedido.prototype.totalproductos = function() {
@@ -97,7 +97,7 @@ if (isset($_SESSION["idCliente"])) {
                 }
 
                 function verproductos() {
-                    mipedido.verproductos();
+                    objMipedido.verproductos();
                 }
 
                 pedido.prototype.verproductos = function() {
@@ -121,7 +121,7 @@ if (isset($_SESSION["idCliente"])) {
 
 
                 function mandar_carrito() {
-                    carrito = JSON.stringify(mipedido);
+                    carrito = JSON.stringify(objMipedido);
                     alCarrito(carrito);
                     alert(carrito);
 
@@ -158,14 +158,14 @@ if (isset($_SESSION["idCliente"])) {
                     /////////////////////////
                     
                       
-                                     objMipedido= new pedido("id");
+                      objMipedido= new pedido( mipedido.idPedido);
+                      alert(objMipedido.idPedido);
 //                      alert(objMipedido);
 //                     alert(objMipedido.idPedido);
                   
                      
                      for (j=0; j<mipedido.listaproductos.length; j++){
-                       
-                         nombre=mipedido.listaproductos[j].nombreProducto;
+                       nombre=mipedido.listaproductos[j].nombreProducto;
                          alert(nombre);
                          precio=mipedido.listaproductos[j].precio;
                           alert(precio);
@@ -174,7 +174,7 @@ if (isset($_SESSION["idCliente"])) {
                           
                           
                           addProducto(nombre, precio,imagen);
-                          miproducto= new producto(nombre, precio,imagen );
+                         
                           alert(miproducto.nombreProducto);
                          /*   
                         alert(miproducto.nombreProducto);
