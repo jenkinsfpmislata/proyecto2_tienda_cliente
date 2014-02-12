@@ -48,8 +48,14 @@ if (isset($_SESSION["idCliente"])) {
                      alert(carrito);
                      
                      var objMipedido= new pedido( mipedido.idPedido);
-                    
                      
+                     
+                    
+                     for (j = 0; j < mipedido.listaproductos.length; j++){
+                         addproducto(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
+                         alert(objMipedido.listaproductos[j].nombreProducto);
+                         
+                     }
                      ///////------------ME HE QUEDADO AQUI!! AHI QUE METER LOS PRODUCTOS COMO OBJETOS INDIVIDUALES CON UN WHILE H
                  
                     // objMipedido.
