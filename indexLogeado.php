@@ -109,7 +109,7 @@ if (isset($_SESSION["idCliente"])) {
                         imagen = this.listaproductos[i].imagen;
                         idProducto = this.listaproductos[i].idProducto;
 //                        stock = this.listaproductos[i].stock;
-                        productos += "" + objMipedido.idPedido + "\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", idPRod: " + idProducto;
+                        productos += "" + objMipedido.idPedido + "\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", idProd: " + idProducto;
                         objeto = this.listaproductos[i];
                     }
                     //  mandar_carrito();
@@ -145,7 +145,7 @@ if (isset($_SESSION["idCliente"])) {
                         alert(idProducto)  ;   
                         addproducto(nombrePed, precioPed,imagenPed, idProducto);
                                 
-                        anyadirCarrito(idProducto);
+                        anyadirCarrito2(idProducto);
                         
                            }
                       
@@ -274,12 +274,17 @@ if (isset($_SESSION["idCliente"])) {
                             $('#cantidad').html(cantidadTotal);
 
 
-                            addproducto(data[index].Nombre, data[index].precio, data[index].Imagen,id );
+                            addproducto(data[index].Nombre, data[index].precio, data[index].Imagen, id );
                             
                         }
                     });
                 }
                 ;
+                  function anyadirCarrito2(idProducto){
+                  anyadirCarrito(idProducto);
+                  
+                  }
+                
 
 
                 function descripcion(id) {
