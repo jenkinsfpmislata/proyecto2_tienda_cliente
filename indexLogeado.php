@@ -26,7 +26,116 @@ if (isset($_SESSION["idCliente"])) {
 
             <script type="text/javascript" language="javascript" src="js/jquery.animate-colors-min.js"></script>
             <script type="text/javascript" language="javascript" src="js/jquery.skitter.min.js"></script>
+            <script>
+            
+                function pedido(idPedido) {
+                    this.idPedido = idPedido;
+                    this.total = 0;
+                    this.listaproductos = [];
+                }
 
+
+                pedido.prototype.nuevo = function(producto) {
+                    objMipedido.listaproductos[objMipedido.listaproductos.length] = producto;
+                    carrito = JSON.stringify(objMipedido);
+                    alert(carrito);
+
+                    $.ajax({
+                        url: 'phps/listaPedido.php',
+                        type: 'POST',
+                        data: 'pedido=' + carrito,
+                        success: function() {
+
+
+                        }
+                    });
+                }
+
+
+                function producto(nombreProducto, precio, imagen) {
+                    this.nombreProducto = nombreProducto;
+                    this.precio = precio;
+                    this.imagen = imagen;
+                    this.stock = 1;
+                }
+                producto.prototype.mostrar = function() {
+                    alert("nombreProducto: " + this.nombreProducto + " precio: " + this.precio + " imagen: " + this.imagen + " stock: " + this.stock);
+                };
+                producto.prototype.comprar = function() {
+                    this.stock++;
+                };
+                producto.prototype.vender = function() {
+                    this.stock--;
+                };
+
+
+                function addproducto(addNombre, addPrecio, addImagen) {
+                    nombreProducto = addNombre;
+                    precio = addPrecio;
+                    imagen = addImagen;
+                    alert("FUNCIONA")
+                    miproducto = new producto(nombreProducto, precio, imagen);
+                   objMipedido.nuevo(miproducto);
+
+                    carrito = JSON.stringify(objMipedido);
+                    alert(carrito);
+
+                }
+                function verproducto() {
+                    objMiproducto.mostrar();
+                }
+
+                function venderproducto() {
+                    objMiproducto.vender();
+                }
+
+                function comprarproducto() {
+                    objMiproducto.comprar();
+                }
+
+                pedido.prototype.totalproductos = function() {
+                    alert(this.listaproductos.length);
+                }
+
+                function verproductos() {
+                    objMipedido.verproductos();
+                }
+
+                pedido.prototype.verproductos = function() {
+                    productos = "Productos:";
+                    for (i = 0; i < this.listaproductos.length; i++) {
+                        nombreProducto = this.listaproductos[i].nombreProducto;
+                        precio = this.listaproductos[i].precio;
+                        imagen = this.listaproductos[i].imagen;
+                        stock = this.listaproductos[i].stock;
+                        productos += "" + objMipedido.idPedido + "\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", Stock: " + stock;
+                        objeto = this.listaproductos[i];
+                    }
+                    //  mandar_carrito();
+                    alert(productos);
+
+
+                }
+
+
+
+
+
+                function mandar_carrito() {
+                    carrito = JSON.stringify(objMipedido);
+                    alCarrito(carrito);
+                    alert(carrito);
+
+                    //elObjeto=JSON.parse(elJson);  alert(elObjeto.laLista[0].elNombre);
+
+                }
+            
+            
+            
+            
+            
+            
+            </script>
             <?php
 //session_start();
 
@@ -38,34 +147,49 @@ if (isset($_SESSION["idCliente"])) {
 
                     mipedido = <?php echo $_SESSION["pedido"]; ?>;
                     alert(mipedido.listaproductos.length);
-
-                    alert("id Pedido: " + mipedido.idPedido);
-                    alert("precio Pedido: " + mipedido.listaproductos[0].precio);
+                   
+                   
+                    
 
                     ///////////////
                     mipedido.idPedido = "<?php echo $_SESSION["idCliente"]; ?>";
                     alert("id Pedido Nueva: " + mipedido.idPedido);
                     /////////////////////////
                     
-                      id = "<?php echo $_SESSION["idCliente"]; ?>";
-                      alert(id);
-                     // objMipedido= new pedido("id");
-                    // alert(objMipedido.idPedido);
+                      
+                      objMipedido= new pedido(mipedido.idPedido);
+                      alert(objMipedido.idPedido);
+//                      alert(objMipedido);
+//                     alert(objMipedido.idPedido);
                   
-                     alert("id2");
+                     
                      for (j=0; j<mipedido.listaproductos.length; j++){
-                         var miproducto= new producto(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
-                            objMipedido.nuevo(miproducto);
+                       nombrePed=mipedido.listaproductos[j].nombreProducto;
+                         alert(nombrePed);
+                         precioPed=mipedido.listaproductos[j].precio;
+                          alert(precioPed);
+                         imagenPed=mipedido.listaproductos[j].imagen;
+                          alert(imagenPed);
+                          
+                          addproducto(nombrePed, precioPed,imagenPed);
+                         
+                           }
+                         /*   
+                        alert(miproducto.nombreProducto);
+                        objMipedido.nuevo(miproducto);
                            alert(objMipedido.verproductos());
                      alert(objMipedido.listaproductos[0].nombreProducto);
                      
                     carrito=JSON.stringify(objMipedido);
                      alert(carrito);
-                        
-                      }
+                        */
+                     
+                      carrito = JSON.stringify(objMipedido);
+                    alert(carrito);
+                      /*
                      carrito=JSON.stringify(objMipedido);
                      alert(carrito);
-
+*/
 
 
 
@@ -193,14 +317,8 @@ if (isset($_SESSION["idCliente"])) {
                             $('#cantidad').html(cantidadTotal);
 
 
-
-
-                            ///////////////
-
-
-
                             addproducto(data[index].Nombre, data[index].precio, data[index].Imagen);
-                            alert("CARRITO!!!!");
+                            
                         }
                     });
                 }
@@ -233,106 +351,6 @@ if (isset($_SESSION["idCliente"])) {
  //FIN BUSCAR PRODUCTOS------------------
     //------------------------------------------------------------------------------
 
-                function pedido(idPedido) {
-                    this.idPedido = idPedido;
-                    this.total = 0;
-                    this.listaproductos = [];
-                }
-
-
-                pedido.prototype.nuevo = function(producto) {
-                    this.listaproductos[this.listaproductos.length] = producto;
-                    carrito = JSON.stringify(mipedido);
-                    alert(carrito);
-
-                    $.ajax({
-                        url: 'phps/listaPedido.php',
-                        type: 'POST',
-                        data: 'pedido=' + carrito,
-                        success: function() {
-
-
-                        }
-                    });
-                }
-
-
-                function producto(nombreProducto, precio, imagen) {
-                    this.nombreProducto = nombreProducto;
-                    this.precio = precio;
-                    this.imagen = imagen;
-//                    this.stock = 1;
-                }
-                producto.prototype.mostrar = function() {
-                    alert("nombreProducto: " + this.nombreProducto + " precio: " + this.precio + " imagen: " + this.imagen/* + " stock: " + this.stock*/);
-                };
-//                producto.prototype.comprar = function() {
-//                    this.stock++;
-//                };
-//                producto.prototype.vender = function() {
-//                    this.stock--;
-//                };
-
-
-                function addproducto(addNombre, addPrecio, addImagen) {
-                    nombreProducto = addNombre;
-                    precio = addPrecio;
-                    imagen = addImagen;
-                    miproducto = new producto(nombreProducto, precio, imagen);
-                    objMipedido.nuevo(miproducto);
-
-                    carrito = JSON.stringify(objMipedido);
-                    alert(carrito);
-
-                }
-                function verproducto() {
-                    miproducto.mostrar();
-                }
-
-                function venderproducto() {
-                    miproducto.vender();
-                }
-
-                function comprarproducto() {
-                    miproducto.comprar();
-                }
-
-                pedido.prototype.totalproductos = function() {
-                    alert(this.listaproductos.length);
-                }
-
-                function verproductos() {
-                    objMipedido.verproductos();
-                }
-
-                pedido.prototype.verproductos = function() {
-                    productos = "Productos:";
-                    for (i = 0; i < this.listaproductos.length; i++) {
-                        nombreProducto = this.listaproductos[i].nombreProducto;
-                        precio = this.listaproductos[i].precio;
-                        imagen = this.listaproductos[i].imagen;
-                        //stock = this.listaproductos[i].stock;
-                        productos += "" + objMipedido.idPedido + "\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen /*+ ", Stock: " + stock*/;
-                        objeto = this.listaproductos[i];
-                    }
-                    //  mandar_carrito();
-                    alert(productos);
-
-
-                }
-
-
-
-
-
-                function mandar_carrito() {
-                    carrito = JSON.stringify(objMipedido);
-                    alCarrito(carrito);
-                    alert(carrito);
-
-                    //elObjeto=JSON.parse(elJson);  alert(elObjeto.laLista[0].elNombre);
-
-                }
     //------------------------------------------------------------------------------
     //-------
                 function alCarrito(carrito) {
