@@ -73,7 +73,7 @@ if (isset($_SESSION["idCliente"])) {
                     nombreProducto = addNombre;
                     precio = addPrecio;
                     imagen = addImagen;
-                    alert("FUNCIONA")
+                   
                     miproducto = new producto(nombreProducto, precio, imagen);
                    objMipedido.nuevo(miproducto);
 
@@ -124,7 +124,7 @@ if (isset($_SESSION["idCliente"])) {
                 function mandar_carrito() {
                     carrito = JSON.stringify(objMipedido);
                     alCarrito(carrito);
-                    alert(carrito);
+                   
 
                     //elObjeto=JSON.parse(elJson);  alert(elObjeto.laLista[0].elNombre);
 
@@ -146,53 +146,29 @@ if (isset($_SESSION["idCliente"])) {
 
 
                     mipedido = <?php echo $_SESSION["pedido"]; ?>;
-                    alert(mipedido.listaproductos.length);
+                   
                    
                    
                     
 
                     ///////////////
                     mipedido.idPedido = "<?php echo $_SESSION["idCliente"]; ?>";
-                    alert("id Pedido Nueva: " + mipedido.idPedido);
+                    
                     /////////////////////////
                     
                       
                       objMipedido= new pedido(mipedido.idPedido);
-                      alert(objMipedido.idPedido);
-//                      alert(objMipedido);
-//                     alert(objMipedido.idPedido);
-                  
-                     
-                     for (j=0; j<mipedido.listaproductos.length; j++){
+                   
+
+                  for (j=0; j<mipedido.listaproductos.length; j++){
                        nombrePed=mipedido.listaproductos[j].nombreProducto;
-                         alert(nombrePed);
-                         precioPed=mipedido.listaproductos[j].precio;
-                          alert(precioPed);
-                         imagenPed=mipedido.listaproductos[j].imagen;
-                          alert(imagenPed);
-                          
-                          addproducto(nombrePed, precioPed,imagenPed);
+                        precioPed=mipedido.listaproductos[j].precio;
+                        imagenPed=mipedido.listaproductos[j].imagen;
+                        addproducto(nombrePed, precioPed,imagenPed);
                          
                            }
-                         /*   
-                        alert(miproducto.nombreProducto);
-                        objMipedido.nuevo(miproducto);
-                           alert(objMipedido.verproductos());
-                     alert(objMipedido.listaproductos[0].nombreProducto);
+                      
                      
-                    carrito=JSON.stringify(objMipedido);
-                     alert(carrito);
-                        */
-                     
-                      carrito = JSON.stringify(objMipedido);
-                    alert(carrito);
-                      /*
-                     carrito=JSON.stringify(objMipedido);
-                     alert(carrito);
-*/
-
-
-
  
                 </script>
                 <?php
