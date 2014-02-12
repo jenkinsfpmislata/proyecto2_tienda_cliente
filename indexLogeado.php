@@ -85,7 +85,7 @@ if (isset($_SESSION["idCliente"])) {
                     
                       } 
                      
-                         if(bool=0){
+                         if(bool==0){
                               alert("cosa")
                   miproducto = new producto(nombreProducto, precio, imagen, idProducto);
                 objMipedido.nuevo(miproducto);           
