@@ -1,5 +1,5 @@
 <?php
-$carrito=file.get.contents("php://input");
+$carrito=$_POST["carrito"];
 	$objCarrito=new stdClass();
         
         $objCarrito=json_decode($carrito);
