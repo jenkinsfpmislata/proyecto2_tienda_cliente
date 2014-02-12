@@ -160,7 +160,7 @@ if (isset($_SESSION["idCliente"])) {
                        nombrePed=mipedido.listaproductos[j].nombreProducto;
                         precioPed=mipedido.listaproductos[j].precio;
                         imagenPed=mipedido.listaproductos[j].imagen;
-                        alert(idProducto)  ;  
+                        
                         
                         addproducto(nombrePed, precioPed,imagenPed, idProducto);
                     
@@ -294,7 +294,7 @@ if (isset($_SESSION["idCliente"])) {
                             $('#cantidad').html(cantidadTotal);
 
 
-                            //addproducto(data[index].Nombre, data[index].precio, data[index].Imagen, id );
+                            addproducto(data[index].Nombre, data[index].precio, data[index].Imagen, id );
                             
                         }
                     });
@@ -327,8 +327,8 @@ if (isset($_SESSION["idCliente"])) {
                $(document).ready(function() {
                 for (j=0; j<mipedido.listaproductos.length; j++){
                         idProducto=mipedido.listaproductos[j].idProducto;
-                      alert(idProducto)  ;  
-                      alert("cosa")
+                      
+                     
                         anyadirCarritoVistos(idProducto);
                         
                         
@@ -345,7 +345,7 @@ if (isset($_SESSION["idCliente"])) {
                             var datos = '<div id="descripcionProductoNuevo"><h4 class="modeloProducto"><b>' + data[index].marca + ' ' + data[index].Nombre + '</b></h4><div class="productoTienda"><img src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"></div><div id="descripcionProducto"><h4><i><b>Description:</b></i></h5><p>' + data[index].Descripcion + '</p></div><div id="caracteristicas"></div><div id="precioProducto">' + data[index].precio + ' &euro;</div><a  href="javascript:anyadirCarrito(' + data[index].idProducto + ')"><div class="btn btn-success" id="anadirCarrito" ><img src="imagenes/imagenesStatic/carro.png"></div></a>                                 </div>';
 
                             $('#descrip').html(datos);
-                             addproducto(data[index].Nombre, data[index].precio, data[index].Imagen, data[index].idProducto);
+                             
                         }
                     });
                 }
