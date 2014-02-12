@@ -40,23 +40,18 @@ if (isset($_SESSION["idCliente"])) {
 
                     alert(mipedido.idPedido);
                     alert(mipedido.listaproductos[0].precio);
-                    alert(mipedido);
-                    mipedido.idPedido = "<?php echo $_SESSION["idCliente"]; ?>";
+                    
+                    mipedido.idPedido="<?php echo $_SESSION["idCliente"]; ?>";
                     alert(mipedido.idPedido);
-
-                    carrito = JSON.stringify(mipedido);
-                    alert(carrito);
-
-                    var objMipedido = new pedido(mipedido.idPedido)
-
-                    for (j = 0; j < mipedido.listaproductos.length; j++) {
-                        addProduct(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
-
-                        alert(objMipedido.listaproductos[j].nombreProducto)
-                    }
-
-
-                    // objMipedido.antiguo(mipedido.idPedido, mipedido.listaproductos)
+                    
+                     carrito=JSON.stringify(mipedido);
+                     alert(carrito);
+                     
+                     var objMipedido= new pedido( mipedido.idPedido);
+                    
+                     
+                     ///////------------ME HE QUEDADO AQUI!! AHI QUE METER LOS PRODUCTOS COMO OBJETOS INDIVIDUALES CON UN WHILE H
+                 
                     // objMipedido.
 
 
@@ -252,11 +247,11 @@ if (isset($_SESSION["idCliente"])) {
                     precio = addPrecio;
                     imagen = addImagen;
                     miproducto = new producto(nombreProducto, precio, imagen);
-                    mipedido.nuevo(miproducto);
-
-                    carrito = JSON.stringify(mipedido);
-                    alert(carrito);
-
+                   objMipedido.nuevo(miproducto);
+                    
+                    carrito=JSON.stringify(objMipedido);
+                     alert(carrito);
+                  
                 }
                 function verproducto() {
                     miproducto.mostrar();
