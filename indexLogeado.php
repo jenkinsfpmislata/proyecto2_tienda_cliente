@@ -51,12 +51,12 @@ if (isset($_SESSION["idCliente"])) {
                     
                       
                       
-                      objMipedido= new pedido("id");
-                      alert(objMipedido);
-                    // alert(objMipedido.idPedido);
+//                      objMipedido= new pedido("id");
+//                      alert(objMipedido);
+//                     alert(objMipedido.idPedido);
                   
                      
-                     for (j=0; j<=mipedido.listaproductos.length; j++){
+                     for (j=0; j<mipedido.listaproductos.length; j++){
                          nombre=mipedido.listaproductos[j].nombreProducto
                          alert(nombre);
                          precio=mipedido.listaproductos[j].precio;
