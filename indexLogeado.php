@@ -57,6 +57,7 @@ if (isset($_SESSION["idCliente"])) {
                   
                      
                      for (j=0; j<mipedido.listaproductos.length; j++){
+                         alert("nombre");
                          nombre=mipedido.listaproductos[j].nombreProducto
                          alert(nombre);
                          precio=mipedido.listaproductos[j].precio;
