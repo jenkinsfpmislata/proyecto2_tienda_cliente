@@ -165,11 +165,11 @@ if (isset($_SESSION["idCliente"])) {
                      
                      for (j=0; j<mipedido.listaproductos.length; j++){
                        nombrePed=mipedido.listaproductos[j].nombreProducto;
-                         alert(nombre);
+                         alert(nombrePed);
                          precioPed=mipedido.listaproductos[j].precio;
-                          alert(precio);
+                          alert(precioPed);
                          imagenPed=mipedido.listaproductos[j].imagen;
-                          alert(imagen);
+                          alert(imagenPed);
                           
                           addProducto(nombrePed, precioPed,imagenPed);
                          
