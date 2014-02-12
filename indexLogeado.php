@@ -56,8 +56,12 @@ if (isset($_SESSION["idCliente"])) {
                    
                      
                      for (j = 0; j < mipedido.listaproductos.length; j++){
-                         addproducto(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
-                         alert(objMipedido.listaproductos[j].nombreProducto);
+                         miproducto= new producto(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
+                            objMipedido.nuevo(miproducto);
+        alert(objMipedido.listaproductos[j].nombreProducto);
+                          miproducto = new producto(nombreProducto, precio, imagen);
+                            
+                    
                          
                      }
                      
@@ -190,13 +194,14 @@ if (isset($_SESSION["idCliente"])) {
                             
     
    
-                            alert("CARRITO!!!!");
+                         
                                    ///////////////
                                    
                                    
                                    
                             addproducto(data[index].Nombre, data[index].precio, data[index].Imagen);
-                        }
+                          alert("CARRITO!!!!");
+                       }
                     });
                 }
                 ;
