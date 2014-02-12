@@ -147,7 +147,7 @@ if (isset($_SESSION["idCliente"])) {
 
                     mipedido = <?php echo $_SESSION["pedido"]; ?>;
                     alert(mipedido.listaproductos.length);
-precio=mipedido.listaproductos[0].precio;
+                   
                    
                     
 
