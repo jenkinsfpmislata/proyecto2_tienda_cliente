@@ -38,11 +38,11 @@ if (isset($_SESSION["idCliente"])) {
 
                     mipedido = <?php echo $_SESSION["pedido"]; ?>;
 
-                    alert(mipedido.idPedido);
-                    alert(mipedido.listaproductos[0].precio);
+                    alert("id Pedido: "+mipedido.idPedido);
+                    alert("precio Pedido: "+mipedido.listaproductos[0].precio);
                     
                     mipedido.idPedido="<?php echo $_SESSION["idCliente"]; ?>";
-                    alert(mipedido.idPedido);
+                    alert("id Pedido Nueva: "+mipedido.idPedido);
                     
                      carrito=JSON.stringify(mipedido);
                      alert(carrito);
@@ -53,7 +53,7 @@ if (isset($_SESSION["idCliente"])) {
                     
                      for (j = 0; j < mipedido.listaproductos.length; j++){
                          addproducto(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
-                         alert(objMipedido.listaproductos[j].nombreProducto);
+                         alert("Nombre del producto pasado al nuevo pedido: "+objMipedido.listaproductos[j].nombreProducto);
                          
                      }
                      ///////------------ME HE QUEDADO AQUI!! AHI QUE METER LOS PRODUCTOS COMO OBJETOS INDIVIDUALES CON UN WHILE H
@@ -69,16 +69,16 @@ if (isset($_SESSION["idCliente"])) {
     } else {
         ?>
                 <script>
-                    window.onload = function() {
+                    $(document).ready(function() {
                         var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
                         //mipedido = loquerecogeCarritomepasa;
-                    }
+                    });
                 </script>
         <?php
     };
     ?>
 
-            <script type="text/javascript" language="javascript">
+            <script typ e="text/javascript" language="javascript">
 
                 var precioTotal = 0;
                 var cantidad = 0;
