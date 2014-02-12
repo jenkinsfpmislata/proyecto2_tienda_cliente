@@ -171,9 +171,9 @@ if (isset($_SESSION["idCliente"])) {
                          imagenPed=mipedido.listaproductos[j].imagen;
                           alert(imagenPed);
                           
-                          addProducto(nombrePed, precioPed,imagenPed);
+                          addproducto(nombrePed, precioPed,imagenPed);
                          
-                          
+                           }
                          /*   
                         alert(miproducto.nombreProducto);
                         objMipedido.nuevo(miproducto);
@@ -183,7 +183,7 @@ if (isset($_SESSION["idCliente"])) {
                     carrito=JSON.stringify(objMipedido);
                      alert(carrito);
                         */
-                      }
+                     
                       carrito = JSON.stringify(objMipedido);
                     alert(carrito);
                       /*
@@ -317,14 +317,8 @@ if (isset($_SESSION["idCliente"])) {
                             $('#cantidad').html(cantidadTotal);
 
 
-
-
-                            ///////////////
-
-
-
                             addproducto(data[index].Nombre, data[index].precio, data[index].Imagen);
-                            alert("CARRITO!!!!");
+                            
                         }
                     });
                 }
