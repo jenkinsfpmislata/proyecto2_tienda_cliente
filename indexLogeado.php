@@ -40,7 +40,8 @@ if (isset($_SESSION["idCliente"])) {
                     alert(mipedido.listaproductos.length);
 
                     alert("id Pedido: " + mipedido.idPedido);
-                    alert("precio Pedido: " + mipedido.listaproductos[0].precio);
+                    precio=mipedido.listaproductos[0].precio;
+                    alert("precio Pedido: " + precio);
                      alert("nombre Producto: " + mipedido.listaproductos[0].nombreProducto);
 
                     ///////////////
