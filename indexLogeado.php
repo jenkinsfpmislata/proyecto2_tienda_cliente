@@ -109,7 +109,7 @@ if (isset($_SESSION["idCliente"])) {
                         imagen = this.listaproductos[i].imagen;
                         idProducto = this.listaproductos[i].idProducto;
 //                        stock = this.listaproductos[i].stock;
-                        productos += "" + objMipedido.idPedido + "\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", idProd: " + idProducto;
+                        productos += " + \n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", idProd: " + idProducto;
                         objeto = this.listaproductos[i];
                     }
                     //  mandar_carrito();
@@ -146,7 +146,7 @@ if (isset($_SESSION["idCliente"])) {
                         alert(idProducto)  ;   
                         addproducto(nombrePed, precioPed,imagenPed, idProducto);
                                 
-                        anyadirCarrito2(idProducto);
+                        anyadirCarrito(idProducto);
                         
                            }
                       
@@ -281,10 +281,7 @@ if (isset($_SESSION["idCliente"])) {
                     });
                 }
                 ;
-                  function anyadirCarrito2(idProducto){
-                  anyadirCarrito(idProducto);
                   
-                  }
                 
 
 
