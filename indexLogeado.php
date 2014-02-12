@@ -38,7 +38,7 @@ if (isset($_SESSION["idCliente"])) {
                 pedido.prototype.nuevo = function(producto) {
                     objMipedido.listaproductos[objMipedido.listaproductos.length] = producto;
                     carrito = JSON.stringify(objMipedido);
-                    alert(carrito);
+                    
 
                     $.ajax({
                         url: 'phps/listaPedido.php',
@@ -77,7 +77,7 @@ if (isset($_SESSION["idCliente"])) {
                    objMipedido.nuevo(miproducto);
 
                     carrito = JSON.stringify(objMipedido);
-                    alert(carrito);
+                    
 
                 }
                 function verproducto() {
@@ -145,15 +145,9 @@ if (isset($_SESSION["idCliente"])) {
 
 
                     mipedido = <?php echo $_SESSION["pedido"]; ?>;
-                   
-                   
-                   
-                    
-
-                    ///////////////
+                   ///////////////
                     mipedido.idPedido = "<?php echo $_SESSION["idCliente"]; ?>";
-                    
-                    /////////////////////////
+                     /////////////////////////
                     
                       
                       objMipedido= new pedido(mipedido.idPedido);
