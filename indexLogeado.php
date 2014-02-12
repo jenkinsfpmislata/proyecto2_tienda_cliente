@@ -294,7 +294,7 @@ if (isset($_SESSION["idCliente"])) {
                             $('#cantidad').html(cantidadTotal);
 
 
-                            addproducto(data[index].Nombre, data[index].precio, data[index].Imagen, id );
+                            //addproducto(data[index].Nombre, data[index].precio, data[index].Imagen, id );
                             
                         }
                     });
