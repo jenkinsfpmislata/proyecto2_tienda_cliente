@@ -328,6 +328,7 @@ if (isset($_SESSION["idCliente"])) {
                 for (j=0; j<mipedido.listaproductos.length; j++){
                         idProducto=mipedido.listaproductos[j].idProducto;
                       alert(idProducto)  ;  
+                      alert("cosa")
                         anyadirCarritoVistos(idProducto);
                         
                         
