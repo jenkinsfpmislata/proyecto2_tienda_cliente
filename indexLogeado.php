@@ -84,11 +84,12 @@ if (isset($_SESSION["idCliente"])) {
                        }
                     
                       } 
-                      alert("cosa")
+                     
                          if(bool=0){
+                              alert("cosa")
                   miproducto = new producto(nombreProducto, precio, imagen, idProducto);
-         objMipedido.nuevo(miproducto);           
-        carrito = JSON.stringify(objMipedido);
+                objMipedido.nuevo(miproducto);           
+       
                     
                         }
                       
