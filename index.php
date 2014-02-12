@@ -131,7 +131,7 @@ session_start();
                         $('#precioTotal').html(precio);
                         $('#cantidad').html(cantidadTotal);
 
-                        addproducto(data[index].Nombre, data[index].precio, data[index].Imagen, id);
+                        addproducto(data[index].Nombre, data[index].precio, data[index].Imagen, data[index].idProducto);
                     }
                 });
             }
@@ -217,7 +217,7 @@ session_start();
                     imagen = addImagen;
                    idProducto = addIdProducto;
                     miproducto = new producto(nombreProducto, precio, imagen, idProducto);
-                   objMipedido.nuevo(miproducto);
+                   mipedido.nuevo(miproducto);
 
                     
                     
