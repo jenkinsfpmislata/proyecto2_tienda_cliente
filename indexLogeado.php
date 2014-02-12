@@ -57,11 +57,14 @@ if (isset($_SESSION["idCliente"])) {
                   
                      
                      for (j=0; j<mipedido.listaproductos.length; j++){
-                         alert("nombre");
-                         nombre=mipedido.listaproductos[j].nombreProducto
+                       
+                         nombre=mipedido.listaproductos[j].nombreProducto;
                          alert(nombre);
                          precio=mipedido.listaproductos[j].precio;
+                          alert(precio);
                          imagen=mipedido.listaproductos[j].imagen;
+                          alert(imagen);
+                          addProducto(nombre, precio,imagen);
                           miproducto= new producto(nombre, precio,imagen );
                           alert(miproducto.nombreProducto);
                          /*   
