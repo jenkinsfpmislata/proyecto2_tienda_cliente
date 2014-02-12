@@ -74,26 +74,26 @@ if (isset($_SESSION["idCliente"])) {
                     precio = addPrecio;
                     imagen = addImagen;
                    idProducto = addIdProducto;
-                   bool=0;
+//                   bool=0;
                    
                    
-                    for (z = 0; z < objMipedido.listaproductos.length; z++) {
-                        alert("esto"+ objMipedido.listaproductos.idProducto);
-                         alert("esto otro "+ idProducto);
-                       if(idProducto==objMipedido.listaproductos.idProducto){
-                           bool=1;
-                          
-                       }
-                    
-                      } 
-                     
-                         if(bool==0){
-                              alert("cosa")
+//                    for (z = 0; z < objMipedido.listaproductos.length; z++) {
+//                        alert("esto"+ objMipedido.listaproductos.idProducto);
+//                         alert("esto otro "+ idProducto);
+//                       if(idProducto==objMipedido.listaproductos.idProducto){
+//                           bool=1;
+//                          
+//                       }
+//                    
+//                      } 
+//                     
+//                         if(bool==0){
+                             // alert("cosa")
                   miproducto = new producto(nombreProducto, precio, imagen, idProducto);
                 objMipedido.nuevo(miproducto);           
        
                     
-                        }
+                        //}
                       
                 };
                 
@@ -163,7 +163,7 @@ if (isset($_SESSION["idCliente"])) {
                         alert(idProducto)  ;  
                         
                         addproducto(nombrePed, precioPed,imagenPed, idProducto);
-                         anyadirCarrito(idProducto);
+                    
                            
                         
                         
@@ -300,11 +300,35 @@ if (isset($_SESSION["idCliente"])) {
                     });
                 }
                 ;
+                 function anyadirCarritoVistos(id) {
+
+                    $.ajax({
+                        dataType: 'json',
+                        url: 'phps/descripcion.php?id=' + id,
+                        type: 'GET',
+                        success: function(data) {
+                            index = 0;
+
+                            datos = datos + '<div class="producto"><p id="precioLista">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div></div>';
+                            precioProducto = parseFloat(data[index].precio);
+                            precioTotal = Math.round((precioTotal + precioProducto) * 100) / 100;
+                            precio = '<p>Total: ' + precioTotal + ' &euro; </p>';
+                            cantidad = cantidad + 1;
+                            cantidadTotal = cantidad;
+                            $('#listaCarro').html(datos);
+                            $('#precioTotal').html(precio);
+                            $('#cantidad').html(cantidadTotal);
+   
+                        }
+                    });
+                }
+                ;
+                
                $(document).ready(function() {
                 for (j=0; j<mipedido.listaproductos.length; j++){
                         idProducto=mipedido.listaproductos[j].idProducto;
                       alert(idProducto)  ;  
-                        anyadirCarrito(idProducto);
+                        anyadirCarritoVistos(idProducto);
                         
                         
                 }
