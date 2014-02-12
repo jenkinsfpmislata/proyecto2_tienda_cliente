@@ -63,7 +63,7 @@ if (isset($_SESSION["idCliente"])) {
                          precio=mipedido.listaproductos[j].precio;
                          imagen=mipedido.listaproductos[j].imagen;
                           miproducto= new producto(nombre, precio,imagen );
-                            
+                         /*   
                         alert(miproducto.nombreProducto);
                         objMipedido.nuevo(miproducto);
                            alert(objMipedido.verproductos());
@@ -71,7 +71,7 @@ if (isset($_SESSION["idCliente"])) {
                      
                     carrito=JSON.stringify(objMipedido);
                      alert(carrito);
-                        
+                        */
                       }
                       /*
                      carrito=JSON.stringify(objMipedido);
