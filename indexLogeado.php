@@ -159,7 +159,7 @@ if (isset($_SESSION["idCliente"])) {
                     
                       
                       objMipedido= new pedido( mipedido.idPedido);
-                      alert(objMipedido.idPedido);
+                      alert("lolol"+ objMipedido.idPedido);
 //                      alert(objMipedido);
 //                     alert(objMipedido.idPedido);
                   
