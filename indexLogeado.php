@@ -52,17 +52,20 @@ if (isset($_SESSION["idCliente"])) {
                      // objMipedido= new pedido("id");
                     // alert(objMipedido.idPedido);
                   
-                     alert("id2");
+                     alert("id2"); */
                      for (j=0; j<mipedido.listaproductos.length; j++){
                          var miproducto= new producto(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
-                            objMipedido.nuevo(miproducto);
+                            
+                        alert(miproducto.nombreProducto);
+                        /*objMipedido.nuevo(miproducto);
                            alert(objMipedido.verproductos());
                      alert(objMipedido.listaproductos[0].nombreProducto);
                      
                     carrito=JSON.stringify(objMipedido);
                      alert(carrito);
-                        
+                        */
                       }
+                      /*
                      carrito=JSON.stringify(objMipedido);
                      alert(carrito);
 */
