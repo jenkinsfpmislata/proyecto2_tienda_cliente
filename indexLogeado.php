@@ -159,7 +159,7 @@ if (isset($_SESSION["idCliente"])) {
                     
                       
                       objMipedido= new pedido( mipedido.idPedido);
-                      alert("lolol"+ objMipedido.idPedido);
+                      alert(objMipedido.idPedido);
 //                      alert(objMipedido);
 //                     alert(objMipedido.idPedido);
                   
@@ -172,10 +172,9 @@ if (isset($_SESSION["idCliente"])) {
                          imagen=mipedido.listaproductos[j].imagen;
                           alert(imagen);
                           
-                          
                           addProducto(nombre, precio,imagen);
                          
-                          alert(miproducto.nombreProducto);
+                          
                          /*   
                         alert(miproducto.nombreProducto);
                         objMipedido.nuevo(miproducto);
@@ -186,6 +185,8 @@ if (isset($_SESSION["idCliente"])) {
                      alert(carrito);
                         */
                       }
+                      carrito = JSON.stringify(objMipedido);
+                    alert(carrito);
                       /*
                      carrito=JSON.stringify(objMipedido);
                      alert(carrito);
