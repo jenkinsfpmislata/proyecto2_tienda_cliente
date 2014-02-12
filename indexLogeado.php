@@ -77,12 +77,13 @@ if (isset($_SESSION["idCliente"])) {
                    
                    
                     for (z = 0; z < objMipedido.listaproductos.length; z++) {
-                       if(addIdProducto==objMipedido.listaproductos.idProducto){
+                       if(idProducto==objMipedido.listaproductos.idProducto){
                            bool=1;
-                           alert("cosa")
+                          
                        }
                     
-                      }
+                      } 
+                      alert("cosa")
                          if(bool=0){
                   miproducto = new producto(nombreProducto, precio, imagen, idProducto);
          objMipedido.nuevo(miproducto);           
