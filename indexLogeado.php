@@ -77,25 +77,8 @@ if (isset($_SESSION["idCliente"])) {
                         var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
                      }
                 </script>
-        <?php
-    };
-    ?>
+       
 
-
-
-
-
-
-                </script>
-                <?php
-            } else {
-                ?>
-                <script>
-                    $(document).ready(function() {
-                        var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
-
-                    });
-                </script>
                 <?php
             };
             ?>
