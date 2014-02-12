@@ -49,8 +49,8 @@ if (isset($_SESSION["idCliente"])) {
                     
                       id = "<?php echo $_SESSION["idCliente"]; ?>";
                       alert(id);
-                      objMipedido= new pedido("id");
-                     alert(objMipedido.idPedido);
+                     // objMipedido= new pedido("id");
+                    // alert(objMipedido.idPedido);
                   
                      alert("id2");
                      for (j=0; j<mipedido.listaproductos.length; j++){
