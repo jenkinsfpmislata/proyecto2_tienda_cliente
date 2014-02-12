@@ -109,7 +109,7 @@ if (isset($_SESSION["idCliente"])) {
                         imagen = this.listaproductos[i].imagen;
                         idProducto = this.listaproductos[i].idProducto;
 //                        stock = this.listaproductos[i].stock;
-                        productos += "" + objMipedido.idPedido + "\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", idPRod: " + idProducto;
+                        productos += " + \n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", idProd: " + idProducto;
                         objeto = this.listaproductos[i];
                     }
                     //  mandar_carrito();
@@ -143,10 +143,12 @@ if (isset($_SESSION["idCliente"])) {
                        nombrePed=mipedido.listaproductos[j].nombreProducto;
                         precioPed=mipedido.listaproductos[j].precio;
                         imagenPed=mipedido.listaproductos[j].imagen;
-                        alert(idProducto)  ;   
+                        alert(idProducto)  ;  
+                        anyadirCarrito(idProducto);
+                        descripcion(idProducto);
                         addproducto(nombrePed, precioPed,imagenPed, idProducto);
                                 
-                        anyadirCarrito(idProducto);
+                        
                         
                            }
                       
@@ -275,15 +277,13 @@ if (isset($_SESSION["idCliente"])) {
                             $('#cantidad').html(cantidadTotal);
 
 
-                            addproducto(data[index].Nombre, data[index].precio, data[index].Imagen,id );
+                            addproducto(data[index].Nombre, data[index].precio, data[index].Imagen, id );
                             
                         }
                     });
                 }
                 ;
-
-
-                function descripcion(id) {
+               function descripcion(id) {
 
                     $.ajax({
                         dataType: 'json',
