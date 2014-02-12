@@ -234,10 +234,10 @@ session_start();
             }
 
             function verproductos() {
-                mipedido.verproductos();
+                mipedido.verproductos2();
             }
 
-            pedido.prototype.verproductos = function() {
+            pedido.prototype.verproductos2 = function() {
                 productos = "Productos:";
                 for (i = 0; i < this.listaproductos.length; i++) {
                     nombreProducto = this.listaproductos[i].nombreProducto;

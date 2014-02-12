@@ -46,24 +46,40 @@ if (isset($_SESSION["idCliente"])) {
                     mipedido.idPedido = "<?php echo $_SESSION["idCliente"]; ?>";
                     alert("id Pedido Nueva: " + mipedido.idPedido);
                     /////////////////////////
-
-                    carrito = JSON.stringify(mipedido);
+                    
+                      id = "<?php echo $_SESSION["idCliente"]; ?>";
+                      objMipedido= new pedido(id);
+                     alert(objMipedido.idPedido);
                     alert(carrito);
-                    /////////////////////////////
+                     
+                     for (j=0; j<mipedido.listaproductos.length; j++){
+                         var miproducto= new producto(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
+                            objMipedido.nuevo(miproducto);
+                           alert(objMipedido.verproductos());
+                     alert(objMipedido.listaproductos[0].nombreProducto);
+                     
+                    carrito=JSON.stringify(objMipedido);
+                     alert(carrito);
+                        
+                      }
+                     carrito=JSON.stringify(objMipedido);
+                     alert(carrito);
 
-                    var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
-                    alert(objMipedido.idPedido);
-                    alert(carrito);
-
-                    for (j = 0; j < mipedido.listaproductos.length; j++) {
-                        miproducto = new producto(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
-                        objMipedido.nuevo(miproducto);
-                        alert(objMipedido.listaproductos[0].nombreProducto);
-                        miproducto = new producto(nombreProducto, precio, imagen);
 
 
 
-                    }
+ </script>
+        <?php
+    } else {
+        ?>
+                <script>
+                    window.onload = function() {
+                        var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
+                     }
+                </script>
+        <?php
+    };
+    ?>
 
 
 
