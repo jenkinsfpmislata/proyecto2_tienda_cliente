@@ -183,7 +183,14 @@ if (isset($_SESSION["idCliente"])) {
                             $('#listaCarro').html(datos);
                             $('#precioTotal').html(precio);
                             $('#cantidad').html(cantidadTotal);
-
+                            
+    
+   
+                            alert("CARRITO!!!!");
+                                   ///////////////
+                                   
+                                   
+                                   
                             addproducto(data[index].Nombre, data[index].precio, data[index].Imagen);
                         }
                     });
