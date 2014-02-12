@@ -142,9 +142,11 @@ if (isset($_SESSION["idCliente"])) {
                        nombrePed=mipedido.listaproductos[j].nombreProducto;
                         precioPed=mipedido.listaproductos[j].precio;
                         imagenPed=mipedido.listaproductos[j].imagen;
+                        alert(idProducto)  ;   
                         addproducto(nombrePed, precioPed,imagenPed, idProducto);
-        alert(idProducto)  ;               
-        anyadirCarrito(idProducto);
+                                
+                        anyadirCarrito(idProducto);
+                        
                            }
                       
                      
