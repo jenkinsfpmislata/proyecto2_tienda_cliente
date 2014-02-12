@@ -47,9 +47,6 @@ if (isset($_SESSION["idCliente"])) {
                     alert(mipedido.idPedido);
                     /////////////////////////
                     
-                     carrito=JSON.stringify(mipedido);
-                     alert(carrito);
-                     /////////////////////////////
                      
                      var objMipedido= new pedido("<?php echo $_SESSION["idCliente"]; ?>");
                      alert(objMipedido.idPedido);
