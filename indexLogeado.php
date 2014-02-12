@@ -50,8 +50,7 @@ if (isset($_SESSION["idCliente"])) {
                     /////////////////////////
                     
                       
-                      
-//                      objMipedido= new pedido("id");
+                                     objMipedido= new pedido("id");
 //                      alert(objMipedido);
 //                     alert(objMipedido.idPedido);
                   
@@ -64,6 +63,8 @@ if (isset($_SESSION["idCliente"])) {
                           alert(precio);
                          imagen=mipedido.listaproductos[j].imagen;
                           alert(imagen);
+                          
+                          
                           addProducto(nombre, precio,imagen);
                           miproducto= new producto(nombre, precio,imagen );
                           alert(miproducto.nombreProducto);
