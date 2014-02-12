@@ -48,6 +48,7 @@ if (isset($_SESSION["idCliente"])) {
                      alert(carrito);
                      
                      var objMipedido= new pedido( mipedido.idPedido);
+                     
                     
                      
                      ///////------------ME HE QUEDADO AQUI!! AHI QUE METER LOS PRODUCTOS COMO OBJETOS INDIVIDUALES CON UN WHILE H
