@@ -78,7 +78,8 @@ if (isset($_SESSION["idCliente"])) {
                    
                    
                     for (z = 0; z < objMipedido.listaproductos.length; z++) {
-                        alert(objMipedido.listaproductos.idProducto);
+                        alert("esto"+ objMipedido.listaproductos.idProducto);
+                         alert("esto otro "+ idProducto);
                        if(idProducto==objMipedido.listaproductos.idProducto){
                            bool=1;
                           
