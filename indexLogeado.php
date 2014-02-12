@@ -37,14 +37,14 @@ if (isset($_SESSION["idCliente"])) {
 
 
                     mipedido = <?php echo $_SESSION["pedido"]; ?>;
-                   alert(mipedido.listaproductos.length) ;
+                    alert(mipedido.listaproductos.length);
 
-                    alert(mipedido.idPedido);
-                    alert(mipedido.listaproductos[0].precio);
-                    
+                    alert("id Pedido: " + mipedido.idPedido);
+                    alert("precio Pedido: " + mipedido.listaproductos[0].precio);
+
                     ///////////////
-                    mipedido.idPedido="<?php echo $_SESSION["idCliente"]; ?>";
-                    alert(mipedido.idPedido);
+                    mipedido.idPedido = "<?php echo $_SESSION["idCliente"]; ?>";
+                    alert("id Pedido Nueva: " + mipedido.idPedido);
                     /////////////////////////
                     
                       id = "<?php echo $_SESSION["idCliente"]; ?>";
@@ -81,7 +81,26 @@ if (isset($_SESSION["idCliente"])) {
     };
     ?>
 
-            <script type="text/javascript" language="javascript">
+
+
+
+
+
+                </script>
+                <?php
+            } else {
+                ?>
+                <script>
+                    $(document).ready(function() {
+                        var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
+
+                    });
+                </script>
+                <?php
+            };
+            ?>
+
+            <script typ e="text/javascript" language="javascript">
 
                 var precioTotal = 0;
                 var cantidad = 0;
@@ -188,17 +207,17 @@ if (isset($_SESSION["idCliente"])) {
                             $('#listaCarro').html(datos);
                             $('#precioTotal').html(precio);
                             $('#cantidad').html(cantidadTotal);
-                            
-    
-   
-                         
-                                   ///////////////
-                                   
-                                   
-                                   
+
+
+
+
+                            ///////////////
+
+
+
                             addproducto(data[index].Nombre, data[index].precio, data[index].Imagen);
-                          alert("CARRITO!!!!");
-                       }
+                            alert("CARRITO!!!!");
+                        }
                     });
                 }
                 ;
@@ -232,21 +251,21 @@ if (isset($_SESSION["idCliente"])) {
                     this.listaproductos = [];
                 }
 
-                
+
                 pedido.prototype.nuevo = function(producto) {
                     this.listaproductos[this.listaproductos.length] = producto;
-                     carrito=JSON.stringify(mipedido);
-                alert(carrito);
-                
-                 $.ajax({
-                    url: 'phps/listaPedido.php',
-                    type: 'POST',
-                    data: 'pedido='+carrito,
-                    success: function() {
-                       
-                
-                    }
-                });
+                    carrito = JSON.stringify(mipedido);
+                    alert(carrito);
+
+                    $.ajax({
+                        url: 'phps/listaPedido.php',
+                        type: 'POST',
+                        data: 'pedido=' + carrito,
+                        success: function() {
+
+
+                        }
+                    });
                 }
 
 
@@ -272,11 +291,11 @@ if (isset($_SESSION["idCliente"])) {
                     precio = addPrecio;
                     imagen = addImagen;
                     miproducto = new producto(nombreProducto, precio, imagen);
-                   objMipedido.nuevo(miproducto);
-                    
-                    carrito=JSON.stringify(objMipedido);
-                     alert(carrito);
-                  
+                    objMipedido.nuevo(miproducto);
+
+                    carrito = JSON.stringify(objMipedido);
+                    alert(carrito);
+
                 }
                 function verproducto() {
                     miproducto.mostrar();
