@@ -76,7 +76,7 @@ if (isset($_SESSION["idCliente"])) {
                     miproducto = new producto(nombreProducto, precio, imagen);
                    objMipedido.nuevo(miproducto);
 
-                    carrito = JSON.stringify(mipedido);
+                    carrito = JSON.stringify(objMipedido);
                     alert(carrito);
 
                 }
