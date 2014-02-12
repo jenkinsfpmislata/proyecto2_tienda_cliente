@@ -37,6 +37,7 @@ if (isset($_SESSION["idCliente"])) {
 
 
                     mipedido = <?php echo $_SESSION["pedido"]; ?>;
+                   alert(mipedido.listaproductos.length) ;
 
                     alert("id Pedido: "+mipedido.idPedido);
                     alert("precio Pedido: "+mipedido.listaproductos[0].precio);
@@ -48,17 +49,14 @@ if (isset($_SESSION["idCliente"])) {
                      alert(carrito);
                      
                      var objMipedido= new pedido( mipedido.idPedido);
+                     alert(objMipedido.idPedido);
                      
-                     
-                    
                      for (j = 0; j < mipedido.listaproductos.length; j++){
                          addproducto(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
                          alert("Nombre del producto pasado al nuevo pedido: "+objMipedido.listaproductos[j].nombreProducto);
                          
                      }
-                     ///////------------ME HE QUEDADO AQUI!! AHI QUE METER LOS PRODUCTOS COMO OBJETOS INDIVIDUALES CON UN WHILE H
-                 
-                    // objMipedido.
+                     
 
 
 
@@ -185,7 +183,14 @@ if (isset($_SESSION["idCliente"])) {
                             $('#listaCarro').html(datos);
                             $('#precioTotal').html(precio);
                             $('#cantidad').html(cantidadTotal);
-
+                            
+    
+   
+                            alert("CARRITO!!!!");
+                                   ///////////////
+                                   
+                                   
+                                   
                             addproducto(data[index].Nombre, data[index].precio, data[index].Imagen);
                         }
                     });
