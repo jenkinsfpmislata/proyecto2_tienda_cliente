@@ -131,7 +131,7 @@ session_start();
                         $('#precioTotal').html(precio);
                         $('#cantidad').html(cantidadTotal);
 
-                        addproducto(data[index].Nombre, data[index].precio, data[index].Imagen);
+                        addproducto(data[index].Nombre, data[index].precio, data[index].Imagen, id);
                     }
                 });
             }
@@ -193,30 +193,36 @@ session_start();
             }
 
 
-            function producto(nombreProducto, precio, imagen) {
+            function producto(nombreProducto, precio, imagen, idProducto) {
                 this.nombreProducto = nombreProducto;
                 this.precio = precio;
                 this.imagen = imagen;
+                this.idProducto=  idProducto;
                 this.stock = 1;
             }
             producto.prototype.mostrar = function() {
                 alert("nombreProducto: " + this.nombreProducto + " precio: " + this.precio + " imagen: " + this.imagen + " stock: " + this.stock)
             }
-            producto.prototype.comprar = function() {
-                this.stock++
-            }
-            producto.prototype.vender = function() {
-                this.stock--
-            }
+//            producto.prototype.comprar = function() {
+//                this.stock++
+//            }
+//            producto.prototype.vender = function() {
+//                this.stock--
+//            }
 
 
-            function addproducto(addNombre, addPrecio, addImagen) {
-                nombreProducto = addNombre;
-                precio = addPrecio;
-                imagen = addImagen;
-                miproducto = new producto(nombreProducto, precio, imagen);
-                mipedido.nuevo(miproducto);
-            }
+            function addproducto(addNombre, addPrecio, addImagen, addIdProducto) {
+                    nombreProducto = addNombre;
+                    precio = addPrecio;
+                    imagen = addImagen;
+                   idProducto = addIdProducto;
+                    miproducto = new producto(nombreProducto, precio, imagen, idProducto);
+                   objMipedido.nuevo(miproducto);
+
+                    
+                    
+
+                }
             function verproducto() {
                 miproducto.mostrar();
             }
@@ -234,17 +240,18 @@ session_start();
             }
 
             function verproductos() {
-                mipedido.verproductos2();
+                mipedido.verproductos();
             }
 
-            pedido.prototype.verproductos2 = function() {
+            pedido.prototype.verproductos = function() {
                 productos = "Productos:";
                 for (i = 0; i < this.listaproductos.length; i++) {
                     nombreProducto = this.listaproductos[i].nombreProducto;
                     precio = this.listaproductos[i].precio;
                     imagen = this.listaproductos[i].imagen;
                     stock = this.listaproductos[i].stock;
-                    productos += "\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", Stock: " + stock;
+                    idProducto = this.listaproductos[i].idProducto;
+                    productos += "\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", idPRod: " + idProducto;
                 }
 
                 alert(productos);
