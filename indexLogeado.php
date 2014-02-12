@@ -46,8 +46,8 @@ if (isset($_SESSION["idCliente"])) {
                     mipedido.idPedido = "<?php echo $_SESSION["idCliente"]; ?>";
                     alert("id Pedido Nueva: " + mipedido.idPedido);
                     /////////////////////////
-                    
-                      id = "<?php echo $_SESSION["idCliente"]; ?>";
+                    /*
+                      
                       alert(id);
                      // objMipedido= new pedido("id");
                     // alert(objMipedido.idPedido);
@@ -65,7 +65,7 @@ if (isset($_SESSION["idCliente"])) {
                       }
                      carrito=JSON.stringify(objMipedido);
                      alert(carrito);
-
+*/
 
 
 
@@ -76,7 +76,7 @@ if (isset($_SESSION["idCliente"])) {
                 ?>
                 <script>
                     $(document).ready(function() {
-                        var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
+                        var mipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
 
                     });
                 </script>
@@ -241,7 +241,7 @@ if (isset($_SESSION["idCliente"])) {
 
 
                 pedido.prototype.nuevo = function(producto) {
-                    this.listaproductos[this.listaproductos.length] = producto;
+                    mipedido.listaproductos[mipedido.listaproductos.length] = producto;
                     carrito = JSON.stringify(mipedido);
                     alert(carrito);
 
@@ -279,9 +279,9 @@ if (isset($_SESSION["idCliente"])) {
                     precio = addPrecio;
                     imagen = addImagen;
                     miproducto = new producto(nombreProducto, precio, imagen);
-                    objMipedido.nuevo(miproducto);
+                    mipedido.nuevo(miproducto);
 
-                    carrito = JSON.stringify(objMipedido);
+                    carrito = JSON.stringify(mipedido);
                     alert(carrito);
 
                 }
@@ -302,7 +302,7 @@ if (isset($_SESSION["idCliente"])) {
                 }
 
                 function verproductos() {
-                    objMipedido.verproductos();
+                    mipedido.verproductos();
                 }
 
                 pedido.prototype.verproductos = function() {
@@ -326,7 +326,7 @@ if (isset($_SESSION["idCliente"])) {
 
 
                 function mandar_carrito() {
-                    carrito = JSON.stringify(objMipedido);
+                    carrito = JSON.stringify(mipedido);
                     alCarrito(carrito);
                     alert(carrito);
 
