@@ -78,6 +78,7 @@ if (isset($_SESSION["idCliente"])) {
                    
                    
                     for (z = 0; z < objMipedido.listaproductos.length; z++) {
+                        alert(objMipedido.listaproductos.idProducto);
                        if(idProducto==objMipedido.listaproductos.idProducto){
                            bool=1;
                           
@@ -124,7 +125,7 @@ if (isset($_SESSION["idCliente"])) {
                         imagen = this.listaproductos[i].imagen;
                         idProducto = this.listaproductos[i].idProducto;
 //                        stock = this.listaproductos[i].stock;
-                        productos += " + \n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", idProd: " + idProducto;
+                        productos += " \n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", idProd: " + idProducto;
                         objeto = this.listaproductos[i];
                     }
                     //  mandar_carrito();
