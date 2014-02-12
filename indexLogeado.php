@@ -36,8 +36,8 @@ if (isset($_SESSION["idCliente"])) {
 
 
                 pedido.prototype.nuevo = function(producto) {
-                    objMipedido.listaproductos[mipedido.listaproductos.length] = producto;
-                    carrito = JSON.stringify(mipedido);
+                    objMipedido.listaproductos[objMipedido.listaproductos.length] = producto;
+                    carrito = JSON.stringify(objMipedido);
                     alert(carrito);
 
                     $.ajax({
@@ -201,7 +201,7 @@ if (isset($_SESSION["idCliente"])) {
                 ?>
                 <script>
                     $(document).ready(function() {
-                        var mipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
+                        var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
 
                     });
                 </script>
