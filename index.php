@@ -132,6 +132,7 @@ session_start();
                         $('#cantidad').html(cantidadTotal);
 
                         addproducto(data[index].Nombre, data[index].precio, data[index].Imagen, id);
+                        alert(id);
                     }
                 });
             }
