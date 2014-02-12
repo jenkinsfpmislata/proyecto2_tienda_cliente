@@ -53,12 +53,12 @@ if (isset($_SESSION["idCliente"])) {
                      
                      var objMipedido= new pedido("<?php echo $_SESSION["idCliente"]; ?>");
                      alert(objMipedido.idPedido);
-                   
+                    alert(carrito);
                      
                      for (j = 0; j < mipedido.listaproductos.length; j++){
                          miproducto= new producto(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
                             objMipedido.nuevo(miproducto);
-        alert(objMipedido.listaproductos[j].nombreProducto);
+                     alert(objMipedido.listaproductos[0].nombreProducto);
                           miproducto = new producto(nombreProducto, precio, imagen);
                             
                     
@@ -77,7 +77,7 @@ if (isset($_SESSION["idCliente"])) {
                 <script>
                     window.onload = function() {
                         var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
-                        //mipedido = loquerecogeCarritomepasa;
+                       
                     }
                 </script>
         <?php
@@ -235,13 +235,21 @@ if (isset($_SESSION["idCliente"])) {
                     this.listaproductos = [];
                 }
 
-                pedido.prototype.antiguo = function(id, lista) {
-                    this.idPedido = id;
-                    this.listaproductos = lista;
-                }
-
+                
                 pedido.prototype.nuevo = function(producto) {
                     this.listaproductos[this.listaproductos.length] = producto;
+                     carrito=JSON.stringify(mipedido);
+                alert(carrito);
+                
+                 $.ajax({
+                    url: 'phps/listaPedido.php',
+                    type: 'POST',
+                    data: 'pedido='+carrito,
+                    success: function() {
+                       
+                
+                    }
+                });
                 }
 
 
