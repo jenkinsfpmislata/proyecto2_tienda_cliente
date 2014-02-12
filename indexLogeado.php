@@ -55,17 +55,17 @@ if (isset($_SESSION["idCliente"])) {
                     this.nombreProducto = nombreProducto;
                     this.precio = precio;
                     this.imagen = imagen;
-                    this.stock = 1;
+//                    this.stock = 1;
                 }
                 producto.prototype.mostrar = function() {
-                    alert("nombreProducto: " + this.nombreProducto + " precio: " + this.precio + " imagen: " + this.imagen + " stock: " + this.stock);
+                    alert("nombreProducto: " + this.nombreProducto + " precio: " + this.precio + " imagen: " + this.imagen /*+ " stock: " + this.stock*/);
                 };
-                producto.prototype.comprar = function() {
-                    this.stock++;
-                };
-                producto.prototype.vender = function() {
-                    this.stock--;
-                };
+//                producto.prototype.comprar = function() {
+//                    this.stock++;
+//                };
+//                producto.prototype.vender = function() {
+//                    this.stock--;
+//                };
 
 
                 function addproducto(addNombre, addPrecio, addImagen) {
@@ -106,8 +106,8 @@ if (isset($_SESSION["idCliente"])) {
                         nombreProducto = this.listaproductos[i].nombreProducto;
                         precio = this.listaproductos[i].precio;
                         imagen = this.listaproductos[i].imagen;
-                        stock = this.listaproductos[i].stock;
-                        productos += "" + objMipedido.idPedido + "\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", Stock: " + stock;
+//                        stock = this.listaproductos[i].stock;
+                        productos += "" + objMipedido.idPedido + "\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen /*+ ", Stock: " + stock*/;
                         objeto = this.listaproductos[i];
                     }
                     //  mandar_carrito();
