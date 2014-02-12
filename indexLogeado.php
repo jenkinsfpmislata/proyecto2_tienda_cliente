@@ -46,25 +46,25 @@ if (isset($_SESSION["idCliente"])) {
                     mipedido.idPedido = "<?php echo $_SESSION["idCliente"]; ?>";
                     alert("id Pedido Nueva: " + mipedido.idPedido);
                     /////////////////////////
-
-                    carrito = JSON.stringify(mipedido);
+                    
+                     carrito=JSON.stringify(mipedido);
+                     alert(carrito);
+                     /////////////////////////////
+                     
+                     var objMipedido= new pedido("<?php echo $_SESSION["idCliente"]; ?>");
+                     alert(objMipedido.idPedido);
                     alert(carrito);
-                    /////////////////////////////
-
-                    var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
-                    alert(objMipedido.idPedido);
-
-
-                    for (j = 0; j < mipedido.listaproductos.length; j++) {
-                        miproducto = new producto(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
-                        objMipedido.nuevo(miproducto);
-                        alert(objMipedido.listaproductos[j].nombreProducto);
-                        miproducto = new producto(nombreProducto, precio, imagen);
-                        
-
-
-                    }
-
+                     
+                     for (j = 0; j < mipedido.listaproductos.length; j++){
+                         miproducto= new producto(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
+                            objMipedido.nuevo(miproducto);
+                     alert(objMipedido.listaproductos[0].nombreProducto);
+                          miproducto = new producto(nombreProducto, precio, imagen);
+                            
+                    
+                         
+                     }
+                     
 
 
 
@@ -77,8 +77,8 @@ if (isset($_SESSION["idCliente"])) {
                 <script>
                     $(document).ready(function() {
                         var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
-                        //mipedido = loquerecogeCarritomepasa;
-                    });
+                       
+                    }
                 </script>
                 <?php
             };
@@ -235,13 +235,21 @@ if (isset($_SESSION["idCliente"])) {
                     this.listaproductos = [];
                 }
 
-                pedido.prototype.antiguo = function(id, lista) {
-                    this.idPedido = id;
-                    this.listaproductos = lista;
-                }
-
+                
                 pedido.prototype.nuevo = function(producto) {
                     this.listaproductos[this.listaproductos.length] = producto;
+                     carrito=JSON.stringify(mipedido);
+                alert(carrito);
+                
+                 $.ajax({
+                    url: 'phps/listaPedido.php',
+                    type: 'POST',
+                    data: 'pedido='+carrito,
+                    success: function() {
+                       
+                
+                    }
+                });
                 }
 
 
