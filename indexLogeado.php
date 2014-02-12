@@ -74,6 +74,7 @@ if (isset($_SESSION["idCliente"])) {
                     precio = addPrecio;
                     imagen = addImagen;
                    idProducto = addIdProducto;
+                   bool=0;
                    
                    
                     for (z = 0; z < objMipedido.listaproductos.length; z++) {
@@ -90,7 +91,7 @@ if (isset($_SESSION["idCliente"])) {
         carrito = JSON.stringify(objMipedido);
                     
                         }
-                        bool=0;
+                      
                 };
                 
     
