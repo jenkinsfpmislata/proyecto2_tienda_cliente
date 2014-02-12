@@ -143,7 +143,8 @@ if (isset($_SESSION["idCliente"])) {
                         precioPed=mipedido.listaproductos[j].precio;
                         imagenPed=mipedido.listaproductos[j].imagen;
                         addproducto(nombrePed, precioPed,imagenPed, idProducto);
-                         anyadirCarrito(idProducto);
+        alert(idProducto)  ;               
+        anyadirCarrito(idProducto);
                            }
                       
                      
