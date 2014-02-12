@@ -60,26 +60,25 @@ if (isset($_SESSION["idCliente"])) {
                             objMipedido.nuevo(miproducto);
                            alert(objMipedido.verproductos());
                      alert(objMipedido.listaproductos[0].nombreProducto);
-                        
-                            
-                    
-                         
-                     }
                      
+                    carrito=JSON.stringify(objMipedido);
+                     alert(carrito);
+                        
+                      }
+                     carrito=JSON.stringify(objMipedido);
+                     alert(carrito);
 
 
 
 
-
-                </script>
+ </script>
         <?php
     } else {
         ?>
                 <script>
                     window.onload = function() {
                         var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
-                       
-                    }
+                     }
                 </script>
         <?php
     };
