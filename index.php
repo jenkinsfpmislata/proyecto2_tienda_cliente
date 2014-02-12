@@ -132,7 +132,7 @@ session_start();
                         $('#cantidad').html(cantidadTotal);
 
                         addproducto(data[index].Nombre, data[index].precio, data[index].Imagen, id);
-                        alert(id);
+                        
                     }
                 });
             }
@@ -177,7 +177,7 @@ session_start();
             pedido.prototype.nuevo = function(producto) {
                 this.listaproductos[this.listaproductos.length] = producto;
                 carrito=JSON.stringify(mipedido);
-                alert(carrito);
+                
               
                $.ajax({
                     url: 'phps/listaPedido.php',
