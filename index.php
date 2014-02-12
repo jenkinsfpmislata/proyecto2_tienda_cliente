@@ -131,7 +131,7 @@ session_start();
                         $('#precioTotal').html(precio);
                         $('#cantidad').html(cantidadTotal);
 
-                        addproducto(data[index].Nombre, data[index].precio, data[index].Imagen, data[index].idProducto);
+                        addproducto(data[index].Nombre, data[index].precio, data[index].Imagen, id);
                     }
                 });
             }
