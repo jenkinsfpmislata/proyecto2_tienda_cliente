@@ -207,6 +207,11 @@ if (isset($_SESSION["pedido"])) {
                     this.total = 0;
                     this.listaproductos = [];
                 }
+                
+                pedido.prototype.antiguo = function(id,lista) {
+                    this.idPedido=id;
+                    this.listaproductos=lista;
+                }
 
                 pedido.prototype.nuevo = function(producto) {
                     this.listaproductos[this.listaproductos.length] = producto;
