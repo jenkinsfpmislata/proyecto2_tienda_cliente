@@ -73,6 +73,7 @@ if (isset($_SESSION["idCliente"])) {
                     nombreProducto = addNombre;
                     precio = addPrecio;
                     imagen = addImagen;
+                    alert("FUNCIONA")
                     miproducto = new producto(nombreProducto, precio, imagen);
                    objMipedido.nuevo(miproducto);
 
@@ -146,11 +147,9 @@ if (isset($_SESSION["idCliente"])) {
 
                     mipedido = <?php echo $_SESSION["pedido"]; ?>;
                     alert(mipedido.listaproductos.length);
-
-                    alert("id Pedido: " + mipedido.idPedido);
-                    precio=mipedido.listaproductos[0].precio;
-                    alert("precio Pedido: " + precio);
-                     alert("nombre Producto: " + mipedido.listaproductos[0].nombreProducto);
+precio=mipedido.listaproductos[0].precio;
+                   
+                    
 
                     ///////////////
                     mipedido.idPedido = "<?php echo $_SESSION["idCliente"]; ?>";
@@ -158,21 +157,21 @@ if (isset($_SESSION["idCliente"])) {
                     /////////////////////////
                     
                       
-                      objMipedido= new pedido( mipedido.idPedido);
+                      objMipedido= new pedido(mipedido.idPedido);
                       alert(objMipedido.idPedido);
 //                      alert(objMipedido);
 //                     alert(objMipedido.idPedido);
                   
                      
                      for (j=0; j<mipedido.listaproductos.length; j++){
-                       nombre=mipedido.listaproductos[j].nombreProducto;
+                       nombrePed=mipedido.listaproductos[j].nombreProducto;
                          alert(nombre);
-                         precio=mipedido.listaproductos[j].precio;
+                         precioPed=mipedido.listaproductos[j].precio;
                           alert(precio);
-                         imagen=mipedido.listaproductos[j].imagen;
+                         imagenPed=mipedido.listaproductos[j].imagen;
                           alert(imagen);
                           
-                          addProducto(nombre, precio,imagen);
+                          addProducto(nombrePed, precioPed,imagenPed);
                          
                           
                          /*   
