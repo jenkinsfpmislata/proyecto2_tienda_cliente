@@ -46,8 +46,7 @@ if (isset($_SESSION["idCliente"])) {
                         data: 'pedido=' + carrito,
                         success: function() {
 
-
-                        }
+}
                     });
                 }
 
