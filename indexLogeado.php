@@ -2,7 +2,6 @@
 session_start();
 
 if (isset($_SESSION["idCliente"])) {
-    
     ?>
 
 
@@ -31,15 +30,14 @@ if (isset($_SESSION["idCliente"])) {
             <?php
 //session_start();
 
-if (isset($_SESSION["pedido"])) {
-    
-    ?>
-<script>
+            if (isset($_SESSION["pedido"])) {
+                ?>
+                <script>
 
-     
- 
+
+
                     mipedido = <?php echo $_SESSION["pedido"]; ?>;
-                    
+
                     alert(mipedido.idPedido);
                     alert(mipedido.listaproductos[0].precio);
                     
@@ -55,26 +53,25 @@ if (isset($_SESSION["pedido"])) {
                      ///////------------ME HE QUEDADO AQUI!! AHI QUE METER LOS PRODUCTOS COMO OBJETOS INDIVIDUALES CON UN WHILE H
                  
                     // objMipedido.
-                     
-                    
-                  
-                    
-              
-                                </script>
-                 <?php
-    
-} else {
+
+
+
+
+
+                </script>
+        <?php
+    } else {
+        ?>
+                <script>
+                    window.onload = function() {
+                        var mipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
+                        //mipedido = loquerecogeCarritomepasa;
+                    }
+                </script>
+        <?php
+    };
     ?>
-        <script>
-   window.onload = function() {
-                    var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
-                    //mipedido = loquerecogeCarritomepasa;
-                }
-   </script>
-              <?php
-};
-?>
-            
+
             <script type="text/javascript" language="javascript">
 
                 var precioTotal = 0;
@@ -90,7 +87,7 @@ if (isset($_SESSION["pedido"])) {
 
                 $(document).ready(function() {
                     id = "<?php echo $_SESSION["idCliente"]; ?>";
-                    
+
                     $.ajax({
                         dataType: 'json',
                         url: 'phps/admin/selectClient.php?id=' + id,
@@ -111,19 +108,18 @@ if (isset($_SESSION["pedido"])) {
                         }
                     });
                 });
-                
 
-                function salir(){
-                $.ajax({
-                    url: 'phps/salir.php',
 
-                    success: function() {
+                function salir() {
+                    $.ajax({
+                        url: 'phps/salir.php',
+                        success: function() {
 
-                        window.location = "index.php";
-                    }
-                });
+                            window.location = "index.php";
+                        }
+                    });
                 }
-            //mostrar productos---------------
+                //mostrar productos---------------
                 $(document).ready(function() {
 
                     $.ajax({
@@ -219,6 +215,11 @@ if (isset($_SESSION["pedido"])) {
                     this.listaproductos = [];
                 }
 
+                pedido.prototype.antiguo = function(id, lista) {
+                    this.idPedido = id;
+                    this.listaproductos = lista;
+                }
+
                 pedido.prototype.nuevo = function(producto) {
                     this.listaproductos[this.listaproductos.length] = producto;
                 }
@@ -289,7 +290,7 @@ if (isset($_SESSION["pedido"])) {
                 }
 
 
-               
+
 
 
                 function mandar_carrito() {
@@ -321,33 +322,33 @@ if (isset($_SESSION["pedido"])) {
 
     //-----------------------------------------------------------------------
     //------------------------------------------------------------------------------	
-    
+
     //BUSCAR---PRODUCTOS-----------------------
-            function buscar() {
-                busc = $('#searchForm').serialize();
+                function buscar() {
+                    busc = $('#searchForm').serialize();
 
 
-                $.ajax({
-                    dataType: 'json',
-                    url: 'phps/admin/buscarProducto.php',
-                    type: 'POST',
-                    data: busc,
-                    success: function(data) {
-                        dato = '<table>';
-                        $.each(data, function(index) {
-                            dato += '<div class="producto"  onclick=""><p id="precio">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div><a  ><div class="carrito" onclick="descripcion(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalDescripcion"><img src="imagenes/imagenesStatic/carro.png"></div></a></div>';
-                            dato += '</table>';
-                        });
-                        $('#listaProducto').html(dato);
-                    }
-                });
-            }
-            ;
-//FIN BUSCAR PRODUCTOS------------------
- </script> 
-            
+                    $.ajax({
+                        dataType: 'json',
+                        url: 'phps/admin/buscarProducto.php',
+                        type: 'POST',
+                        data: busc,
+                        success: function(data) {
+                            dato = '<table>';
+                            $.each(data, function(index) {
+                                dato += '<div class="producto"  onclick=""><p id="precio">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div><a  ><div class="carrito" onclick="descripcion(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalDescripcion"><img src="imagenes/imagenesStatic/carro.png"></div></a></div>';
+                                dato += '</table>';
+                            });
+                            $('#listaProducto').html(dato);
+                        }
+                    });
+                }
+                ;
+    //FIN BUSCAR PRODUCTOS------------------
+            </script> 
 
-            
+
+
 
 
 
@@ -390,7 +391,7 @@ if (isset($_SESSION["pedido"])) {
                     <form id="searchForm">
                         <input name="Nombre" type="text">
                     </form>
-                    
+
                 </div>
             </div>
 
@@ -560,7 +561,6 @@ if (isset($_SESSION["pedido"])) {
         </body>
     </html>
     <?php
-    
 } else {
     echo("Acceso denegado");
 };
