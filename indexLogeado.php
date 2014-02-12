@@ -69,7 +69,7 @@ if (isset($_SESSION["idCliente"])) {
         ?>
                 <script>
                     window.onload = function() {
-                        var mipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
+                        var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
                         //mipedido = loquerecogeCarritomepasa;
                     }
                 </script>
@@ -275,7 +275,7 @@ if (isset($_SESSION["idCliente"])) {
                 }
 
                 function verproductos() {
-                    mipedido.verproductos();
+                    objMipedido.verproductos();
                 }
 
                 pedido.prototype.verproductos = function() {
@@ -285,7 +285,7 @@ if (isset($_SESSION["idCliente"])) {
                         precio = this.listaproductos[i].precio;
                         imagen = this.listaproductos[i].imagen;
                         stock = this.listaproductos[i].stock;
-                        productos += "" + mipedido.idPedido + "\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", Stock: " + stock;
+                        productos += "" + objMipedido.idPedido + "\n Nombre Producto: " + nombreProducto + ", precio: " + precio + ", Imagen: " + imagen + ", Stock: " + stock;
                         objeto = this.listaproductos[i];
                     }
                     //  mandar_carrito();
@@ -299,7 +299,7 @@ if (isset($_SESSION["idCliente"])) {
 
 
                 function mandar_carrito() {
-                    carrito = JSON.stringify(mipedido);
+                    carrito = JSON.stringify(objMipedido);
                     alCarrito(carrito);
                     alert(carrito);
 
