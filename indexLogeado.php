@@ -42,18 +42,26 @@ if (isset($_SESSION["idCliente"])) {
                     alert("id Pedido: "+mipedido.idPedido);
                     alert("precio Pedido: "+mipedido.listaproductos[0].precio);
                     
+                    ///////////////
                     mipedido.idPedido="<?php echo $_SESSION["idCliente"]; ?>";
-                    alert("id Pedido Nueva: "+mipedido.idPedido);
+                    alert(mipedido.idPedido);
+                    /////////////////////////
                     
                      carrito=JSON.stringify(mipedido);
                      alert(carrito);
+                     /////////////////////////////
                      
-                     var objMipedido= new pedido( mipedido.idPedido);
+                     var objMipedido= new pedido("<?php echo $_SESSION["idCliente"]; ?>");
                      alert(objMipedido.idPedido);
+                   
                      
                      for (j = 0; j < mipedido.listaproductos.length; j++){
-                         addproducto(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
-                         alert("Nombre del producto pasado al nuevo pedido: "+objMipedido.listaproductos[j].nombreProducto);
+                         miproducto= new producto(mipedido.listaproductos[j].nombreProducto, mipedido.listaproductos[j].precio, mipedido.listaproductos[j].imagen);
+                            objMipedido.nuevo(miproducto);
+        alert(objMipedido.listaproductos[j].nombreProducto);
+                          miproducto = new producto(nombreProducto, precio, imagen);
+                            
+                    
                          
                      }
                      
@@ -186,13 +194,14 @@ if (isset($_SESSION["idCliente"])) {
                             
     
    
-                            alert("CARRITO!!!!");
+                         
                                    ///////////////
                                    
                                    
                                    
                             addproducto(data[index].Nombre, data[index].precio, data[index].Imagen);
-                        }
+                          alert("CARRITO!!!!");
+                       }
                     });
                 }
                 ;
