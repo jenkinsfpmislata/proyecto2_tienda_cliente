@@ -425,7 +425,7 @@ if (isset($_SESSION["idCliente"])) {
 
 
                         <a href="mensajes.php"> <li id="mensajes"></li></a>
-                        <a href="carrito.php"><li id="carrito"></li></a>
+                        <a onclick="mandar_carrito()"><li id="carrito"></li></a>
 
                         <a id="nombreCliente"></a>
 
