@@ -135,7 +135,6 @@ if (isset($_SESSION["idCliente"])) {
                         }
                         function mandar_carrito() {
                     carrito = JSON.stringify(objMipedido);
-                    alert(carrito);
                     alCarrito(carrito);
                    }
             
@@ -372,7 +371,7 @@ if (isset($_SESSION["idCliente"])) {
                         type: 'POST',
                         data: 'carrito='+carrito,
                         success: function() {
-
+                            window.location = "index.php";
                         }
                     });
                 }
