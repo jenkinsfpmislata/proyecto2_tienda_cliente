@@ -371,7 +371,7 @@ if (isset($_SESSION["idCliente"])) {
                         type: 'POST',
                         data: 'carrito='+carrito,
                         success: function() {
-                            window.location = "index.php";
+                            window.location = "carrito.php";
                         }
                     });
                 }
