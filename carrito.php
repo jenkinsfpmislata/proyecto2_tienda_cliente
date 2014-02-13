@@ -54,6 +54,32 @@ if (isset($_SESSION["idCliente"])) {
                     });
                 })
                 ;
+                
+                
+                
+                
+                
+                
+           //--------categoria
+            $(document).ready(function() {
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/categoriaAdmin.php',
+                    success: function(data) {
+                        var datos = '<ul>';
+                        $.each(data, function(index) {
+                            datos += '<li class="btn btn-success" onclick="productoCategoria(' + "'" + data[index].Categoria + "'" + ')">' + data[index].Categoria + '</li>';
+                        });
+                        datos += '</ul>';
+                        $('#MPrincipal').html(datos);
+                    }});
+            });
+            
+            
+            function productoCategoria(categoria) {
+                window.location = "products.php?categoria=" + categoria;
+            }
+            //-----fin categoria
 
         </script>
 
