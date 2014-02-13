@@ -177,7 +177,7 @@ if (isset($_SESSION["idCliente"])) {
                 ?>
                 <script>
                     $(document).ready(function() {
-                        var objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
+                        objMipedido = new pedido("<?php echo $_SESSION["idCliente"]; ?>");
 
                     });
                 </script>
