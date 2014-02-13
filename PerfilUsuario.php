@@ -124,24 +124,7 @@ function productoCategoria(categoria) {
 
 
 
-        <div id="carroRightbar">
-            <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><p id="cantidad">3</p></div>
 
-            <div id="precioTotal">  <p> Total: 3562.87&euro;</p> </div>
-            <div id="listaCarro">
-
-
-
-                <!---------productos comprados-->
-                
-
-                
-
-                
-
-                <!--------- fin productos comprados-->
-            </div>
-        </div>
 
         <div id="cabecera">
 
