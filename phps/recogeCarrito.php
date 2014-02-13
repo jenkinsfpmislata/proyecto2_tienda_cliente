@@ -14,13 +14,13 @@ $carrito=$_POST["carrito"];
         
         foreach ($objCarrito->listaproductos as $linea) {
         $linea->idProducto;
-//	$linea->nombreProducto;
-//	$linea->precio;
-//	$linea->imagen;
+	$linea->nombreProducto;
+	$linea->precio;
+	$linea->imagen;
 //	$linea->stock;
         
 	
-	$SQL="INSERT INTO listapedido (idPedido, idProducto) VALUES ('$objCarrito->idPedido','$linea->idProducto');";
+	$SQL="INSERT INTO listapedido (idPedido, idProducto, nombreProducto, precio, imagen) VALUES ('$objCarrito->idPedido','$linea->idProducto','$linea->nombreProducto;','$linea->precio;','$linea->imagen;');";
 	mysql_query($SQL) or die("Couldnt execute query");
         
         
