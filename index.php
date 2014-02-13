@@ -265,6 +265,9 @@ session_start();
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------	
+function noPuedesComprar(){
+    alert("Debes estar registrado para poder comprar")
+}
 
         </script>
 
@@ -324,7 +327,7 @@ session_start();
             <!---------productos comprados-->
 
         </div>
-        <div id="indexComprar">  <button class="btn btn-success"> COMPRAR</button> </div>
+        <div id="indexComprar">  <button class="btn btn-success" onclick="noPuedesComprar()"> COMPRAR</button> </div>
     </div>
     <!--------- fin productos comprados-->
     <div id="cabecera">
