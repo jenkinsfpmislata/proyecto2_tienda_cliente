@@ -96,3 +96,7 @@
 #contenido #contenidoTop #contieneCarrito #carritoLogin table tbody tr td{
     border: solid 1px #009933;
 }
+#delete img{
+     width: 25px;
+    height: 25px;
+}
