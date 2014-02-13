@@ -41,14 +41,14 @@ if (isset($_SESSION["idCliente"])) {
                         data:"id="+id,
                         success: function(data) {
                             index = 0;
-                            var datos = '<table class="table"><thead><tr><td class="col-xs-2"></td><td class="col-xs-3">Product</td><td class="col-xs-1">Price</td><td class="col-xs-3">Quantity</td><tbody>';
+                             var datos = '<table class="table"><thead><tr><td class="col-xs-2"></td><td class="col-xs-3">Product</td><td class="col-xs-1">Price</td><td class="col-xs-3">Quantity</td><tbody>';
                                 $.each(data, function(index) {   
-                                    var datos += '<tr><td><img src="imagenes/imagenesProductos/'+data[index]imagen+".jpg" /></td><td>TOSHIBA Satellite C55-A-1NH - blanco</td><td>1120 <span class="glyphicon glyphicon-euro"></span></td><td>  <a class="btn btn-default btn-sm">-</a>1<a class="btn btn-default btn-sm">+</a></td><td>1500 <span class="glyphicon glyphicon-euro"></span></td><td><span class="glyphicon glyphicon-trash"></span></td></tr>';
+                                 datos +='<tr><td><img src="imagenes/imagenesProductos/'+ data[index].imagen +'.jpg" /></td><td>'+ data[index].nombre+' <span class="glyphicon glyphicon-euro"></span></td><td>  <a class="btn btn-default btn-sm">-</a>1<a class="btn btn-default btn-sm">+</a></td><td>'+data[index].precio+' <span class="glyphicon glyphicon-euro"></span></td><td><span class="glyphicon glyphicon-trash"></span></td></tr>';
                                     
-                                } 
-                            var datos+='</tbody><tfoot><tr><td colspan="5">Total: 3000<span class="glyphicon glyphicon-euro"></span></td><td><a class="btn btn-default btn-sm">Continue</a></td></tr></tfoot></table>';
+                                });
+                            datos +='</tbody><tfoot><tr><td colspan="5">Total:3000<span class="glyphicon glyphicon-euro"></span></td><td><a class="btn btn-default btn-sm">Continue</a></td></tr></tfoot></table>';
 
-                            $('#descrip').html(datos);
+                            $('#carritoDetalles').html(datos);
                              
                         }
                     });
