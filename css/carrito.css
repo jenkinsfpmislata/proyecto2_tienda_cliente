@@ -74,9 +74,7 @@
 #carritoDetalles table a{
     width: 5px;
 }
-#cont{
-    width:20px;
-}
+
 
 #contenido #contenidoTop #contieneCarrito #carritoDetalles table tbody tr td, #carritoLogin table tbody tr td{
     vertical-align: middle;
