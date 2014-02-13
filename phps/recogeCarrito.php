@@ -20,7 +20,7 @@ $carrito=$_POST["carrito"];
 //	$linea->stock;
         
 	
-	$SQL="INSERT INTO listapedido (idPedido, idProducto, nombreProducto, precio, imagen) VALUES ('$objCarrito->idPedido','$linea->idProducto','$linea->nombreProducto;','$linea->precio;','$linea->imagen;');";
+	$SQL="INSERT INTO listapedido (idPedido, idProducto, nombreProducto, precio, imagen) VALUES ('$objCarrito->idPedido','$linea->idProducto','$linea->nombreProducto','$linea->precio','$linea->imagen');";
 	mysql_query($SQL) or die("Couldnt execute query");
         
         
