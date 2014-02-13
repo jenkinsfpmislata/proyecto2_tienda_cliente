@@ -41,7 +41,7 @@ if (isset($_SESSION["idCliente"])) {
                         data:"id="+id,
                         success: function(data) {
                             index = 0;
-                             var datos = '<table class="table"><thead><tr><td class="col-xs-2"></td><td class="col-xs-3">Product</td><td class="col-xs-1">Price</td><td class="col-xs-3">Quantity</td><tbody>';
+                             var datos = '<table class="table"><thead><tr><td class="col-xs-2"></td><td class="col-xs-3">Product</td><td class="col-xs-1">Quantity</td><td class="col-xs-3">Price</td><td class="col-xs-3">Delete</td><tbody>';
                                 $.each(data, function(index) {   
                                  datos +='<tr><td><img src="imagenes/imagenesProductos/'+ data[index].imagen +'.jpg" /></td><td>'+ data[index].nombre+' <span class="glyphicon glyphicon-euro"></span></td><td>  <a class="btn btn-default btn-sm">-</a>1<a class="btn btn-default btn-sm">+</a></td><td>'+data[index].precio+' <span class="glyphicon glyphicon-euro"></span></td><td><span class="glyphicon glyphicon-trash"></span></td></tr>';
                                     
