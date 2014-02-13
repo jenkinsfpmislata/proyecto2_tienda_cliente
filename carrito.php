@@ -137,16 +137,7 @@ if (isset($_SESSION["idCliente"])) {
 
             <div id="contenidoTop">
                 <div id="MPrincipal">
-                    <ul>
-                        <li class="btn btn-success" onclick="">PC</li>
-                        <li class="btn btn-success" onclick="">Laptop</li>
-                        <li class="btn btn-success" onclick="">Keyboards</li>
-                        <li class="btn btn-success" onclick="">Cameras</li>
-                        <li class="btn btn-success" onclick="">Memory</li>
-                        <li class="btn btn-success" onclick="">Smart Phones</li>
-                        <li class="btn btn-success" onclick="">Tardis</li>
-                        <li class="btn btn-success" onclick="">Other Stuff</li>
-                    </ul>
+
                 </div>
                 <div id="contieneCarrito">
                     <div id="opcionesCarrito">
