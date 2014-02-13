@@ -24,7 +24,7 @@ if (isset($_SESSION["idCliente"])) {
         <script type="text/javascript" language="javascript" src="js/jquery.skitter.min.js"></script>
 
         <script type="text/javascript" language="javascript">
-
+            var precioTotal = 0;
 
             $(document).ready(function() {
                 $(".box_skitter_large").css({width: 820, height: 298}).skitter({numbers: false});
@@ -44,10 +44,14 @@ if (isset($_SESSION["idCliente"])) {
                              var datos = '<table class="table"><thead><tr><td class="col-xs-2"></td><td class="col-xs-3">Product</td><td class="col-xs-1">Quantity</td><td class="col-xs-3">Price</td><td class="col-xs-3">Delete</td><tbody>';
                                 $.each(data, function(index) {   
                                  datos +='<tr><td><img src="imagenes/imagenesProductos/'+ data[index].imagen +'.jpg" /></td><td>'+ data[index].nombreProducto+' <span class="glyphicon glyphicon-euro"></span></td><td>  <a id="cant" class="btn btn-default btn-sm">-</a>1<a id="cant" class="btn btn-default btn-sm">+</a></td><td>'+data[index].precio+' <span class="glyphicon glyphicon-euro"></span></td><td><span class="glyphicon glyphicon-trash"></span></td></tr>';
-                                    
+                                 precioProducto = parseFloat(data[index].precio);
+                                 precioTotal = Math.round((precioTotal + precioProducto) * 100) / 100;
+                                 
+                                 
                                 });
-                            datos +='</tbody><tfoot><tr><td colspan="4">Total:3000<span class="glyphicon glyphicon-euro"></span></td><td><a class="btn btn-default btn-sm">Continue</a></td></tr></tfoot></table>';
-
+                            datos +='</tbody><tfoot><tr><td colspan="4">Total: '+precioTotal+' &euro<span class="glyphicon glyphicon-euro"></span></td><td><a class="btn btn-default btn-sm">Continue</a></td></tr></tfoot></table>';
+                            
+                            
                             $('#carritoDetalles').html(datos);
                              
                         }
