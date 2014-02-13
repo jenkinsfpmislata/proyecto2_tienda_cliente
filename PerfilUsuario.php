@@ -67,7 +67,7 @@ $(document).ready(function() {
 
 
 function productoCategoria(categoria) {
-                                    window.location = "products.php?categoria=" + categoria;
+                                    window.location = "productsLogeado.php?categoria=" + categoria;
                                     }
                                     
 //-----------------------------------------------------
