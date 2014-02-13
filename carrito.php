@@ -49,7 +49,7 @@ if (isset($_SESSION["idCliente"])) {
 
 
                             });
-                            datos += '</tbody><tfoot><tr><td colspan="4">Total: '+precioTotal+' &euro<span class="glyphicon glyphicon-euro"></span></td><td><button class="btn btn-default btn-sm">Continue</button></td></tr></tfoot></table>';
+                            datos += '</tbody><tfoot><tr><td colspan="4">Total: '+precioTotal+' &euro;<span class="glyphicon glyphicon-euro"></span></td><td><button class="btn btn-default btn-sm">Continue</button></td></tr></tfoot></table>';
 
                             $('#carritoDetalles').html(datos);
 
