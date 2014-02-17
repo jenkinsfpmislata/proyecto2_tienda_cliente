@@ -176,9 +176,9 @@ $categoria = $_GET["categoria"];
 
                                 <button  class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create Account
                                 </button>
-                            </div>
+                            
 
-                        </form></li>
+                        </form></li></div>
 
                 </ul>
             </div>

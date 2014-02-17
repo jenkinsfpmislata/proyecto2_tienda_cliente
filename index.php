@@ -301,7 +301,7 @@ function noPuedesComprar(){
 
                                 <button  class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create Account
                                 </button>
-                            </div>
+                            
 
                             </form></li></ul></div>
 
