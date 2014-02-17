@@ -315,7 +315,7 @@ if (isset($_SESSION["idCliente"])) {
                 Proyecto 2 - Tienda
             </div>
         </div>
-
+		
 
 
     </body>
