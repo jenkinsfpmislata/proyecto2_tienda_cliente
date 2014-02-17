@@ -178,7 +178,7 @@ $categoria = $_GET["categoria"];
                                 </button>
                             
 
-                        </form></li></div>
+                        </li></form></div>
 
                 </ul>
             </div>

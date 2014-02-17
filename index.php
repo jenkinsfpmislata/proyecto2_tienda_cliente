@@ -303,7 +303,7 @@ function noPuedesComprar(){
                                 </button>
                             
 
-                            </form></li></ul></div>
+                            </li></form></ul></div>
 
             <div id="buscador">
 
