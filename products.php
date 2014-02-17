@@ -13,10 +13,10 @@ $categoria = $_GET["categoria"];
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/tiendaCSS.css" rel="stylesheet" type="text/css" />
-          <link href="css/descriptionProducto.css" rel="stylesheet" type="text/css" />
+        <link href="css/descriptionProducto.css" rel="stylesheet" type="text/css" />
         <link href="css/estilo.css" rel="stylesheet" type="text/css" />
         <link href="css/products.css" rel="stylesheet" type="text/css" />
-<link type="text/css" href="css/skitter.styles.css" media="all" rel="stylesheet" />
+        <link type="text/css" href="css/skitter.styles.css" media="all" rel="stylesheet" />
 
 
         <script type="text/javascript" language="javascript" src="js/jquery-2.0.3.min.js">
@@ -49,10 +49,10 @@ $categoria = $_GET["categoria"];
                     type: 'GET',
                     success: function(data) {
                         var datos = '<table>';
-                        
+
                         $.each(data, function(index) {
                             datos += '<div class="producto"  onclick=""><p id="precio">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div><a  ><div class="carrito" onclick="descripcion(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalDescripcion"><img src="imagenes/imagenesStatic/carro.png"></div></a></div>';
-                            
+
                         });
                         datos += '</table>';
                         $('#listaProducto').html(datos);
@@ -177,7 +177,7 @@ $categoria = $_GET["categoria"];
                                 <button  class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create Account
                                 </button>
 
-                            </form></li>
+                        </form></li>
 
                 </ul>
             </div>
@@ -224,6 +224,40 @@ $categoria = $_GET["categoria"];
         </div>
 
         <div id="contenido">
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Login</h4>
+                        </div>
+                        <div class="modal-body">
+
+
+                            <div class="form-group" id="registro" >
+                                <form  class="form-horizontal" action="phps/insert.php" method="post">
+                                    Name<input class="form-control" name="nombre"></input>
+                                    Nick<input class="form-control" name="nick"></input>
+                                    E-mail<input class="form-control" name="email"></input>
+                                    Password<input class="form-control"  type="password" name="pass"></input>
+                                    Repeat Password<input class="form-control" type="password" name="repPass"></input>
+                                    Client kind<select class="form-control"><option>Admin</option><option>User</option></select>
+                            </div>
+                            <input type="submit" class="btn btn-success" value="Login"></input>
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+
 
             <!-- descripcion producto -->
             <div class="modal fade" id="myModalDescripcion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
