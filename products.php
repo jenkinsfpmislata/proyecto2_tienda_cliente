@@ -1,4 +1,5 @@
 <?php
+session_start();
 $categoria = $_GET["categoria"];
 ?>
 
@@ -59,7 +60,7 @@ $categoria = $_GET["categoria"];
                 });
             });
 
-
+//----------------------categorias
             $(document).ready(function() {
                 $.ajax({
                     dataType: 'json',
@@ -125,7 +126,25 @@ $categoria = $_GET["categoria"];
             }
             ;
 //---------------------------------------------
+//validar:
+            function validar() {
+                datosInicioSesion = $('#inicioForm').serialize();
 
+
+                $.ajax({
+                    url: 'phps/validacion.php',
+                    type: 'POST',
+                    data: datosInicioSesion,
+                    success: function(url) {
+
+                        window.location = url;
+                    }
+                });
+
+
+            }
+            ;
+//---------fin validar
 
 
         </script>
@@ -145,18 +164,20 @@ $categoria = $_GET["categoria"];
                 <ul>
                     <a href="index.php"><li id="inicio" ></li></a>
                     <li id="perfil">
-                        <form role="form">
+                        <form id="inicioForm" role="form"  >
                             <div class="form-group" id="inicioSesion">
                                 <strong>Login</strong>
-                                <p>Name</p>
-                                <input class="form-control">
-                                <p>Password</p>
-                                <input class="form-control" type="password">
-                                <button class="btn btn-group">Start</button>
-                                <a><strong>Register</strong></a>
 
-                            </div></form>
-                    </li>
+                                <p>Nick</p>
+                                <input class="form-control" name="nick">
+                                <p>Password</p>
+                                <input class="form-control" type="password" name="pass">
+                                <a class="btn btn-success" href="javascript:validar()">login</a>
+
+                                <button  class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create Account
+                                </button>
+
+                            </form></li>
 
                 </ul>
             </div>
