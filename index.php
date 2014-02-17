@@ -1,8 +1,8 @@
-
 <?php
 session_start();
 
 ?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -39,7 +39,13 @@ session_start();
                 $(".box_skitter_large").css({width: 820, height: 298}).skitter({numbers: false});
             });
 
+//-----------------categorias-----------------
+            function productoCategoria(categoria) {
 
+                window.location = "products.php?categoria=" + categoria;
+            }
+            ;
+            
             $(document).ready(function() {
                 $.ajax({
                     dataType: 'json',
@@ -53,6 +59,7 @@ session_start();
                         $('#MPrincipal').html(datos);
                     }});
             });
+//---------------------------------fin categorias
 
             $(document).ready(function() {
 
@@ -139,11 +146,7 @@ session_start();
             ;
 
 
-            function productoCategoria(categoria) {
 
-                window.location = "products.php?categoria=" + categoria;
-            }
-            ;
 //BUSCAR---PRODUCTOS-----------------------
             function buscar() {
                 busc = $('#searchForm').serialize();
@@ -299,7 +302,7 @@ function noPuedesComprar(){
                                 <button  class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create Account
                                 </button>
 
-                            </li></form></ul></div>
+                            </form></li></ul></div>
 
             <div id="buscador">
 
