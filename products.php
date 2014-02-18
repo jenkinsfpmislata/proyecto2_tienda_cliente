@@ -204,16 +204,17 @@ $categoria = $_GET["categoria"];
                         </li></form></div>
 
                 </ul>
-            </div>
-
-
-            <div id="buscador">
+              <div id="buscador">
                 <img onclick="buscar()" src="imagenes/imagenesStatic/imgBusc.png">
                 <form id="searchForm">
                     <input name="Nombre" type="text">
                 </form>
+              </div>
             </div>
-        </div>
+
+
+
+
 
 
 
