@@ -255,6 +255,21 @@ margin-right:60px;
 	margin-left:30px;
 	width:150px;
 	}
+        
+        
+        
+        	.cerrar{
+	
+	width:20px;
+	height:20px;
+	margin-left:137px;
+	margin-top:-35px;
+	
+	}
+        .cerrar img{
+            width:20px;
+            height:20px;
+        }
 			#listaCarro .producto #precioLista{
 			font-size:20px;
 			width:30px;
@@ -281,20 +296,7 @@ margin-right:60px;
 					top:-75px;
 					left:35px;
 					}
-	
-	.cerrar{
-	
-	width:20px;
-	height:20px;
-	margin-left:137px;
-	margin-top:-35px;
-	
-	}
-        .cerrar img{
-            width:20px;
-            height:20px;
-        }
-				
+		
 				
 				/*-------------------------PRECIO TOTAL CARRO BAR----------------------------------*/
 				
