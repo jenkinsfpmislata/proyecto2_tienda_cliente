@@ -146,7 +146,30 @@ $categoria = $_GET["categoria"];
             ;
 //---------fin validar
 
+//BUSCAR---PRODUCTOS-----------------------
+            function buscar() {
+                busc = $('#searchForm').serialize();
 
+
+                $.ajax({
+                    dataType: 'json',
+                    url: 'phps/admin/buscarProducto.php',
+                    type: 'POST',
+                    data: busc,
+                    success: function(data) {
+                        dato = '<table>';
+                        $.each(data, function(index) {
+                            dato += '<div class="producto"  onclick=""><p id="precio">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div><a  ><div class="carrito" onclick="descripcion(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalDescripcion"><img src="imagenes/imagenesStatic/carro.png"></div></a></div>';
+                            
+                            dato += '</table>';
+                        });
+                        $('#listaProducto').html(dato);
+                    }
+                });
+            }
+            ;
+//FIN BUSCAR PRODUCTOS------------------
+//------------------------------------------------------------------------------
         </script>
 
 
@@ -185,8 +208,10 @@ $categoria = $_GET["categoria"];
 
 
             <div id="buscador">
-                <img src="imagenes/imagenesStatic/imgBusc.png">
-                <input name="buscador" type="text">
+                <img onclick="buscar()" src="imagenes/imagenesStatic/imgBusc.png">
+                <form id="searchForm">
+                    <input name="Nombre" type="text">
+                </form>
             </div>
         </div>
 
