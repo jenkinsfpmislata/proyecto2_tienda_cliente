@@ -128,7 +128,7 @@ session_start();
                     success: function(data) {
                         index = 0;
 
-                        datos = datos + '<div class="producto"><div class="cerrar"><img src="imagenes/imagenesStatic/close.png" onclick=""></div><p id="precioLista">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div></div>';
+                        datos = datos + '<div class="producto"><div class="cerrar" onclick=""><span class="glyphicon glyphicon-remove"></span></div><p id="precioLista">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div></div>';
                         precioProducto = parseFloat(data[index].precio);
                         precioTotal = Math.round((precioTotal + precioProducto) * 100) / 100;
                         precio = '<p>Total: ' + precioTotal + ' &euro; </p>';
