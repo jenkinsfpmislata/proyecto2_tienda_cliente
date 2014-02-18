@@ -113,12 +113,6 @@ if (isset($_SESSION["idCliente"])) {
                         <a href="index.php"><li id="salir"></li></a>
                     </ul>
                 </div>
-
-
-                <div id="buscador">
-                    <img src="imagenes/imagenesStatic/imgBusc.png">
-                    <input name="buscador" type="text">
-                </div>
             </div>
 
 
