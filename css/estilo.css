@@ -258,18 +258,16 @@ margin-right:60px;
         
         
         
-        	.cerrar{
+        .cerrar{
 	
 	width:20px;
 	height:20px;
 	margin-left:140px;
 	margin-top:-15px;
+        background-color: #F55;
 	
 	}
-        .cerrar img{
-            width:20px;
-            height:20px;
-        }
+
 			#listaCarro .producto #precioLista{
 			font-size:20px;
 			width:30px;
