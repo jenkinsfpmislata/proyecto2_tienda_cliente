@@ -282,7 +282,7 @@ margin-right:60px;
 					left:35px;
 					}
 	
-	#cerrar{
+	.cerrar{
 	
 	width:20px;
 	height:20px;
@@ -290,7 +290,7 @@ margin-right:60px;
 	margin-top:-35px;
 	
 	}
-        #cerrar img{
+        .cerrar img{
             width:20px;
             height:20px;
         }
