@@ -160,7 +160,7 @@ $categoria = $_GET["categoria"];
                         dato = '<table>';
                         $.each(data, function(index) {
                             dato += '<div class="producto"  onclick=""><p id="precio">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div><a  ><div class="carrito" onclick="descripcion(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalDescripcion"><img src="imagenes/imagenesStatic/carro.png"></div></a></div>';
-                            
+
                             dato += '</table>';
                         });
                         $('#listaProducto').html(dato);
@@ -171,247 +171,231 @@ $categoria = $_GET["categoria"];
 //FIN BUSCAR PRODUCTOS------------------
 //------------------------------------------------------------------------------
         </script>
-
-
-
-
     </head>
-
 
     <body>
         <div id="topbar">
             <div id="logotopbar"></div>
-
             <div id="menutopbar">
-
                 <ul>
                     <a href="index.php"><li id="inicio" ></li></a>
                     <li id="perfil">
                         <form id="inicioForm" role="form"  >
                             <div class="form-group" id="inicioSesion">
                                 <strong>Login</strong>
-
                                 <p>Nick</p>
                                 <input class="form-control" name="nick">
                                 <p>Password</p>
                                 <input class="form-control" type="password" name="pass">
                                 <a class="btn btn-success" href="javascript:validar()">login</a>
-
                                 <button  class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create Account
                                 </button>
-                            
 
-                        </li></form></div>
-
+                            </li></form></div>
                 </ul>
-              <div id="buscador">
-                <img onclick="buscar()" src="imagenes/imagenesStatic/imgBusc.png">
-                <form id="searchForm">
-                    <input name="Nombre" type="text">
-                </form>
-              </div>
+                <div id="buscador">
+                    <img onclick="buscar()" src="imagenes/imagenesStatic/imgBusc.png">
+                    <form id="searchForm">
+                        <input name="Nombre" type="text">
+                    </form>
+                </div>
             </div>
 
+            <div id="buscador">
+
+                <div id="carroRightbar">
+                    <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><p id="cantidad">0</p></div>
+
+                    <div id="precioTotal">  <p> Total: 0&euro;</p> </div>
+                    <div id="listaCarro">
+
+
+
+                        <!---------productos comprados-->
 
 
 
 
 
 
-        <div id="carroRightbar">
-            <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><p id="cantidad">0</p></div>
+                        <!--------- fin productos comprados-->
+                    </div>
+                </div>
 
-            <div id="precioTotal">  <p> Total: 0&euro;</p> </div>
-            <div id="listaCarro">
+                <div id="cabecera">
 
+                    <div id="logo"><img src="imagenes/logo2.png"></div>
+                    <div id="sublogo"><h1><img src="imagenes/subLogo.png"></h1></div>
 
-
-                <!---------productos comprados-->
-
-
-
+                </div>
 
 
-
-                <!--------- fin productos comprados-->
-            </div>
-        </div>
-
-        <div id="cabecera">
-
-            <div id="logo"><img src="imagenes/logo2.png"></div>
-            <div id="sublogo"><h1><img src="imagenes/subLogo.png"></h1></div>
-
-        </div>
+                <div id="menu">
 
 
-        <div id="menu">
+                </div>
+
+                <div id="contenido">
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title" id="myModalLabel">Login</h4>
+                                </div>
+                                <div class="modal-body">
 
 
-        </div>
+                                    <div class="form-group" id="registro" >
+                                        <form  class="form-horizontal" action="phps/insert.php" method="post">
+                                            Name<input class="form-control" name="nombre"></input>
+                                            Nick<input class="form-control" name="nick"></input>
+                                            E-mail<input class="form-control" name="email"></input>
+                                            Password<input class="form-control"  type="password" name="pass"></input>
+                                            Repeat Password<input class="form-control" type="password" name="repPass"></input>
+                                            Client kind<select class="form-control"><option>Admin</option><option>User</option></select>
+                                    </div>
+                                    <input type="submit" class="btn btn-success" value="Login"></input>
 
-        <div id="contenido">
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">Login</h4>
-                        </div>
-                        <div class="modal-body">
+                                    </form>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
 
 
-                            <div class="form-group" id="registro" >
-                                <form  class="form-horizontal" action="phps/insert.php" method="post">
-                                    Name<input class="form-control" name="nombre"></input>
-                                    Nick<input class="form-control" name="nick"></input>
-                                    E-mail<input class="form-control" name="email"></input>
-                                    Password<input class="form-control"  type="password" name="pass"></input>
-                                    Repeat Password<input class="form-control" type="password" name="repPass"></input>
-                                    Client kind<select class="form-control"><option>Admin</option><option>User</option></select>
+
+                    <!-- descripcion producto -->
+                    <div class="modal fade" id="myModalDescripcion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div id="modalDesc" class="modal-dialog">
+                            <div class="modal-content">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <div class="modal-body">
+                                    <div id="descrip">
+                                        <!--TODA LA DESCRIPCION DEL PRODUCTO-->
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                                </div>
                             </div>
-                            <input type="submit" class="btn btn-success" value="Login"></input>
+                        </div>
+                    </div>
 
-                            </form>
+                    <!-- fin modal 2----------------------->
+
+
+
+                    <div id="contenidoTop">
+                        <div id="MPrincipal">
 
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
 
 
+                        <div >
+                            <center><h1> The best products </h1></center>
 
-            <!-- descripcion producto -->
-            <div class="modal fade" id="myModalDescripcion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div id="modalDesc" class="modal-dialog">
-                    <div class="modal-content">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <div class="modal-body">
-                            <div id="descrip">
-                                <!--TODA LA DESCRIPCION DEL PRODUCTO-->
+                            <div class="productoB"  onclick="">
+                                <p id="precioB">2999.99&euro;</p>
+                                <a href="#"><img src="imagenes/imagenesProductos/art6.jpg"></a>
+
+                                <div id="descripcionB">
+                                    <p>This is other example from webpage...</p>
+                                </div>
+                                <div class="carritoB"><img src="imagenes/imagenesStatic/carro.png"></div>
+                            </div>
+                            <div class="productoB"  onclick="">
+                                <p id="precioB">249.99&euro;</p>
+                                <a href="#"><img src="imagenes/imagenesProductos/art7.jpg"></a>
+
+                                <div id="descripcionB">
+                                    <p>This is other example from webpage...</p>
+
+                                </div><div class="carritoB"><img src="imagenes/imagenesStatic/carro.png"></div>
+                            </div>
+
+                            <div class="productoB"  onclick="">
+                                <p id="precioB">2499&euro;</p>
+                                <a href="#"><img src="imagenes/imagenesProductos/art2.jpg"></a>
+
+                                <div id="descripcionB">
+                                    <p>This is other example from webpage...</p>
+
+                                </div><div class="carritoB"><img src="imagenes/imagenesStatic/carro.png"></div>
                             </div>
 
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- fin modal 2----------------------->
 
 
-
-            <div id="contenidoTop">
-                <div id="MPrincipal">
-
-                </div>
+                        <div id="listaProductoNuevo">
+                            <div id="productoTitulo">
 
 
-                <div >
-                    <center><h1> The best products </h1></center>
+                                <p>Order:<select class="form-control">
+                                        <option>Searched</option>
+                                        <option>Favorites</option>
+                                        <option>Solds</option>
+                                    </select></p>
+                                <p>
+                                    Prize:<select class="form-control">
+                                        <option>Highest</option>
+                                        <option>Lowest</option>
+                                    </select>
+                                </p>
 
-                    <div class="productoB"  onclick="">
-                        <p id="precioB">2999.99&euro;</p>
-                        <a href="#"><img src="imagenes/imagenesProductos/art6.jpg"></a>
-
-                        <div id="descripcionB">
-                            <p>This is other example from webpage...</p>
-                        </div>
-                        <div class="carritoB"><img src="imagenes/imagenesStatic/carro.png"></div>
-                    </div>
-                    <div class="productoB"  onclick="">
-                        <p id="precioB">249.99&euro;</p>
-                        <a href="#"><img src="imagenes/imagenesProductos/art7.jpg"></a>
-
-                        <div id="descripcionB">
-                            <p>This is other example from webpage...</p>
-
-                        </div><div class="carritoB"><img src="imagenes/imagenesStatic/carro.png"></div>
-                    </div>
-
-                    <div class="productoB"  onclick="">
-                        <p id="precioB">2499&euro;</p>
-                        <a href="#"><img src="imagenes/imagenesProductos/art2.jpg"></a>
-
-                        <div id="descripcionB">
-                            <p>This is other example from webpage...</p>
-
-                        </div><div class="carritoB"><img src="imagenes/imagenesStatic/carro.png"></div>
-                    </div>
-
-                </div>
+                            </div>
 
 
-                <div id="listaProductoNuevo">
-                    <div id="productoTitulo">
-
-
-                        <p>Order:<select class="form-control">
-                                <option>Searched</option>
-                                <option>Favorites</option>
-                                <option>Solds</option>
-                            </select></p>
-                        <p>
-                            Prize:<select class="form-control">
-                                <option>Highest</option>
-                                <option>Lowest</option>
-                            </select>
-                        </p>
-
-                    </div>
-
-
-                    <div id="listaProducto"><!-- caja donde se cargan los artículos -->
+                            <div id="listaProducto"><!-- caja donde se cargan los artículos -->
 
 
 
 
-                    </div><!-- fin de la caja donde se cargan los artículos -->
+                            </div><!-- fin de la caja donde se cargan los artículos -->
 
 
 <!--                    <a href="#"><img class="anteriorLista" src="imagenes/Gakuseisean-Ivista-Arrow-Right.ico" height="40" width="40"></a>
                     <a href="#"><img class="siguienteLista" src="imagenes/Gakuseisean-Ivista-Arrow-Right.ico" height="40" width="40"></a>-->
 
+                        </div>
+                    </div>
                 </div>
+
+
+
+
+
+                <div id="pie">
+                    <div id="LegalStuff">
+                        <a href="">Legal Terms</a>
+                        <a href="">Security</a>
+                        <a href="">Privacy</a>
+                        <a href="">Rate</a>
+                        <a href="">Contact</a>
+                        <a href="">Web Map</a>
+                    </div>
+
+
+                    <div id="icons">
+                        <img class="icon-footer" src="imagenes/icons/facebook24.png">
+                        <img class="icon-footer" src="imagenes/icons/twitter14.png">
+                        <img class="icon-footer" src="imagenes/icons/google17.png">
+                        <img class="icon-footer" src="imagenes/icons/social68.png">
+                    </div>
+                    <div id="icons">
+                        &copy; PC Store 2013. Spain. All rights reserved.<br />
+                        Proyecto 2 - Tienda
+                    </div>
+                </div>
+
             </div>
-        </div>
-
-
-
-
-
-        <div id="pie">
-            <div id="LegalStuff">
-                <a href="">Legal Terms</a>
-                <a href="">Security</a>
-                <a href="">Privacy</a>
-                <a href="">Rate</a>
-                <a href="">Contact</a>
-                <a href="">Web Map</a>
-            </div>
-
-
-            <div id="icons">
-                <img class="icon-footer" src="imagenes/icons/facebook24.png">
-                <img class="icon-footer" src="imagenes/icons/twitter14.png">
-                <img class="icon-footer" src="imagenes/icons/google17.png">
-                <img class="icon-footer" src="imagenes/icons/social68.png">
-            </div>
-            <div id="icons">
-                &copy; PC Store 2013. Spain. All rights reserved.<br />
-                Proyecto 2 - Tienda
-            </div>
-        </div>
-
-
-
     </body>
 </html>

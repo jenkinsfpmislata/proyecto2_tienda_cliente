@@ -80,7 +80,8 @@ if (isset($_SESSION["idCliente"])) {
 
                 function productoCategoria(categoria) {
                     window.location = "productsLogeado.php?categoria=" + categoria;
-                };
+                }
+                ;
 
     //----------------------------------------------
                 function descripcion(id) {
@@ -126,247 +127,231 @@ if (isset($_SESSION["idCliente"])) {
 
     //---------------------------------------------
 
-                function salir(){
-                $.ajax({
-                    url: 'phps/salir.php',
+                function salir() {
+                    $.ajax({
+                        url: 'phps/salir.php',
+                        success: function() {
 
-                    success: function() {
-
-                        window.location = "index.php";
-                    }
-                });
+                            window.location = "index.php";
+                        }
+                    });
                 }
 
-//BUSCAR---PRODUCTOS-----------------------
-            function buscar() {
-                busc = $('#searchForm').serialize();
+    //BUSCAR---PRODUCTOS-----------------------
+                function buscar() {
+                    busc = $('#searchForm').serialize();
 
 
-                $.ajax({
-                    dataType: 'json',
-                    url: 'phps/admin/buscarProducto.php',
-                    type: 'POST',
-                    data: busc,
-                    success: function(data) {
-                        dato = '<table>';
-                        $.each(data, function(index) {
-                            dato += '<div class="producto"  onclick=""><p id="precio">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div><a  ><div class="carrito" onclick="descripcion(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalDescripcion"><img src="imagenes/imagenesStatic/carro.png"></div></a></div>';
-                            
-                            dato += '</table>';
-                        });
-                        $('#listaProducto').html(dato);
-                    }
-                });
-            }
-            ;
-//FIN BUSCAR PRODUCTOS------------------
-//------------------------------------------------------------------------------
+                    $.ajax({
+                        dataType: 'json',
+                        url: 'phps/admin/buscarProducto.php',
+                        type: 'POST',
+                        data: busc,
+                        success: function(data) {
+                            dato = '<table>';
+                            $.each(data, function(index) {
+                                dato += '<div class="producto"  onclick=""><p id="precio">' + data[index].precio + ' &euro;</p><img id="imgProd" src="imagenes/imagenesProductos/' + data[index].Imagen + '.jpg"><div id="descripcion"><p>' + data[index].Nombre + '<br>' + data[index].Descripcion + '</p></div><a  ><div class="carrito" onclick="descripcion(' + data[index].idProducto + ')" data-toggle="modal" data-target="#myModalDescripcion"><img src="imagenes/imagenesStatic/carro.png"></div></a></div>';
+
+                                dato += '</table>';
+                            });
+                            $('#listaProducto').html(dato);
+                        }
+                    });
+                }
+                ;
+    //FIN BUSCAR PRODUCTOS------------------
+    //------------------------------------------------------------------------------
             </script>
-
-
-
-
         </head>
-
 
         <body>
             <div id="topbar">
                 <div id="logotopbar"></div>
-
                 <div id="menutopbar">
-
                     <ul>
                         <a href="indexLogeado.php"><li id="inicio" ></li></a>
                         <a href="PerfilUsuario.php"><li id="perfil"></li></a>
-
-
                         <a href="mensajes.php"> <li id="mensajes"></li></a>
                         <a href="carrito.php"><li id="carrito"></li></a>
-
                         <a id="nombreCliente"></a>
-
                     </ul>
                 </div>
-                
-            <div id="menutopbar2">
-                <ul>
-
-                    <a href="javascript:salir()"><li id="salir"></li></a>
-                </ul>
-            </div>
-
-
-              <div id="buscador">
-                <img onclick="buscar()" src="imagenes/imagenesStatic/imgBusc.png">
-                <form id="searchForm">
-                    <input name="Nombre" type="text">
-                </form>
-              </div>
-            </div>
-
-
-
-            <div id="carroRightbar">
-                <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><p id="cantidad">0</p></div>
-
-                <div id="precioTotal">  <p> Total: 0&euro;</p> </div>
-                <div id="listaCarro">
-
-
-
-                    <!---------productos comprados-->
-
-
-
-
-
-
-                    <!--------- fin productos comprados-->
+                <div id="menutopbar2">
+                    <ul>
+                        <a href="javascript:salir()"><li id="salir"></li></a>
+                    </ul>
+                </div>
+                <div id="buscador">
+                    <img onclick="buscar()" src="imagenes/imagenesStatic/imgBusc.png">
+                    <form id="searchForm">
+                        <input name="Nombre" type="text">
+                    </form>
                 </div>
             </div>
-
-            <div id="cabecera">
-
-                <div id="logo"><img src="imagenes/logo2.png"></div>
-                <div id="sublogo"><h1><img src="imagenes/subLogo.png"></h1></div>
-
-            </div>
+            <div id="buscador">
 
 
-            <div id="menu">
+
+                <div id="carroRightbar">
+                    <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><p id="cantidad">0</p></div>
+
+                    <div id="precioTotal">  <p> Total: 0&euro;</p> </div>
+                    <div id="listaCarro">
 
 
-            </div>
 
-            <div id="contenido">
+                        <!---------productos comprados-->
 
-                <!-- descripcion producto -->
-                <div class="modal fade" id="myModalDescripcion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div id="modalDesc" class="modal-dialog">
-                        <div class="modal-content">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <div class="modal-body">
-                                <div id="descrip">
-                                    <!--TODA LA DESCRIPCION DEL PRODUCTO-->
+
+
+
+
+
+                        <!--------- fin productos comprados-->
+                    </div>
+                </div>
+
+                <div id="cabecera">
+
+                    <div id="logo"><img src="imagenes/logo2.png"></div>
+                    <div id="sublogo"><h1><img src="imagenes/subLogo.png"></h1></div>
+
+                </div>
+
+
+                <div id="menu">
+
+
+                </div>
+
+                <div id="contenido">
+
+                    <!-- descripcion producto -->
+                    <div class="modal fade" id="myModalDescripcion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div id="modalDesc" class="modal-dialog">
+                            <div class="modal-content">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <div class="modal-body">
+                                    <div id="descrip">
+                                        <!--TODA LA DESCRIPCION DEL PRODUCTO-->
+                                    </div>
+
                                 </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- fin modal 2----------------------->
+
+
+
+                    <div id="contenidoTop">
+                        <div id="MPrincipal">
+
+                        </div>
+
+
+                        <div >
+                            <center><h1> The best products </h1></center>
+
+                            <div class="productoB"  onclick="">
+                                <p id="precioB">2999.99&euro;</p>
+                                <a href="#"><img src="imagenes/imagenesProductos/art6.jpg"></a>
+
+                                <div id="descripcionB">
+                                    <p>This is other example from webpage...</p>
+                                </div>
+                                <div class="carritoB"><img src="imagenes/imagenesStatic/carro.png"></div>
+                            </div>
+                            <div class="productoB"  onclick="">
+                                <p id="precioB">249.99&euro;</p>
+                                <a href="#"><img src="imagenes/imagenesProductos/art7.jpg"></a>
+
+                                <div id="descripcionB">
+                                    <p>This is other example from webpage...</p>
+
+                                </div><div class="carritoB"><img src="imagenes/imagenesStatic/carro.png"></div>
+                            </div>
+
+                            <div class="productoB"  onclick="">
+                                <p id="precioB">2499&euro;</p>
+                                <a href="#"><img src="imagenes/imagenesProductos/art2.jpg"></a>
+
+                                <div id="descripcionB">
+                                    <p>This is other example from webpage...</p>
+
+                                </div><div class="carritoB"><img src="imagenes/imagenesStatic/carro.png"></div>
+                            </div>
+
+                        </div>
+
+
+                        <div id="listaProductoNuevo">
+                            <div id="productoTitulo">
+
+
+                                <p>Order:<select class="form-control">
+                                        <option>Searched</option>
+                                        <option>Favorites</option>
+                                        <option>Solds</option>
+                                    </select></p>
+                                <p>
+                                    Prize:<select class="form-control">
+                                        <option>Highest</option>
+                                        <option>Lowest</option>
+                                    </select>
+                                </p>
 
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
-                            </div>
+
+                            <div id="listaProducto"><!-- caja donde se cargan los artículos -->
+
+
+
+
+                            </div><!-- fin de la caja donde se cargan los artículos -->
+
+
+    <!--                        <a href="#"><img class="anteriorLista" src="imagenes/Gakuseisean-Ivista-Arrow-Right.ico" height="40" width="40"></a>
+                            <a href="#"><img class="siguienteLista" src="imagenes/Gakuseisean-Ivista-Arrow-Right.ico" height="40" width="40"></a>-->
+
                         </div>
                     </div>
                 </div>
 
-                <!-- fin modal 2----------------------->
 
 
 
-                <div id="contenidoTop">
-                    <div id="MPrincipal">
 
+                <div id="pie">
+                    <div id="LegalStuff">
+                        <a href="">Legal Terms</a>
+                        <a href="">Security</a>
+                        <a href="">Privacy</a>
+                        <a href="">Rate</a>
+                        <a href="">Contact</a>
+                        <a href="">Web Map</a>
                     </div>
 
 
-                    <div >
-                        <center><h1> The best products </h1></center>
-
-                        <div class="productoB"  onclick="">
-                            <p id="precioB">2999.99&euro;</p>
-                            <a href="#"><img src="imagenes/imagenesProductos/art6.jpg"></a>
-
-                            <div id="descripcionB">
-                                <p>This is other example from webpage...</p>
-                            </div>
-                            <div class="carritoB"><img src="imagenes/imagenesStatic/carro.png"></div>
-                        </div>
-                        <div class="productoB"  onclick="">
-                            <p id="precioB">249.99&euro;</p>
-                            <a href="#"><img src="imagenes/imagenesProductos/art7.jpg"></a>
-
-                            <div id="descripcionB">
-                                <p>This is other example from webpage...</p>
-
-                            </div><div class="carritoB"><img src="imagenes/imagenesStatic/carro.png"></div>
-                        </div>
-
-                        <div class="productoB"  onclick="">
-                            <p id="precioB">2499&euro;</p>
-                            <a href="#"><img src="imagenes/imagenesProductos/art2.jpg"></a>
-
-                            <div id="descripcionB">
-                                <p>This is other example from webpage...</p>
-
-                            </div><div class="carritoB"><img src="imagenes/imagenesStatic/carro.png"></div>
-                        </div>
-
+                    <div id="icons">
+                        <img class="icon-footer" src="imagenes/icons/facebook24.png">
+                        <img class="icon-footer" src="imagenes/icons/twitter14.png">
+                        <img class="icon-footer" src="imagenes/icons/google17.png">
+                        <img class="icon-footer" src="imagenes/icons/social68.png">
                     </div>
-
-
-                    <div id="listaProductoNuevo">
-                        <div id="productoTitulo">
-
-
-                            <p>Order:<select class="form-control">
-                                    <option>Searched</option>
-                                    <option>Favorites</option>
-                                    <option>Solds</option>
-                                </select></p>
-                            <p>
-                                Prize:<select class="form-control">
-                                    <option>Highest</option>
-                                    <option>Lowest</option>
-                                </select>
-                            </p>
-
-                        </div>
-
-
-                        <div id="listaProducto"><!-- caja donde se cargan los artículos -->
-
-
-
-
-                        </div><!-- fin de la caja donde se cargan los artículos -->
-
-
-<!--                        <a href="#"><img class="anteriorLista" src="imagenes/Gakuseisean-Ivista-Arrow-Right.ico" height="40" width="40"></a>
-                        <a href="#"><img class="siguienteLista" src="imagenes/Gakuseisean-Ivista-Arrow-Right.ico" height="40" width="40"></a>-->
-
+                    <div id="icons">
+                        &copy; PC Store 2013. Spain. All rights reserved.<br />
+                        Proyecto 2 - Tienda
                     </div>
                 </div>
+
             </div>
-
-
-
-
-
-            <div id="pie">
-                <div id="LegalStuff">
-                    <a href="">Legal Terms</a>
-                    <a href="">Security</a>
-                    <a href="">Privacy</a>
-                    <a href="">Rate</a>
-                    <a href="">Contact</a>
-                    <a href="">Web Map</a>
-                </div>
-
-
-                <div id="icons">
-                    <img class="icon-footer" src="imagenes/icons/facebook24.png">
-                    <img class="icon-footer" src="imagenes/icons/twitter14.png">
-                    <img class="icon-footer" src="imagenes/icons/google17.png">
-                    <img class="icon-footer" src="imagenes/icons/social68.png">
-                </div>
-                <div id="icons">
-                    &copy; PC Store 2013. Spain. All rights reserved.<br />
-                    Proyecto 2 - Tienda
-                </div>
-            </div>
-
-
-
         </body>
     </html>
     <?php

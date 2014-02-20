@@ -49,7 +49,7 @@ if (isset($_SESSION["idCliente"])) {
 
 
                             });
-                            datos += '</tbody><tfoot><tr><td colspan="4">Total: '+precioTotal+'<span class="glyphicon glyphicon-euro"></span></td><td><button class="btn btn-default btn-sm">Continue</button></td></tr></tfoot></table>';
+                            datos += '</tbody><tfoot><tr><td colspan="4">Total: ' + precioTotal + '<span class="glyphicon glyphicon-euro"></span></td><td><button class="btn btn-default btn-sm">Continue</button></td></tr></tfoot></table>';
 
                             $('#carritoDetalles').html(datos);
 
@@ -85,12 +85,7 @@ if (isset($_SESSION["idCliente"])) {
                 //-----fin categoria
 
             </script>
-
-
-
-
         </head>
-
 
         <body>
             <div id="topbar">
@@ -115,74 +110,73 @@ if (isset($_SESSION["idCliente"])) {
                 </div>
             </div>
 
+            <div id="buscador">
+
+                <div id="cabecera">
+
+                    <div id="logo"><img src="imagenes/logo2.png"></div>
+                    <div id="sublogo"><h1><img src="imagenes/subLogo.png"></h1></div>
+
+                </div>
 
 
-            <div id="cabecera">
-
-                <div id="logo"><img src="imagenes/logo2.png"></div>
-                <div id="sublogo"><h1><img src="imagenes/subLogo.png"></h1></div>
-
-            </div>
+                <div id="menu">
 
 
-            <div id="menu">
+                </div>
 
+                <div id="contenido">
 
-            </div>
-
-            <div id="contenido">
-
-                <div id="contenidoTop">
-                    <div id="MPrincipal">
-
-                    </div>
-                    <div id="contieneCarrito">
-                        <div id="opcionesCarrito">
-                            <ul class="list-inline">
-                                <li>Cart</li>
-                                <li>Login</li>
-                                <li>Purchase</li>
-                                <li>Confirm</li>
-                            </ul>                 
-                        </div>
-                        <div id="carritoDetalles">
-
+                    <div id="contenidoTop">
+                        <div id="MPrincipal">
 
                         </div>
+                        <div id="contieneCarrito">
+                            <div id="opcionesCarrito">
+                                <ul class="list-inline">
+                                    <li>Cart</li>
+                                    <li>Login</li>
+                                    <li>Purchase</li>
+                                    <li>Confirm</li>
+                                </ul>                 
+                            </div>
+                            <div id="carritoDetalles">
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+                <div id="pie">
+                    <div id="LegalStuff">
+                        <a href="">Legal Terms</a>
+                        <a href="">Security</a>
+                        <a href="">Privacy</a> 
+                        <a href="">Rate</a> 
+                        <a href="">Contact</a> 
+                        <a href="">Web Map</a> 
+                    </div>
+
+
+                    <div id="icons">
+                        <img class="icon-footer" src="imagenes/icons/facebook24.png">
+                        <img class="icon-footer" src="imagenes/icons/twitter14.png">
+                        <img class="icon-footer" src="imagenes/icons/google17.png">
+                        <img class="icon-footer" src="imagenes/icons/social68.png">
+                    </div>
+                    <div id="icons">
+                        &copy; PC Store 2013. Spain. All rights reserved.<br />
+                        Proyecto 2 - Tienda
                     </div>
                 </div>
-
+                
             </div>
-
-
-
-
-
-            <div id="pie">
-                <div id="LegalStuff">
-                    <a href="">Legal Terms</a>
-                    <a href="">Security</a>
-                    <a href="">Privacy</a> 
-                    <a href="">Rate</a> 
-                    <a href="">Contact</a> 
-                    <a href="">Web Map</a> 
-                </div>
-
-
-                <div id="icons">
-                    <img class="icon-footer" src="imagenes/icons/facebook24.png">
-                    <img class="icon-footer" src="imagenes/icons/twitter14.png">
-                    <img class="icon-footer" src="imagenes/icons/google17.png">
-                    <img class="icon-footer" src="imagenes/icons/social68.png">
-                </div>
-                <div id="icons">
-                    &copy; PC Store 2013. Spain. All rights reserved.<br />
-                    Proyecto 2 - Tienda
-                </div>
-            </div>
-
-
-
         </body>
     </html>
     <?php

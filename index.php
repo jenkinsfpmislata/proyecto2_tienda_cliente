@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -45,7 +44,7 @@ session_start();
                 window.location = "products.php?categoria=" + categoria;
             }
             ;
-            
+
             $(document).ready(function() {
                 $.ajax({
                     dataType: 'json',
@@ -139,7 +138,7 @@ session_start();
                         $('#cantidad').html(cantidadTotal);
 
                         addproducto(data[index].Nombre, data[index].precio, data[index].Imagen, id);
-                        
+
                     }
                 });
             }
@@ -179,21 +178,21 @@ session_start();
 
             pedido.prototype.nuevo = function(producto) {
                 this.listaproductos[this.listaproductos.length] = producto;
-                carrito=JSON.stringify(mipedido);
-                
-              
-               $.ajax({
+                carrito = JSON.stringify(mipedido);
+
+
+                $.ajax({
                     url: 'phps/listaPedido.php',
                     type: 'POST',
-                    data: 'pedido='+carrito,
+                    data: 'pedido=' + carrito,
                     success: function() {
-                       
-                
+
+
                     }
                 });
-               
-        
-        
+
+
+
             }
 
 
@@ -201,7 +200,7 @@ session_start();
                 this.nombreProducto = nombreProducto;
                 this.precio = precio;
                 this.imagen = imagen;
-                this.idProducto=  idProducto;
+                this.idProducto = idProducto;
                 this.stock = 1;
             }
             producto.prototype.mostrar = function() {
@@ -216,17 +215,17 @@ session_start();
 
 
             function addproducto(addNombre, addPrecio, addImagen, addIdProducto) {
-                    nombreProducto = addNombre;
-                    precio = addPrecio;
-                    imagen = addImagen;
-                   idProducto = addIdProducto;
-                    miproducto = new producto(nombreProducto, precio, imagen, idProducto);
-                   mipedido.nuevo(miproducto);
+                nombreProducto = addNombre;
+                precio = addPrecio;
+                imagen = addImagen;
+                idProducto = addIdProducto;
+                miproducto = new producto(nombreProducto, precio, imagen, idProducto);
+                mipedido.nuevo(miproducto);
 
-                    
-                    
 
-                }
+
+
+            }
             function verproducto() {
                 miproducto.mostrar();
             }
@@ -268,32 +267,23 @@ session_start();
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------	
-function noPuedesComprar(){
-    alert("Debes estar registrado para poder comprar")
-}
+            function noPuedesComprar() {
+                alert("Debes estar registrado para poder comprar")
+            }
 
         </script>
-
-
-
-
     </head>
 
-
     <body>
-        
         <div id="topbar">
             <div id="logotopbar"></div>
-
             <div id="menutopbar">
-
                 <ul>
                     <li id="inicio"></li>
                     <li id="perfil">
                         <form id="inicioForm" role="form"  >
                             <div class="form-group" id="inicioSesion">
                                 <strong>Login</strong>
-
                                 <p>Nick</p>
                                 <input class="form-control" name="nick">
                                 <p>Password</p>
@@ -302,9 +292,9 @@ function noPuedesComprar(){
 
                                 <button  class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create Account
                                 </button>
-                            
 
-                            </li></form></ul></div>
+                            </li></form></ul>
+            </div>
 
             <div id="buscador">
 
@@ -315,174 +305,174 @@ function noPuedesComprar(){
 
             </div>
         </div>
-        
+
         <div id="contenedor">
 
 
 
 
-    <div id="carroRightbar">
-        <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><div id="cantidad">0</div></div>
+            <div id="carroRightbar">
+                <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><div id="cantidad">0</div></div>
 
-        <div id="precioTotal">  <p> Total: 0&euro;</p> </div>
+                <div id="precioTotal">  <p> Total: 0&euro;</p> </div>
 
-        <div id="listaCarro">
-
-
-
-            <!---------productos comprados-->
-
-        </div>
-        <div id="indexComprar">  <button class="btn btn-success" onclick="noPuedesComprar()"> COMPRAR</button> </div>
-    </div>
-    <!--------- fin productos comprados-->
-    <div id="cabecera">
-
-        <div id="logo"><img src="imagenes/logo2.png"></div>
-        <div id="sublogo"><h1><img src="imagenes/subLogo.png"></h1></div>
-
-    </div>
-
-
-    <div id="menu">
-
-
-    </div>
-
-    <div id="contenido">
+                <div id="listaCarro">
 
 
 
+                    <!---------productos comprados-->
+
+                </div>
+                <div id="indexComprar">  <button class="btn btn-success" onclick="noPuedesComprar()"> COMPRAR</button> </div>
+            </div>
+            <!--------- fin productos comprados-->
+            <div id="cabecera">
+
+                <div id="logo"><img src="imagenes/logo2.png"></div>
+                <div id="sublogo"><h1><img src="imagenes/subLogo.png"></h1></div>
+
+            </div>
 
 
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">Login</h4>
-                    </div>
-                    <div class="modal-body">
+            <div id="menu">
 
 
-                        <div class="form-group" id="registro" >
-                            <form  class="form-horizontal" action="phps/insert.php" method="post">
-                                Name<input class="form-control" name="nombre"></input>
-                                Nick<input class="form-control" name="nick"></input>
-                                E-mail<input type="email" class="form-control" name="email"></input>
-                                Password<input class="form-control"  type="password" name="pass"></input>
-                                Repeat Password<input class="form-control" type="password" name="repPass"></input>
-                                Client kind<select class="form-control"><option>Admin</option><option>User</option></select>
+            </div>
+
+            <div id="contenido">
+
+
+
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Login</h4>
+                            </div>
+                            <div class="modal-body">
+
+
+                                <div class="form-group" id="registro" >
+                                    <form  class="form-horizontal" action="phps/insert.php" method="post">
+                                        Name<input class="form-control" name="nombre"></input>
+                                        Nick<input class="form-control" name="nick"></input>
+                                        E-mail<input type="email" class="form-control" name="email"></input>
+                                        Password<input class="form-control"  type="password" name="pass"></input>
+                                        Repeat Password<input class="form-control" type="password" name="repPass"></input>
+                                        Client kind<select class="form-control"><option>Admin</option><option>User</option></select>
+                                </div>
+                                <input type="submit" class="btn btn-success" value="Login"></input>
+
+                                </form>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+
+
+
+                <div class="modal fade" id="myModalDescripcion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div id="modalDesc" class="modal-dialog">
+                        <div class="modal-content">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <div class="modal-body">
+                                <div id="descrip">
+                                    <!--TODA LA DESCRIPCION DEL PRODUCTO-->
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                            </div>
                         </div>
-                        <input type="submit" class="btn btn-success" value="Login"></input>
-
-                        </form>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-
-
-
-        <div class="modal fade" id="myModalDescripcion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div id="modalDesc" class="modal-dialog">
-                <div class="modal-content">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <div class="modal-body">
-                        <div id="descrip">
-                            <!--TODA LA DESCRIPCION DEL PRODUCTO-->
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
                     </div>
                 </div>
+
+
+                <!--fin modal2-->
+
+
+                <div id="contenidoTopIndex">
+                    <div id="MPrincipal">
+
+                    </div>
+
+
+                    <div id="carrusel">
+                        <div class="box_skitter box_skitter_large">
+                            <ul>
+                                <li>
+                                    <a href="#"><img src="imagenes/slider/Slider1.jpg"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="imagenes/slider/Slider2.jpg"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="imagenes/slider/Slider3.jpg"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div id="productoTitulo">
+                    <p>Order:<select class="form-control">
+                            <option>Searched</option>
+                            <option>Favorites</option>
+                            <option>Solds</option>
+                        </select>
+                    </p>
+                </div>
+
+                <div id="listaProducto">
+
+
+
+
+
+                </div>
+
             </div>
-        </div>
 
 
-        <!--fin modal2-->
 
 
-        <div id="contenidoTopIndex">
-            <div id="MPrincipal">
 
-            </div>
+            <div id="pie">
+                <div id="LegalStuff">
+                    <a href="">Legal Terms</a>
+                    <a href="">Security</a>
+                    <a href="">Privacy</a> 
+                    <a href="">Rate</a> 
+                    <a href="">Contact</a> 
+                    <a href="">Web Map</a>
+                </div>
 
 
-            <div id="carrusel">
-                <div class="box_skitter box_skitter_large">
-                    <ul>
-                        <li>
-                            <a href="#"><img src="imagenes/slider/Slider1.jpg"></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="imagenes/slider/Slider2.jpg"></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="imagenes/slider/Slider3.jpg"></a>
-                        </li>
-                    </ul>
+                <div id="icons">
+                    <img class="icon-footer" src="imagenes/icons/facebook24.png">
+                    <img class="icon-footer" src="imagenes/icons/twitter14.png">
+                    <img class="icon-footer" src="imagenes/icons/google17.png">
+                    <img class="icon-footer" src="imagenes/icons/social68.png">
+                </div>
+                <div id="icons">
+                    &copy; PC Store 2013. Spain. All rights reserved.<br />
+                    Proyecto 2 - Tienda
                 </div>
             </div>
 
-
-        </div>
-        <div id="productoTitulo">
-            <p>Order:<select class="form-control">
-                    <option>Searched</option>
-                    <option>Favorites</option>
-                    <option>Solds</option>
-                </select>
-            </p>
         </div>
 
-        <div id="listaProducto">
-
-
-
-
-
-        </div>
-
-    </div>
-
-
-
-
-
-    <div id="pie">
-        <div id="LegalStuff">
-            <a href="">Legal Terms</a>
-            <a href="">Security</a>
-            <a href="">Privacy</a> 
-            <a href="">Rate</a> 
-            <a href="">Contact</a> 
-            <a href="">Web Map</a>
-        </div>
-
-
-        <div id="icons">
-            <img class="icon-footer" src="imagenes/icons/facebook24.png">
-            <img class="icon-footer" src="imagenes/icons/twitter14.png">
-            <img class="icon-footer" src="imagenes/icons/google17.png">
-            <img class="icon-footer" src="imagenes/icons/social68.png">
-        </div>
-        <div id="icons">
-            &copy; PC Store 2013. Spain. All rights reserved.<br />
-            Proyecto 2 - Tienda
-        </div>
-    </div>
-
-</div>
-
-</body>
+    </body>
 </html>
