@@ -368,7 +368,7 @@ function noPuedesComprar(){
                             <form  class="form-horizontal" action="phps/insert.php" method="post">
                                 Name<input class="form-control" name="nombre"></input>
                                 Nick<input class="form-control" name="nick"></input>
-                                E-mail<input class="form-control" name="email"></input>
+                                E-mail<input type="email" class="form-control" name="email"></input>
                                 Password<input class="form-control"  type="password" name="pass"></input>
                                 Repeat Password<input class="form-control" type="password" name="repPass"></input>
                                 Client kind<select class="form-control"><option>Admin</option><option>User</option></select>
