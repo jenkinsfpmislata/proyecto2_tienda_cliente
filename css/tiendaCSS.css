@@ -16,6 +16,7 @@ background: linear-gradient(to bottom, #FFF 65%, #B9E0A6);
 
 /*menu, que ahora no existe------------------------------------------------------------------------*/
 #contenedor{
+    width:1024px;
     margin: 0 auto;
 }
 #menu{
