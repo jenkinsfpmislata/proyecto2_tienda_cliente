@@ -187,7 +187,7 @@ $categoria = $_GET["categoria"];
                                 <input class="form-control" name="nick">
                                 <p>Password</p>
                                 <input class="form-control" type="password" name="pass">
-                                <button class="btn btn-success" href="javascript:validar()">login</button>
+                                <button class="btn btn-success" onclick="validar()">login</button>
                                 <button  class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create Account
                                 </button>
 
