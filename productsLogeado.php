@@ -188,7 +188,7 @@ if (isset($_SESSION["idCliente"])) {
                     </form>
                 </div>
             </div>
-            <div id="buscador">
+            <div id="contenedor">
 
 
 

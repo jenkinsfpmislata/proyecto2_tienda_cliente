@@ -201,7 +201,7 @@ $categoria = $_GET["categoria"];
                 </div>
             </div>
 
-            <div id="buscador">
+            <div id="contenedor">
 
                 <div id="carroRightbar">
                     <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><p id="cantidad">0</p></div>

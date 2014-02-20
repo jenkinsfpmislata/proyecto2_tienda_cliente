@@ -435,7 +435,7 @@ if (isset($_SESSION["idCliente"])) {
                 </div>
             </div>
 
-            <div id="buscador">
+            <div id="contenedor">
 
                 <div id="carroRightbar">
                     <div class="carrito"><img src="imagenes/imagenesStatic/carro.png"><div id="cantidad">0</div></div>

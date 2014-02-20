@@ -110,7 +110,7 @@ if (isset($_SESSION["idCliente"])) {
                 </div>
             </div>
 
-            <div id="buscador">
+            <div id="contenedor">
 
                 <div id="cabecera">
 
