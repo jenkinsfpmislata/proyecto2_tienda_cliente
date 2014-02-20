@@ -288,7 +288,7 @@ session_start();
                                 <input class="form-control" name="nick">
                                 <p>Password</p>
                                 <input class="form-control" type="password" name="pass">
-                                <a class="btn btn-success" href="javascript:validar()">login</a>
+                                <button class="btn btn-success" href="javascript:validar()">login</button>
 
                                 <button  class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create Account
                                 </button>
