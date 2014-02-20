@@ -7,7 +7,7 @@ background: -webkit-linear-gradient(bottom, #FFF 65%, #B9E0A6);
 background: -o-linear-gradient(top, #FFF 65% , #B9E0A6); 
 background: -moz-linear-gradient(top, #FFF 65%, #B9E0A6); 
 background: linear-gradient(to bottom, #FFF 65%, #B9E0A6); 
-margin: 0 auto;
+
 
 
 }
@@ -15,7 +15,9 @@ margin: 0 auto;
 
 
 /*menu, que ahora no existe------------------------------------------------------------------------*/
-
+#contenedor{
+    margin: 0 auto;
+}
 #menu{
 position:fixed;
 text-align:center;
