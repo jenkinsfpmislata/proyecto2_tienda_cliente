@@ -59,7 +59,10 @@ display:none;
 #inicioSesion button{
 margin-top:15px;
 margin-left:10px;
-
+}
+#inicioSesion a{
+margin-top:15px;
+margin-left:10px;
 }
 #inicioSesion  #loginInput{
 margin-top:15px;
