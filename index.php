@@ -281,7 +281,7 @@ function noPuedesComprar(){
 
 
     <body>
-        <div id="contenedor">
+        
         <div id="topbar">
             <div id="logotopbar"></div>
 
@@ -315,7 +315,8 @@ function noPuedesComprar(){
 
             </div>
         </div>
-
+        
+        <div id="contenedor">
 
 
 
