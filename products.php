@@ -254,7 +254,7 @@ $categoria = $_GET["categoria"];
                                             E-mail<input class="form-control" name="email"></input>
                                             Password<input class="form-control"  type="password" name="pass"></input>
                                             Repeat Password<input class="form-control" type="password" name="repPass"></input>
-                                            Client kind<select class="form-control"><option>Admin</option><option>User</option></select>
+                                            
                                     </div>
                                     <input type="submit" class="btn btn-success" value="Login"></input>
 

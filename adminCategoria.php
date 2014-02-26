@@ -142,6 +142,15 @@ if (isset($_SESSION["idCliente"])) {
             };
 
 
+            function salir() {
+                    $.ajax({
+                        url: 'phps/salir.php',
+                        success: function() {
+
+                            window.location = "index.php";
+                        }
+                    });
+                }
 
 
 
@@ -152,7 +161,7 @@ if (isset($_SESSION["idCliente"])) {
             <div id="logotopbar"></div>
             <div id="menutopbar">
                 <ul>
-                    <a href="index.php"><li id="inicio" ></li></a>
+                    <a  href="javascript:salir()"><li id="inicio" ></li></a>
                     <li id="perfil">
                 </ul>
             </div>

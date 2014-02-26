@@ -43,10 +43,10 @@ if (isset($_SESSION["idCliente"])) {
                     dataType: 'json',
                     url: 'phps/admin/clienteAdmin.php',
                     success: function(data) {
-                        datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Nick</td><td>@</td><td>Image<td>Password</td><td>Role</td><td>Edit</td></tr>';
+                        datos = '<tr id="primerTr"><td>#</td><td>Name</td><td>Nick</td><td>@</td><td>Image</td><td>Role</td><td>Edit</td></tr>';
                         $.each(data, function(index) {
                             datos += '<tr>';
-                            datos += '<td>' + data[index].idCliente + '<td>' + data[index].nombreCliente + '<td>' + data[index].nick + '<td>' + data[index].email + '<td>' + data[index].imagen + '<td>' + data[index].contrasenya + '<td>' + data[index].rol + '<td><div class="btn btn-default btn-sm" onclick="prepareUpdate(' + data[index].idCliente + ')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteCliente(' + data[index].idCliente + ')"><span class="glyphicon glyphicon-remove"></span></a></td>';
+                            datos += '<td>' + data[index].idCliente + '<td>' + data[index].nombreCliente + '<td>' + data[index].nick + '<td>' + data[index].email + '<td>' + data[index].imagen + '<td>' + data[index].rol + '<td><div class="btn btn-default btn-sm" onclick="prepareUpdate(' + data[index].idCliente + ')" data-toggle="modal" data-target="#myModalUpdate"><span class="glyphicon glyphicon-edit"></span></div><a class="btn btn-default btn-sm" href="javascript:deleteCliente(' + data[index].idCliente + ')"><span class="glyphicon glyphicon-remove"></span></a></td>';
                             datos += '</tr>';
                         });
                         $('#tabla').html(datos);
@@ -172,6 +172,16 @@ if (isset($_SESSION["idCliente"])) {
 
             }
             ;
+            
+            function salir() {
+                    $.ajax({
+                        url: 'phps/salir.php',
+                        success: function() {
+
+                            window.location = "index.php";
+                        }
+                    });
+                }
 //alert("succes");
 
         </script>
@@ -181,7 +191,7 @@ if (isset($_SESSION["idCliente"])) {
             <div id="logotopbar"></div>
             <div id="menutopbar">
                 <ul>
-                    <a href="index.php"><li id="inicio" ></li></a>
+                    <a href="javascript:salir()"><li id="inicio" ></li></a>
                     <li id="perfil">
                 </ul>
             </div>
