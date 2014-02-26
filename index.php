@@ -86,7 +86,7 @@ session_start();
 
             function validar() {
                 datosInicioSesion = $('#inicioForm').serialize();
-
+alert(datosInicioSesion);
 
                 $.ajax({
                     url: 'phps/validacion.php',
