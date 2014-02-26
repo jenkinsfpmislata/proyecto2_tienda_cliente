@@ -1,6 +1,6 @@
 <?php
 
-	
+	session_start();
 	$nom=$_POST["nombre"];
 	$nick=$_POST["nick"];
 	$email=$_POST["email"];
@@ -22,7 +22,9 @@
 	
 	
 	if($fila=mysql_fetch_array($resultado2,MYSQL_ASSOC)){
-		echo $fila["idCliente"];
+            $_SESSION["idCliente"]=$fila["idCliente"];
+	    
+            header("location: ../indexLogeado.php");
 	}
 	}
 	
