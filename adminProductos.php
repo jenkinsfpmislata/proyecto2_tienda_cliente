@@ -2,7 +2,17 @@
 session_start();
 
 if (isset($_SESSION["idCliente"])) {
-    ?>
+        $id=$_SESSION["idCliente"];
+        mysql_connect("localhost","root","frodo2013")or die("Connection Error:");
+	mysql_select_db("proyecto2_tienda")or die ("Error connecting db");
+	
+	$SQL="SELECT rol FROM cliente WHERE idCliente=$id;";
+	$result = mysql_query( $SQL ) or die("Couldnt execute query.");
+	
+	$fila=mysql_fetch_array($result,MYSQL_ASSOC);
+        if($fila["rol"]=="admin"){
+            
+      ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -334,5 +344,6 @@ if (isset($_SESSION["idCliente"])) {
  <?php
 } else {
     echo("Acceso denegado");
+}
 };
 ?>
